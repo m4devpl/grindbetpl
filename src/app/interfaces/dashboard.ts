@@ -4,5 +4,6 @@ export interface Dashboard {
     description: string,
     iconTemplate: string,
     links: string[],
-    position: string
+    position: string,
+    active: boolean
 }

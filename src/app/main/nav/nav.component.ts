@@ -10,8 +10,8 @@ import { dashboards } from '../app-dashboards';
 })
 export class NavComponent implements OnInit {
   //#region === Dashboards ===
-  public mainDashboards: Dashboard[] = dashboards.filter(dashboard => dashboard.position === "main"); // Gets Dashboards specified as main
-  public sideDashboards: Dashboard[] = dashboards.filter(dashboard => dashboard.position === "side"); // Gets Dashobards specified as additional
+  public mainDashboards: Dashboard[] = dashboards.filter(dashboard => dashboard.position === "main" && dashboard.active); // Gets Active Dashboards specified as main
+  public sideDashboards: Dashboard[] = dashboards.filter(dashboard => dashboard.position === "side"  && dashboard.active); // Gets Active Dashobards specified as additional
   //#endregion
   isHomeActive: boolean = false;
 

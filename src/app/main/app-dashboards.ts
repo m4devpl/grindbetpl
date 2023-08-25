@@ -15,7 +15,8 @@ export const dashboards: Dashboard[] = [
             </i>
         `,
         links: ["dashboard",""],
-        position: "main"
+        position: "main",
+        active: true
     },
     // Projects Dashboard
     {
@@ -29,6 +30,7 @@ export const dashboards: Dashboard[] = [
             </i>
         `,
         links: ["projects"],
-        position: "main"
+        position: "main",
+        active: true
     }
 ]
