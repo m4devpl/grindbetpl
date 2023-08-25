@@ -1,7 +1,7 @@
 <!--begin::Header-->
 <div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: false, lg: true}" data-kt-sticky-name="app-header-sticky" data-kt-sticky-offset="{default: false, lg: '300px'}">
     <!--begin::Header container-->
-    <div class="app-container container-xxl d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
+    <div class="app-container container-fluid d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
         <!--begin::Header mobile toggle-->
         <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show sidebar menu">
             <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_header_menu_toggle">
@@ -26,11 +26,14 @@
                     <!--begin::Menu-->
                     <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-600 menu-state-dark menu-arrow-gray-400 fw-semibold fw-semibold fs-6 align-items-stretch my-5 my-lg-0 px-2 px-lg-0" id="#kt_app_header_menu" data-kt-menu="true">
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-220,0" class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-300,0" class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                             <!--begin:Menu link-->
                             <span class="menu-link">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-graph-3"></i>
+                                    <i class="ki-duotone ki-graph-3">
+                                        <i class="path1"></i>
+                                        <i class="path2"></i>
+                                    </i>
                                 </span>
                                 <span class="menu-title">Home</span>
                                 <span class="menu-arrow d-lg-none"></span>
@@ -43,40 +46,22 @@
                                     <!--begin:Row-->
                                     <div class="row">
                                         <!--begin:Col-->
-                                        <div class="col-lg-12 mb-3 mb-lg-0 py-3 px-3 py-lg-6 px-lg-6">
+                                        <div class="mb-3 mb-lg-0 py-3 px-3 py-lg-6 px-lg-6" [class.col-lg-8]="sideDashboards.length" [class.col-lg-12]="!sideDashboards.length">
                                             <!--begin:Row-->
                                             <div class="row">
                                                 <!--begin:Col-->
-                                                <div class="col-lg-6 mb-3">
+                                                <div class="col-lg-6 mb-3" *ngFor="let dashboard of mainDashboards">
                                                     <!--begin:Menu item-->
                                                     <div class="menu-item p-0 m-0">
                                                         <!--begin:Menu link-->
-                                                        <a href="../../demo43/dist/index.html" class="menu-link active">
-                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
-                                                                <i class="ki-outline ki-element-11 text-primary fs-1"></i>
+                                                        <a [routerLink]="dashboard.links[0]" class="menu-link" routerLinkActive="active">
+                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3"
+                                                                [innerHTML]="dashboard.iconTemplate">
+                                                                
                                                             </span>
                                                             <span class="d-flex flex-column">
-                                                                <span class="fs-6 fw-bold text-gray-800">Default</span>
-                                                                <span class="fs-7 fw-semibold text-muted">Reports & statistics</span>
-                                                            </span>
-                                                        </a>
-                                                        <!--end:Menu link-->
-                                                    </div>
-                                                    <!--end:Menu item-->
-                                                </div>
-                                                <!--end:Col-->
-                                                <!--begin:Col-->
-                                                <div class="col-lg-6 mb-3">
-                                                    <!--begin:Menu item-->
-                                                    <div class="menu-item p-0 m-0">
-                                                        <!--begin:Menu link-->
-                                                        <a href="././demo43/dist/dashboards/projects.html" class="menu-link">
-                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
-                                                                <i class="ki-outline ki-abstract-44 text-info fs-1"></i>
-                                                            </span>
-                                                            <span class="d-flex flex-column">
-                                                                <span class="fs-6 fw-bold text-gray-800">Projects</span>
-                                                                <span class="fs-7 fw-semibold text-muted">Tasks, Managing & Costs</span>
+                                                                <span class="fs-6 fw-bold text-gray-800">{{ dashboard.name }}</span>
+                                                                <span class="fs-7 fw-semibold text-muted">{{ dashboard.description }}</span>
                                                             </span>
                                                         </a>
                                                         <!--end:Menu link-->
@@ -91,11 +76,28 @@
                                             <div class="d-flex flex-stack flex-wrap flex-lg-nowrap gap-2 mx-5">
                                                 <div class="d-flex flex-column me-5">
                                                     <div class="fs-6 fw-bold text-gray-800">App Settings</div>
-                                                    <div class="fs-7 fw-semibold text-muted">choose which features you want to use</div>
+                                                    <div class="fs-7 fw-semibold text-muted">Choose which features you want to use</div>
                                                 </div>
                                                 <a href="././demo43/dist/landing.html" class="btn btn-sm btn-primary fw-bold">Go</a>
                                             </div>
                                             <!--end:Landing-->
+                                        </div>
+                                        <!--end:Col-->
+                                        <!--begin:Col-->
+                                        <div class="menu-more bg-light col-lg-4 py-3 px-3 py-lg-6 px-lg-6 rounded-end" *ngIf="sideDashboards.length">
+                                            <!--begin:Heading-->
+                                            <h4 class="fs-6 fs-lg-4 text-gray-800 fw-bold mt-3 mb-3 ms-4">More Dashboards</h4>
+                                            <!--end:Heading-->
+                                            <!--begin:Menu item-->
+                                            <div class="menu-item p-0 m-0" *ngFor="let dashboard of sideDashboards">
+                                                <!--begin:Menu link-->
+                                                <a [routerLink]="dashboard.links[0]" class="menu-link py-2" routerLinkActive="active" #homeRouterLinkActive="routerLinkActive">
+                                                    <span class="menu-icon me-3" [innerHTML]="dashboard.iconTemplate"></span>
+                                                    <span class="menu-title">{{ dashboard.name }}</span>
+                                                </a>
+                                                <!--end:Menu link-->
+                                            </div>
+                                            <!--end:Menu item-->
                                         </div>
                                         <!--end:Col-->
                                     </div>
@@ -107,11 +109,11 @@
                         </div>
                         <!--end:Menu item-->
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="22,0" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-75,0" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
                             <!--begin:Menu link-->
                             <span class="menu-link">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-watch"></i>
+                                    <i class="ki-duotone ki-copy"></i>
                                 </span>
                                 <span class="menu-title">Apps</span>
                                 <span class="menu-arrow d-lg-none"></span>
@@ -276,11 +278,18 @@
                         </div>
                         <!--end:Menu item-->
                           <!--begin:Menu item-->
-                          <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="22,0" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+                          <div class="menu-item me-0 me-lg-2">
                             <!--begin:Menu link-->
                             <span class="menu-link">
-                                <span class="menu-icon mb-3">
-                                    <i class="ki-outline ki-calendar-8"></i>
+                                <span class="menu-icon">
+                                    <i class="ki-duotone ki-calendar-8">
+                                        <i class="path1"></i>
+                                        <i class="path2"></i>
+                                        <i class="path3"></i>
+                                        <i class="path4"></i>
+                                        <i class="path5"></i>
+                                        <i class="path6"></i>
+                                    </i>
                                 </span>
                                 <span class="menu-title">Calendar</span>
                                 <span class="menu-arrow d-lg-none"></span>
