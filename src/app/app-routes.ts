@@ -12,7 +12,7 @@ export const appRoutes: Routes = [
       component: DefaultDashboardComponent,
     },
     {
-      path: 'projects',
+      path: 'projects/dashboard',
       component: ProjectsDasboardComponent
     }
   ];

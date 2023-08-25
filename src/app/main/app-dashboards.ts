@@ -29,7 +29,7 @@ export const dashboards: Dashboard[] = [
                 <i class="path2"></i>
             </i>
         `,
-        links: ["projects"],
+        links: ["projects/dashboard"],
         position: "main",
         active: true
     }
