@@ -7,6 +7,8 @@ import { DefaultDashboardComponent } from './main/dashboards/default-dashboard/d
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './main/footer/footer.component';
 import { ProjectsDasboardComponent } from './main/dashboards/projects-dasboard/projects-dasboard.component';
+import { ProjectsComponent } from './main/apps/projects/projects.component';
+import { PageLoaderComponent } from './main/page-loader/page-loader.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ProjectsDasboardComponent } from './main/dashboards/projects-dasboard/p
     NavComponent,
     DefaultDashboardComponent,
     FooterComponent,
-    ProjectsDasboardComponent
+    ProjectsDasboardComponent,
+    ProjectsComponent,
+    PageLoaderComponent
   ],
   imports: [
     BrowserModule,
