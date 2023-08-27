@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "grindbet-649b3": {
+      "hosting": {
+        "grindbetpl": [
+          "grindbet-649b3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "grindbet-649b3"
+  }
+}

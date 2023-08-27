@@ -9,6 +9,8 @@ import { FooterComponent } from './main/footer/footer.component';
 import { ProjectsDasboardComponent } from './main/dashboards/projects-dasboard/projects-dasboard.component';
 import { ProjectsComponent } from './main/apps/projects/projects.component';
 import { PageLoaderComponent } from './main/page-loader/page-loader.component';
+import { AngularFireModule} from  '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { PageLoaderComponent } from './main/page-loader/page-loader.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

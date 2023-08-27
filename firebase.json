@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "grindbetpl",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
