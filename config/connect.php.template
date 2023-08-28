@@ -1,0 +1,7 @@
+#<?php
+#    // MySQL Configuration
+#    $dbHost = "<REPLACE WITH MYSQL DB HOST>";
+#    $dbName = "<REPLACE WITH MYSQL DB NAME>";
+#    $dbUser = "<REPLACE WITH MYSQL DB USER>";
+#    $dbPass = "<REPLACE WITH MYSQL DB PASSWORD>";
+#?>
