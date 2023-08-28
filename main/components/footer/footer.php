@@ -7,7 +7,7 @@
             <!--begin::Copyright-->
             <div class="text-dark order-2 order-md-1">
                 <span class="text-muted fw-semibold me-1">2023&copy;</span>
-                <a href="https://gadgetforyou.pl" target="_blank" class="text-gray-800 text-hover-primary">GrindBet.PL</a>
+                <a href="https://grindbet.pl" target="_blank" class="text-gray-800 text-hover-primary">GrindBet.PL</a>
                 <br>
                 <span class="mt-3">
                     Made with <i class="ki-solid ki-heart text-danger"></i> by 

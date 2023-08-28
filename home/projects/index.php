@@ -16,18 +16,18 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="icon" type="image/x-icon" href="//gadgetforyou.pl/favicon.ico">
-    <link rel="shortcut icon" href="//gadgetforyou.pl/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="//grindbet.pl/favicon.ico">
+    <link rel="shortcut icon" href="//grindbet.pl/favicon.ico" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Vendor Stylesheets(used for this page only)-->
-    <link href="//gadgetforyou.pl/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet">
-    <link href="//gadgetforyou.pl/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet">
+    <link href="//grindbet.pl/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet">
+    <link href="//grindbet.pl/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet">
     <!--end::Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="//gadgetforyou.pl/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="//gadgetforyou.pl/assets/css/style.bundle.css" rel="stylesheet">
+    <link href="//grindbet.pl/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="//grindbet.pl/assets/css/style.bundle.css" rel="stylesheet">
     <!--end::Global Stylesheets Bundle-->
     <script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 </head>
@@ -55,7 +55,7 @@
                                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2 fs-7">
                                     <!--begin::Item-->
                                     <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
-                                        <a href="//gadgetforyou.pl" class="text-white text-hover-primary">
+                                        <a href="//grindbet.pl" class="text-white text-hover-primary">
                                             <i class="ki-outline ki-home text-gray-700 fs-6"></i>
                                         </a>
                                     </li>
@@ -208,7 +208,7 @@
                                                 <div class="card-title m-0">
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-50px w-50px bg-light">
-                                                        <img src="//gadgetforyou.pl/assets/media/svg/brand-logos/kanba.svg" alt="image"
+                                                        <img src="//grindbet.pl/assets/media/svg/brand-logos/kanba.svg" alt="image"
                                                             class="p-3" />
                                                     </div>
                                                     <!--end::Avatar-->
@@ -350,10 +350,10 @@
     </script>
     <!--end::Theme mode setup on page load-->
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-    <script src="//gadgetforyou.pl/assets/plugins/global/plugins.bundle.js"></script>
-    <script src="//gadgetforyou.pl/assets/js/scripts.bundle.js"></script>
+    <script src="//grindbet.pl/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="//grindbet.pl/assets/js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
-    <script src="//gadgetforyou.pl/assets/js/custom/apps/projects/list/list.js"></script>
+    <script src="//grindbet.pl/assets/js/custom/apps/projects/list/list.js"></script>
     <!--end::Javascript-->
 </body>
 

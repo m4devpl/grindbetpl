@@ -13,10 +13,10 @@
         <!--end::Header mobile toggle-->
         <!--begin::Logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-1 me-lg-13">
-            <a href="//gadgetforyou.pl/">
-                <img alt="Logo" src="//gadgetforyou.pl/assets/media/logos/grindbet_web_logo.png"
+            <a href="//grindbet.pl/">
+                <img alt="Logo" src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png"
                     class="h-25px h-lg-40px theme-light-show" />
-                <img alt="Logo" src="//gadgetforyou.pl/assets/media/logos/grindbet_web_logo.png"
+                <img alt="Logo" src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png"
                     class="h-25px h-lg-40px theme-dark-show" />
             </a>
         </div>
