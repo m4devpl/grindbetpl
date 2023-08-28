@@ -29,7 +29,7 @@
 	<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 </head>
 
-<body root id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on"
+<body id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on"
 	data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
 	<!--begin::Javascript-->
 	<!--begin::Theme mode setup on page load-->
@@ -57,5 +57,4 @@
 	<!--end::Global Javascript Bundle-->
 	<!--end::Javascript-->
 </body>
-
 </html>
