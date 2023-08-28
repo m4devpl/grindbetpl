@@ -13,24 +13,6 @@ Whether you're a student, a working professional, or someone who wants to improv
 In summary, GrindBet is an all-in-one productivity app that can help you simplify your life, stay organized, and achieve your goals. Try it now and see how it can make a positive impact on your productivity!
 
 
-## Installation
-
-Install GrindBet with npm
-
-```bash
-  npm install
-  ng serve --open
-```
-
-Server will start on http://localhost:4200/
-    
-## Documentation
-
-[Metronic 8.2.0](https://preview.keenthemes.com/html/metronic/docs/index)\
-[AngularJS](https://docs.angularjs.org/guide)
-
-
-
 ## Authors
 
 - [@m4devpl](https://github.com/m4devpl)
