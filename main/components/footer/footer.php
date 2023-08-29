@@ -11,7 +11,7 @@
                 <br>
                 <span class="mt-3">
                     Made with <i class="ki-solid ki-heart text-danger"></i> by 
-                    <a href="https://github.com/m4devpl" target="_blank" class="text-gray-800 text-hover-primary">@m4devpl</a>; <a href="https://github.com/m4devpl" target="_blank" class="text-gray-800 text-hover-primary">@jangaluszka</a>
+                    <a href="https://github.com/m4devpl" target="_blank" class="text-gray-800 text-hover-primary">@m4devpl</a>; <a href="https://github.com/jgaluszka" target="_blank" class="text-gray-800 text-hover-primary">@jgaluszka</a>
                 </span>
                 
             </div>
