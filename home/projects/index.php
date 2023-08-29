@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>GrindBet.PL | Projects</title>
+    <title>GrindBet.PL | My Projects</title>
     <meta name="description"
         content="GRINDBET is a comprehensive productivity application that aims to help users in different areas of their lives. With its various features and tools, this app can assist you in managing your tasks and projects, maintaining your health, organizing your wallet and keeping track of your calendar.">
     <meta property="og:locale" content="en_US">
@@ -15,9 +15,9 @@
     <link rel="canonical" content="https:/grindbet.pl/">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" type="image/x-icon" href="//grindbet.pl/favicon.ico">
-    <link rel="shortcut icon" href="//grindbet.pl/favicon.ico" />
+    <link rel="shortcut icon" href="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -332,7 +332,7 @@
     <!--begin::Javascript-->
     <!--begin::Theme mode setup on page load-->
     <script>
-        var defaultThemeMode = "light";
+        var defaultThemeMode = "dark";
 
         var themeMode;
         if (document.documentElement) {

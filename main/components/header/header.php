@@ -1,9 +1,7 @@
 <!--begin::Header-->
-<div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: false, lg: true}"
-    data-kt-sticky-name="app-header-sticky" data-kt-sticky-offset="{default: false, lg: '300px'}">
+<div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: false, lg: true}" data-kt-sticky-name="app-header-sticky" data-kt-sticky-offset="{default: false, lg: '300px'}">
     <!--begin::Header container-->
-    <div class="app-container container-fluid d-flex align-items-stretch justify-content-between"
-        id="kt_app_header_container">
+    <div class="app-container container-fluid d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
         <!--begin::Header mobile toggle-->
         <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show sidebar menu">
             <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_header_menu_toggle">
@@ -14,10 +12,8 @@
         <!--begin::Logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-1 me-lg-13">
             <a href="//grindbet.pl/">
-                <img alt="Logo" src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png"
-                    class="h-25px h-lg-40px theme-light-show" />
-                <img alt="Logo" src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png"
-                    class="h-25px h-lg-40px theme-dark-show" />
+                <img alt="Logo" src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" class="h-25px h-lg-40px theme-light-show" />
+                <img alt="Logo" src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" class="h-25px h-lg-40px theme-dark-show" />
             </a>
         </div>
         <!--end::Logo-->
@@ -26,19 +22,11 @@
             <!--begin::Menu wrapper-->
             <div class="d-flex align-items-stretch" id="kt_app_header_menu_wrapper">
                 <!--begin::Menu holder-->
-                <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
-                    data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}"
-                    data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}"
-                    data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_header_menu_toggle"
-                    data-kt-swapper="true" data-kt-swapper-mode="prepend"
-                    data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_menu_wrapper'}">
+                <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_menu_wrapper'}">
                     <!--begin::Menu-->
-                    <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-600 menu-state-dark menu-arrow-gray-400 fw-semibold fw-semibold fs-6 align-items-stretch my-5 my-lg-0 px-2 px-lg-0"
-                        id="#kt_app_header_menu" data-kt-menu="true">
+                    <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-600 menu-state-dark menu-arrow-gray-400 fw-semibold fw-semibold fs-6 align-items-stretch my-5 my-lg-0 px-2 px-lg-0" id="#kt_app_header_menu" data-kt-menu="true">
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                            data-kt-menu-placement="bottom-start" data-kt-menu-offset="-300,0"
-                            class="menu-item show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-300,0" class="menu-item show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                             <!--begin:Menu link-->
                             <span class="menu-link">
                                 <span class="menu-icon">
@@ -54,33 +42,30 @@
                             <!--begin:Menu sub-->
                             <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0 w-100 w-lg-850px">
                                 <!--begin:Dashboards menu-->
-                                <div class="menu-state-bg menu-extended overflow-hidden overflow-lg-visible"
-                                    data-kt-menu-dismiss="true">
+                                <div class="menu-state-bg menu-extended overflow-hidden overflow-lg-visible" data-kt-menu-dismiss="true">
                                     <!--begin:Row-->
                                     <div class="row">
                                         <!--begin:Col-->
-                                        <div class="mb-3 mb-lg-0 py-3 px-3 py-lg-6 px-lg-6"
-                                            [class.col-lg-8]="sideDashboards.length"
-                                            [class.col-lg-12]="!sideDashboards.length">
+                                        <div class="mb-3 mb-lg-0 py-3 px-3 py-lg-6 px-lg-6" [class.col-lg-8]="sideDashboards.length" [class.col-lg-12]="!sideDashboards.length">
                                             <!--begin:Row-->
                                             <div class="row">
                                                 <!--begin:Col-->
-                                                <div class="col-lg-6 mb-3" *ngFor="let dashboard of mainDashboards">
+                                                <div class="col-lg-6 mb-3">
                                                     <!--begin:Menu item-->
                                                     <div class="menu-item p-0 m-0">
                                                         <!--begin:Menu link-->
-                                                        <a [routerLink]="dashboard.links[0]" class="menu-link"
-                                                            routerLinkActive="active">
-                                                            <span
-                                                                class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3"
-                                                                [innerHTML]="dashboard.iconTemplate">
-
+                                                        <a href="//grindbet.pl" class="menu-link">
+                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
+                                                                <i class="ki-duotone ki-element-11 text-info fs-1">
+                                                                    <i class="path1"></i>
+                                                                    <i class="path2"></i>
+                                                                    <i class="path3"></i>
+                                                                    <i class="path4"></i>
+                                                                </i>
                                                             </span>
                                                             <span class="d-flex flex-column">
-                                                                <span class="fs-6 fw-bold text-gray-800">{{
-                                                                    dashboard.name }}</span>
-                                                                <span class="fs-7 fw-semibold text-muted">{{
-                                                                    dashboard.description }}</span>
+                                                                <span class="fs-6 fw-bold text-gray-800">Default</span>
+                                                                <span class="fs-7 fw-semibold text-muted">Reports & statistics</span>
                                                             </span>
                                                         </a>
                                                         <!--end:Menu link-->
@@ -98,15 +83,13 @@
                                                     <div class="fs-7 fw-semibold text-muted">Choose which features you
                                                         want to use</div>
                                                 </div>
-                                                <a href="././demo43/dist/landing.html"
-                                                    class="btn btn-sm btn-primary fw-bold">Go</a>
+                                                <a href="././demo43/dist/landing.html" class="btn btn-sm btn-primary fw-bold">Go</a>
                                             </div>
                                             <!--end:Landing-->
                                         </div>
                                         <!--end:Col-->
                                         <!--begin:Col-->
-                                        <div class="menu-more bg-light col-lg-4 py-3 px-3 py-lg-6 px-lg-6 rounded-end"
-                                            *ngIf="sideDashboards.length">
+                                        <div class="menu-more bg-light col-lg-4 py-3 px-3 py-lg-6 px-lg-6 rounded-end d-none">
                                             <!--begin:Heading-->
                                             <h4 class="fs-6 fs-lg-4 text-gray-800 fw-bold mt-3 mb-3 ms-4">More
                                                 Dashboards</h4>
@@ -114,10 +97,8 @@
                                             <!--begin:Menu item-->
                                             <div class="menu-item p-0 m-0" *ngFor="let dashboard of sideDashboards">
                                                 <!--begin:Menu link-->
-                                                <a [routerLink]="dashboard.links[0]" class="menu-link py-2"
-                                                    routerLinkActive="active" #homeRouterLinkActive="routerLinkActive">
-                                                    <span class="menu-icon me-3"
-                                                        [innerHTML]="dashboard.iconTemplate"></span>
+                                                <a [routerLink]="dashboard.links[0]" class="menu-link py-2" routerLinkActive="active" #homeRouterLinkActive="routerLinkActive">
+                                                    <span class="menu-icon me-3" [innerHTML]="dashboard.iconTemplate"></span>
                                                     <span class="menu-title">{{ dashboard.name }}</span>
                                                 </a>
                                                 <!--end:Menu link-->
@@ -134,9 +115,7 @@
                         </div>
                         <!--end:Menu item-->
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                            data-kt-menu-placement="bottom-start" data-kt-menu-offset="-75,0"
-                            class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-75,0" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
                             <!--begin:Menu link-->
                             <span class="menu-link">
                                 <span class="menu-icon">
@@ -147,11 +126,9 @@
                             </span>
                             <!--end:Menu link-->
                             <!--begin:Menu sub-->
-                            <div
-                                class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown px-lg-2 py-lg-4 w-lg-250px">
+                            <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown px-lg-2 py-lg-4 w-lg-250px">
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                    data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -162,12 +139,11 @@
                                     </span>
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
-                                    <div
-                                        class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
+                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" routerLink="projects/home" routerLinkActive="active">
+                                            <a class="menu-link" href="//grindbet.pl/home/projects">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -193,8 +169,7 @@
                                 </div>
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                    data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -205,12 +180,9 @@
                                     </span>
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
-                                    <div
-                                        class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
+                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
                                         <!--begin:Menu item-->
-                                        <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                            data-kt-menu-placement="right-start"
-                                            class="menu-item menu-lg-down-accordion">
+                                        <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
@@ -221,13 +193,11 @@
                                             </span>
                                             <!--end:Menu link-->
                                             <!--begin:Menu sub-->
-                                            <div
-                                                class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
+                                            <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
                                                 <!--begin:Menu item-->
                                                 <div class="menu-item">
                                                     <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="././demo43/dist/apps/user-management/users/list.html">
+                                                    <a class="menu-link" href="././demo43/dist/apps/user-management/users/list.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
@@ -239,8 +209,7 @@
                                                 <!--begin:Menu item-->
                                                 <div class="menu-item">
                                                     <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="././demo43/dist/apps/user-management/users/view.html">
+                                                    <a class="menu-link" href="././demo43/dist/apps/user-management/users/view.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
@@ -254,9 +223,7 @@
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                            data-kt-menu-placement="right-start"
-                                            class="menu-item menu-lg-down-accordion">
+                                        <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
@@ -267,13 +234,11 @@
                                             </span>
                                             <!--end:Menu link-->
                                             <!--begin:Menu sub-->
-                                            <div
-                                                class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
+                                            <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
                                                 <!--begin:Menu item-->
                                                 <div class="menu-item">
                                                     <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="././demo43/dist/apps/user-management/roles/list.html">
+                                                    <a class="menu-link" href="././demo43/dist/apps/user-management/roles/list.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
@@ -285,8 +250,7 @@
                                                 <!--begin:Menu item-->
                                                 <div class="menu-item">
                                                     <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="././demo43/dist/apps/user-management/roles/view.html">
+                                                    <a class="menu-link" href="././demo43/dist/apps/user-management/roles/view.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
@@ -302,12 +266,76 @@
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link"
-                                                href="././demo43/dist/apps/user-management/permissions.html">
+                                            <a class="menu-link" href="././demo43/dist/apps/user-management/permissions.html">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
                                                 <span class="menu-title">Permissions</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                    </div>
+                                    <!--end:Menu sub-->
+                                </div>
+                                <!--end:Menu item-->
+                                <!--begin:Menu item-->
+                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-outline ki-file-added fs-2"></i>
+                                        </span>
+                                        <span class="menu-title">File Manager</span>
+                                        <span class="menu-arrow"></span>
+                                    </span>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="../../demo43/dist/apps/file-manager/folders.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Folders</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="../../demo43/dist/apps/file-manager/files.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Files</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="../../demo43/dist/apps/file-manager/blank.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Blank Directory</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="../../demo43/dist/apps/file-manager/settings.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Settings</span>
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
@@ -323,7 +351,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item me-0 me-lg-2">
                             <!--begin:Menu link-->
-                            <span class="menu-link">
+                            <a href="//grindbet.pl/home/calendar" class="menu-link">
                                 <span class="menu-icon">
                                     <i class="ki-duotone ki-calendar-8">
                                         <i class="path1"></i>
@@ -336,7 +364,7 @@
                                 </span>
                                 <span class="menu-title">Calendar</span>
                                 <span class="menu-arrow d-lg-none"></span>
-                            </span>
+                            </a>
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
@@ -351,15 +379,10 @@
                 <!--start::Search-->
                 <div class="app-navbar-item align-items-stretch ms-1 ms-lg-3">
                     <!--begin::Search-->
-                    <div id="kt_header_search" class="header-search d-flex align-items-stretch"
-                        data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter"
-                        data-kt-search-layout="menu" data-kt-menu-trigger="auto" data-kt-menu-overflow="false"
-                        data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
+                    <div id="kt_header_search" class="header-search d-flex align-items-stretch" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="menu" data-kt-menu-trigger="auto" data-kt-menu-overflow="false" data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
                         <!--begin::Search toggle-->
-                        <div class="d-flex align-items-center" data-kt-search-element="toggle"
-                            id="kt_header_search_toggle">
-                            <div
-                                class="btn btn-icon btn-custom btn-color-light-dark btn-active-color-primary w-35px h-35px w-md-40px h-md-40px">
+                        <div class="d-flex align-items-center" data-kt-search-element="toggle" id="kt_header_search_toggle">
+                            <div class="btn btn-icon btn-custom btn-color-light-dark btn-active-color-primary w-35px h-35px w-md-40px h-md-40px">
                                 <i class="ki-duotone ki-magnifier fs-1">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
@@ -368,35 +391,27 @@
                         </div>
                         <!--end::Search toggle-->
                         <!--begin::Menu-->
-                        <div data-kt-search-element="content"
-                            class="menu menu-sub menu-sub-dropdown p-7 w-325px w-md-375px">
+                        <div data-kt-search-element="content" class="menu menu-sub menu-sub-dropdown p-7 w-325px w-md-375px">
                             <!--begin::Wrapper-->
                             <div data-kt-search-element="wrapper">
                                 <!--begin::Form-->
-                                <form data-kt-search-element="form" class="w-100 position-relative mb-3"
-                                    autocomplete="off">
+                                <form data-kt-search-element="form" class="w-100 position-relative mb-3" autocomplete="off">
                                     <!--begin::Icon-->
-                                    <i
-                                        class="ki-duotone ki-magnifier fs-2 text-gray-500 position-absolute top-50 translate-middle-y ms-0">
+                                    <i class="ki-duotone ki-magnifier fs-2 text-gray-500 position-absolute top-50 translate-middle-y ms-0">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
                                     <!--end::Icon-->
                                     <!--begin::Input-->
-                                    <input type="text" class="search-input form-control form-control-flush ps-10"
-                                        name="search" value="" placeholder="Search..." data-kt-search-element="input" />
+                                    <input type="text" class="search-input form-control form-control-flush ps-10" name="search" value="" placeholder="Search..." data-kt-search-element="input" />
                                     <!--end::Input-->
                                     <!--begin::Spinner-->
-                                    <span
-                                        class="search-spinner position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-1"
-                                        data-kt-search-element="spinner">
+                                    <span class="search-spinner position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-1" data-kt-search-element="spinner">
                                         <span class="spinner-border h-15px w-15px align-middle text-gray-400"></span>
                                     </span>
                                     <!--end::Spinner-->
                                     <!--begin::Reset-->
-                                    <span
-                                        class="search-reset btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 d-none"
-                                        data-kt-search-element="clear">
+                                    <span class="search-reset btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 d-none" data-kt-search-element="clear">
                                         <i class="ki-duotone ki-cross fs-2 fs-lg-1 me-0">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
@@ -404,12 +419,9 @@
                                     </span>
                                     <!--end::Reset-->
                                     <!--begin::Toolbar-->
-                                    <div class="position-absolute top-50 end-0 translate-middle-y"
-                                        data-kt-search-element="toolbar">
+                                    <div class="position-absolute top-50 end-0 translate-middle-y" data-kt-search-element="toolbar">
                                         <!--begin::Preferences toggle-->
-                                        <div data-kt-search-element="preferences-show"
-                                            class="btn btn-icon w-20px btn-sm btn-active-color-primary me-1"
-                                            data-bs-toggle="tooltip" title="Show search preferences">
+                                        <div data-kt-search-element="preferences-show" class="btn btn-icon w-20px btn-sm btn-active-color-primary me-1" data-bs-toggle="tooltip" title="Show search preferences">
                                             <i class="ki-duotone ki-setting-2 fs-2">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -417,9 +429,7 @@
                                         </div>
                                         <!--end::Preferences toggle-->
                                         <!--begin::Advanced search toggle-->
-                                        <div data-kt-search-element="advanced-options-form-show"
-                                            class="btn btn-icon w-20px btn-sm btn-active-color-primary"
-                                            data-bs-toggle="tooltip" title="Show more search options">
+                                        <div data-kt-search-element="advanced-options-form-show" class="btn btn-icon w-20px btn-sm btn-active-color-primary" data-bs-toggle="tooltip" title="Show more search options">
                                             <i class="ki-duotone ki-down fs-2"></i>
                                         </div>
                                         <!--end::Advanced search toggle-->
@@ -442,7 +452,7 @@
                                         <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="assets/media/avatars/300-6.jpg" alt="" />
+                                                <img src="//grindbet.pl/assets/media/avatars/300-6.jpg" alt="" />
                                             </div>
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
@@ -457,7 +467,7 @@
                                         <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="assets/media/avatars/300-2.jpg" alt="" />
+                                                <img src="//grindbet.pl/assets/media/avatars/300-2.jpg" alt="" />
                                             </div>
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
@@ -472,7 +482,7 @@
                                         <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="assets/media/avatars/300-9.jpg" alt="" />
+                                                <img src="//grindbet.pl/assets/media/avatars/300-9.jpg" alt="" />
                                             </div>
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
@@ -487,7 +497,7 @@
                                         <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="assets/media/avatars/300-14.jpg" alt="" />
+                                                <img src="//grindbet.pl/assets/media/avatars/300-14.jpg" alt="" />
                                             </div>
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
@@ -502,7 +512,7 @@
                                         <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="assets/media/avatars/300-11.jpg" alt="" />
+                                                <img src="//grindbet.pl/assets/media/avatars/300-11.jpg" alt="" />
                                             </div>
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
@@ -514,16 +524,14 @@
                                         </a>
                                         <!--end::Item-->
                                         <!--begin::Category title-->
-                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5"
-                                            data-kt-search-element="category-title">Customers</h3>
+                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">Customers</h3>
                                         <!--end::Category title-->
                                         <!--begin::Item-->
                                         <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px"
-                                                        src="assets/media/svg/brand-logos/volicity-9.svg" alt="" />
+                                                    <img class="w-20px h-20px" src="//grindbet.pl/assets/media/svg/brand-logos/volicity-9.svg" alt="" />
                                                 </span>
                                             </div>
                                             <!--end::Symbol-->
@@ -540,8 +548,7 @@
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px"
-                                                        src="assets/media/svg/brand-logos/tvit.svg" alt="" />
+                                                    <img class="w-20px h-20px" src="//grindbet.pl/assets/media/svg/brand-logos/tvit.svg" alt="" />
                                                 </span>
                                             </div>
                                             <!--end::Symbol-->
@@ -558,8 +565,7 @@
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px"
-                                                        src="assets/media/svg/misc/infography.svg" alt="" />
+                                                    <img class="w-20px h-20px" src="//grindbet.pl/assets/media/svg/misc/infography.svg" alt="" />
                                                 </span>
                                             </div>
                                             <!--end::Symbol-->
@@ -576,8 +582,7 @@
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px"
-                                                        src="assets/media/svg/brand-logos/leaf.svg" alt="" />
+                                                    <img class="w-20px h-20px" src="//grindbet.pl/assets/media/svg/brand-logos/leaf.svg" alt="" />
                                                 </span>
                                             </div>
                                             <!--end::Symbol-->
@@ -594,8 +599,7 @@
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px"
-                                                        src="assets/media/svg/brand-logos/tower.svg" alt="" />
+                                                    <img class="w-20px h-20px" src="//grindbet.pl/assets/media/svg/brand-logos/tower.svg" alt="" />
                                                 </span>
                                             </div>
                                             <!--end::Symbol-->
@@ -608,8 +612,7 @@
                                         </a>
                                         <!--end::Item-->
                                         <!--begin::Category title-->
-                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5"
-                                            data-kt-search-element="category-title">Projects</h3>
+                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">Projects</h3>
                                         <!--end::Category title-->
                                         <!--begin::Item-->
                                         <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
@@ -727,8 +730,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="d-flex flex-column">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by
                                                     Keenthemes</a>
                                                 <span class="fs-7 text-muted fw-semibold">#45789</span>
                                             </div>
@@ -751,8 +753,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="d-flex flex-column">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API
                                                     Project Meeting</a>
                                                 <span class="fs-7 text-muted fw-semibold">#84050</span>
                                             </div>
@@ -773,8 +774,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="d-flex flex-column">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI
                                                     Monitoring App Launch</a>
                                                 <span class="fs-7 text-muted fw-semibold">#84250</span>
                                             </div>
@@ -795,8 +795,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="d-flex flex-column">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project
                                                     Reference FAQ</a>
                                                 <span class="fs-7 text-muted fw-semibold">#67945</span>
                                             </div>
@@ -817,8 +816,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="d-flex flex-column">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro
                                                     App Development</a>
                                                 <span class="fs-7 text-muted fw-semibold">#84250</span>
                                             </div>
@@ -839,8 +837,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="d-flex flex-column">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix
                                                     Mobile App</a>
                                                 <span class="fs-7 text-muted fw-semibold">#45690</span>
                                             </div>
@@ -861,8 +858,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="d-flex flex-column">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing
                                                     UI Design" Launch</a>
                                                 <span class="fs-7 text-muted fw-semibold">#24005</span>
                                             </div>
@@ -901,8 +897,7 @@
                                 <!--end::Heading-->
                                 <!--begin::Input group-->
                                 <div class="mb-5">
-                                    <input type="text" class="form-control form-control-sm form-control-solid"
-                                        placeholder="Contains the word" name="query" />
+                                    <input type="text" class="form-control form-control-sm form-control-solid" placeholder="Contains the word" name="query" />
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
@@ -911,31 +906,26 @@
                                     <div class="nav-group nav-group-fluid">
                                         <!--begin::Option-->
                                         <label>
-                                            <input type="radio" class="btn-check" name="type" value="has"
-                                                checked="checked" />
-                                            <span
-                                                class="btn btn-sm btn-color-muted btn-active btn-active-primary">All</span>
+                                            <input type="radio" class="btn-check" name="type" value="has" checked="checked" />
+                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">All</span>
                                         </label>
                                         <!--end::Option-->
                                         <!--begin::Option-->
                                         <label>
                                             <input type="radio" class="btn-check" name="type" value="users" />
-                                            <span
-                                                class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Users</span>
+                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Users</span>
                                         </label>
                                         <!--end::Option-->
                                         <!--begin::Option-->
                                         <label>
                                             <input type="radio" class="btn-check" name="type" value="orders" />
-                                            <span
-                                                class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Orders</span>
+                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Orders</span>
                                         </label>
                                         <!--end::Option-->
                                         <!--begin::Option-->
                                         <label>
                                             <input type="radio" class="btn-check" name="type" value="projects" />
-                                            <span
-                                                class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Projects</span>
+                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Projects</span>
                                         </label>
                                         <!--end::Option-->
                                     </div>
@@ -944,16 +934,12 @@
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="mb-5">
-                                    <input type="text" name="assignedto"
-                                        class="form-control form-control-sm form-control-solid"
-                                        placeholder="Assigned to" value="" />
+                                    <input type="text" name="assignedto" class="form-control form-control-sm form-control-solid" placeholder="Assigned to" value="" />
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="mb-5">
-                                    <input type="text" name="collaborators"
-                                        class="form-control form-control-sm form-control-solid"
-                                        placeholder="Collaborators" value="" />
+                                    <input type="text" name="collaborators" class="form-control form-control-sm form-control-solid" placeholder="Collaborators" value="" />
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
@@ -962,8 +948,7 @@
                                     <div class="nav-group nav-group-fluid">
                                         <!--begin::Option-->
                                         <label>
-                                            <input type="radio" class="btn-check" name="attachment" value="has"
-                                                checked="checked" />
+                                            <input type="radio" class="btn-check" name="attachment" value="has" checked="checked" />
                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">Has
                                                 attachment</span>
                                         </label>
@@ -971,8 +956,7 @@
                                         <!--begin::Option-->
                                         <label>
                                             <input type="radio" class="btn-check" name="attachment" value="any" />
-                                            <span
-                                                class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Any</span>
+                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Any</span>
                                         </label>
                                         <!--end::Option-->
                                     </div>
@@ -981,9 +965,7 @@
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="mb-5">
-                                    <select name="timezone" aria-label="Select a Timezone" data-control="select2"
-                                        data-dropdown-parent="#kt_header_search" data-placeholder="date_period"
-                                        class="form-select form-select-sm form-select-solid">
+                                    <select name="timezone" aria-label="Select a Timezone" data-control="select2" data-dropdown-parent="#kt_header_search" data-placeholder="date_period" class="form-select form-select-sm form-select-solid">
                                         <option value="next">Within the next</option>
                                         <option value="last">Within the last</option>
                                         <option value="between">Between</option>
@@ -995,16 +977,12 @@
                                 <div class="row mb-8">
                                     <!--begin::Col-->
                                     <div class="col-6">
-                                        <input type="number" name="date_number"
-                                            class="form-control form-control-sm form-control-solid" placeholder="Lenght"
-                                            value="" />
+                                        <input type="number" name="date_number" class="form-control form-control-sm form-control-solid" placeholder="Lenght" value="" />
                                     </div>
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-6">
-                                        <select name="date_typer" aria-label="Select a Timezone" data-control="select2"
-                                            data-dropdown-parent="#kt_header_search" data-placeholder="Period"
-                                            class="form-select form-select-sm form-select-solid">
+                                        <select name="date_typer" aria-label="Select a Timezone" data-control="select2" data-dropdown-parent="#kt_header_search" data-placeholder="Period" class="form-select form-select-sm form-select-solid">
                                             <option value="days">Days</option>
                                             <option value="weeks">Weeks</option>
                                             <option value="months">Months</option>
@@ -1016,12 +994,8 @@
                                 <!--end::Input group-->
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-end">
-                                    <button type="reset"
-                                        class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2"
-                                        data-kt-search-element="advanced-options-form-cancel">Cancel</button>
-                                    <a href="../../demo46/dist/pages/search/horizontal.html"
-                                        class="btn btn-sm fw-bold btn-primary"
-                                        data-kt-search-element="advanced-options-form-search">Search</a>
+                                    <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="advanced-options-form-cancel">Cancel</button>
+                                    <a href="../../demo46/dist/pages/search/horizontal.html" class="btn btn-sm fw-bold btn-primary" data-kt-search-element="advanced-options-form-search">Search</a>
                                 </div>
                                 <!--end::Actions-->
                             </form>
@@ -1033,30 +1007,24 @@
                                 <!--end::Heading-->
                                 <!--begin::Input group-->
                                 <div class="pb-4 border-bottom">
-                                    <label
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                        <span
-                                            class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Projects</span>
+                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                        <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Projects</span>
                                         <input class="form-check-input" type="checkbox" value="1" checked="checked" />
                                     </label>
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="py-4 border-bottom">
-                                    <label
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                        <span
-                                            class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Targets</span>
+                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                        <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Targets</span>
                                         <input class="form-check-input" type="checkbox" value="1" checked="checked" />
                                     </label>
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="py-4 border-bottom">
-                                    <label
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                        <span
-                                            class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Affiliate
+                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                        <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Affiliate
                                             Programs</span>
                                         <input class="form-check-input" type="checkbox" value="1" />
                                     </label>
@@ -1064,29 +1032,23 @@
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="py-4 border-bottom">
-                                    <label
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                        <span
-                                            class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Referrals</span>
+                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                        <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Referrals</span>
                                         <input class="form-check-input" type="checkbox" value="1" checked="checked" />
                                     </label>
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="py-4 border-bottom">
-                                    <label
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                        <span
-                                            class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Users</span>
+                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                        <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Users</span>
                                         <input class="form-check-input" type="checkbox" value="1" />
                                     </label>
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-end pt-7">
-                                    <button type="reset"
-                                        class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2"
-                                        data-kt-search-element="preferences-dismiss">Cancel</button>
+                                    <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="preferences-dismiss">Cancel</button>
                                     <button type="submit" class="btn btn-sm fw-bold btn-primary">Save Changes</button>
                                 </div>
                                 <!--end::Actions-->
@@ -1101,16 +1063,13 @@
                 <!--begin::Notifications-->
                 <div class="app-navbar-item ms-1 ms-lg-3">
                     <!--begin::Menu- wrapper-->
-                    <div class="btn btn-icon btn-custom btn-color-light-dark btn-active-color-primary w-35px h-35px w-md-40px h-md-40px"
-                        data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
-                        data-kt-menu-placement="bottom-end">
+                    <div class="btn btn-icon btn-custom btn-color-light-dark btn-active-color-primary w-35px h-35px w-md-40px h-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <i class="ki-solid ki-notification fs-1">
-                            
+
                         </i>
                     </div>
                     <!--begin::Menu-->
-                    <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true"
-                        id="kt_menu_notifications">
+                    <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true" id="kt_menu_notifications">
                         <!--begin::Heading-->
                         <div class="d-flex flex-column bgi-no-repeat rounded-top">
                             <!--begin::Title-->
@@ -1121,12 +1080,10 @@
                             <!--begin::Tabs-->
                             <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-semibold px-9">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark opacity-75 opacity-state-100 pb-4 active"
-                                        data-bs-toggle="tab" href="#kt_topbar_notifications_1">Alerts</a>
+                                    <a class="nav-link text-dark opacity-75 opacity-state-100 pb-4 active" data-bs-toggle="tab" href="#kt_topbar_notifications_1">Alerts</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark opacity-75 opacity-state-100 pb-4"
-                                        data-bs-toggle="tab" href="#kt_topbar_notifications_3">Logs</a>
+                                    <a class="nav-link text-dark opacity-75 opacity-state-100 pb-4" data-bs-toggle="tab" href="#kt_topbar_notifications_3">Logs</a>
                                 </li>
                             </ul>
                             <!--end::Tabs-->
@@ -1154,8 +1111,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Project
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project
                                                     Alice</a>
                                                 <div class="text-gray-400 fs-7">Phase 1 development</div>
                                             </div>
@@ -1212,8 +1168,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Company HR</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Company HR</a>
                                                 <div class="text-gray-400 fs-7">Corporeate staff profiles</div>
                                             </div>
                                             <!--end::Title-->
@@ -1240,8 +1195,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Project
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project
                                                     Redux</a>
                                                 <div class="text-gray-400 fs-7">New frontend admin theme</div>
                                             </div>
@@ -1271,8 +1225,7 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Project
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project
                                                     Breafing</a>
                                                 <div class="text-gray-400 fs-7">Product launch status update</div>
                                             </div>
@@ -1360,8 +1313,7 @@
                                 <!--end::Items-->
                                 <!--begin::View more-->
                                 <div class="py-3 text-center border-top">
-                                    <a href="../../demo46/dist/pages/user-profile/activity.html"
-                                        class="btn btn-color-gray-600 btn-active-color-primary">View All
+                                    <a href="../../demo46/dist/pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">View All
                                         <i class="ki-duotone ki-arrow-right fs-5">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
@@ -1594,8 +1546,7 @@
                                 <!--end::Items-->
                                 <!--begin::View more-->
                                 <div class="py-3 text-center border-top">
-                                    <a href="../../demo46/dist/pages/user-profile/activity.html"
-                                        class="btn btn-color-gray-600 btn-active-color-primary">View All
+                                    <a href="../../demo46/dist/pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">View All
                                         <i class="ki-duotone ki-arrow-right fs-5">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
@@ -1614,9 +1565,7 @@
                 <!--begin::User menu-->
                 <div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                     <!--begin::Menu wrapper-->
-                    <div class="d-flex align-items-center p-2"
-                        data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
-                        data-kt-menu-placement="bottom-end">
+                    <div class="d-flex align-items-center p-2" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <!--begin::User-->
                         <div class="cursor-pointer symbol symbol-circle me-3 symbol-35px symbol-lg-45px">
                             <img class="" src="<?php echo $_SESSION['Picture']; ?>" alt="user" />
@@ -1624,8 +1573,7 @@
                         <!--end::User-->
                     </div>
                     <!--begin::User account menu-->
-                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px"
-                        data-kt-menu="true">
+                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
                             <div class="menu-content d-flex align-items-center px-3">
@@ -1636,7 +1584,7 @@
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
                                 <div class="d-flex flex-column">
-                                    <div class="fw-bold d-flex align-items-center fs-5"><?php echo $_SESSION['First Name']." ".$_SESSION['Last Name']; ?>
+                                    <div class="fw-bold d-flex align-items-center fs-5"><?php echo $_SESSION['First Name'] . " " . $_SESSION['Last Name']; ?>
                                         <span class="badge badge-light-danger fw-bold fs-8 px-2 py-1 ms-2">Admin</span>
                                     </div>
                                     <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">@<?php echo $_SESSION['Username']; ?></a>
@@ -1667,8 +1615,7 @@
                         <div class="separator my-2"></div>
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
-                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                            data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
+                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                             <a href="#" class="menu-link px-5">
                                 <span class="menu-title position-relative">Mode
                                     <span class="ms-5 position-absolute translate-middle-y top-50 end-0">
@@ -1677,12 +1624,10 @@
                                     </span></span>
                             </a>
                             <!--begin::Menu-->
-                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px"
-                                data-kt-menu="true" data-kt-element="theme-mode-menu">
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu">
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
-                                        data-kt-value="light">
+                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
                                         <span class="menu-icon" data-kt-element="icon">
                                             <i class="ki-outline ki-night-day fs-2"></i>
                                         </span>
@@ -1702,8 +1647,7 @@
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
-                                        data-kt-value="system">
+                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
                                         <span class="menu-icon" data-kt-element="icon">
                                             <i class="ki-outline ki-screen fs-2"></i>
                                         </span>
@@ -1716,24 +1660,19 @@
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
-                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                            data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
+                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                             <a href="#" class="menu-link px-5">
                                 <span class="menu-title position-relative">Language
-                                    <span
-                                        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                                        <img class="w-15px h-15px rounded-1 ms-2"
-                                            src="./assets/media/flags/united-states.svg" alt="" /></span></span>
+                                    <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
+                                        <img class="w-15px h-15px rounded-1 ms-2" src="//grindbet.pl/assets/media/flags/united-states.svg" alt="" /></span></span>
                             </a>
                             <!--begin::Menu sub-->
                             <div class="menu-sub menu-sub-dropdown w-175px py-4">
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3">
-                                    <a href="././demo43/dist/account/settings.html"
-                                        class="menu-link d-flex px-5 active">
+                                    <a href="././demo43/dist/account/settings.html" class="menu-link d-flex px-5 active">
                                         <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="./assets/media/flags/united-states.svg"
-                                                alt="" />
+                                            <img class="rounded-1" src="//grindbet.pl/assets/media/flags/united-states.svg" alt="" />
                                         </span>English</a>
                                 </div>
                                 <!--end::Menu item-->
@@ -1753,8 +1692,7 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="././demo43/dist/authentication/layouts/corporate/sign-in.html"
-                                class="menu-link px-5">Sign Out</a>
+                            <a href="././demo43/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
                         </div>
                         <!--end::Menu item-->
                     </div>
