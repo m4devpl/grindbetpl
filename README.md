@@ -16,5 +16,5 @@ In summary, GrindBet is an all-in-one productivity app that can help you simplif
 ## Authors
 
 - [@m4devpl](https://github.com/m4devpl)
-- [@jangaluszka](https://github.com/jangaluszka)
+- [@jgaluszka](https://github.com/jgaluszka)
 
