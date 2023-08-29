@@ -14,8 +14,8 @@
     <meta property="og:site_name" content="GrindBet.PL | Productivity App">
     <link rel="canonical" content="https:/grindbet.pl/">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" type="image/x-icon" href="//grindbet.pl/favicon.ico">
     <link rel="shortcut icon" href="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" />
     <!--begin::Fonts(mandatory for all pages)-->
@@ -32,7 +32,15 @@
     <script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 </head>
 
-<body id="kt_app_body" data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
+<body id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on"
+    data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    <!--begin::loader-->
+    <div class="app-page-loader">
+        <span class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </span>
+    </div>
+    <!--end::Loader-->
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
         <!--begin::Page-->
         <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
@@ -74,7 +82,7 @@
                                     </li>
                                     <!--end::Item-->
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Projects</li>
+                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">My Projects</li>
                                     <!--end::Item-->
                                 </ul>
                                 <!--end::Breadcrumb-->
@@ -199,27 +207,26 @@
                                 <!--begin::Row-->
                                 <div class="row g-6 g-xl-9">
                                     <!--begin::Col-->
-                                    <div class="col-md-6 col-xl-4" *ngFor="let project of projectList">
+                                    <div class="col-md-6 col-xl-4">
                                         <!--begin::Card-->
-                                        <a [routerLink]="['project',project.id]" class="card border-hover-primary">
+                                        <a href="//grindbet.pl/home/projects/project?project=1"
+                                            class="card border-hover-primary">
                                             <!--begin::Card header-->
                                             <div class="card-header border-0 pt-9">
                                                 <!--begin::Card Title-->
                                                 <div class="card-title m-0">
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-50px w-50px bg-light">
-                                                        <img src="//grindbet.pl/assets/media/svg/brand-logos/kanba.svg" alt="image"
-                                                            class="p-3" />
+                                                        <img src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png"
+                                                            alt="image" class="p-3" />
                                                     </div>
                                                     <!--end::Avatar-->
                                                 </div>
                                                 <!--end::Car Title-->
                                                 <!--begin::Card toolbar-->
                                                 <div class="card-toolbar">
-                                                    <span class="badge fw-bold me-auto px-4 py-3"
-                                                        [class.badge-light-primary]="project.status==='In Progress'"
-                                                        [class.badge-light-dark]="project.status==='Not Started'">{{
-                                                        project.status }}</span>
+                                                    <span class="badge fw-bold me-auto px-4 py-3 badge-light-info">
+                                                        In Progress
                                                 </div>
                                                 <!--end::Card toolbar-->
                                             </div>
@@ -227,19 +234,19 @@
                                             <!--begin:: Card body-->
                                             <div class="card-body p-9">
                                                 <!--begin::Name-->
-                                                <div class="fs-3 fw-bold text-dark">{{ project.name}} </div>
+                                                <div class="fs-3 fw-bold text-dark">GrindBet.PL </div>
                                                 <!--end::Name-->
                                                 <!--begin::Description-->
-                                                <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">{{
-                                                    project.shortDescription }}</p>
+                                                <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
+                                                    Comprehensive productivity application
+                                                </p>
                                                 <!--end::Description-->
                                                 <!--begin::Info-->
                                                 <div class="d-flex flex-wrap mb-5">
                                                     <!--begin::Due-->
                                                     <div
                                                         class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
-                                                        <div class="fs-6 text-gray-800 fw-bold">{{ project.releaseDate |
-                                                            date: "MMM dd, yyyy"}}</div>
+                                                        <div class="fs-6 text-gray-800 fw-bold">Dec 31, 2023</div>
                                                         <div class="fw-semibold text-gray-400">Due Date</div>
                                                     </div>
                                                     <!--end::Due-->
@@ -254,8 +261,93 @@
                                                 <!--end::Info-->
                                                 <!--begin::Progress-->
                                                 <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip"
-                                                    title="This project is not started :(">
-                                                    <div class="bg-light-dark rounded h-4px" role="progressbar"
+                                                    title="This project 10% completed">
+                                                    <div class="bg-info rounded h-4px" role="progressbar"
+                                                        style="width: 10%" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <!--end::Progress-->
+                                                <!--begin::Users-->
+                                                <div class="symbol-group symbol-hover">
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-35px symbol-circle"
+                                                        data-bs-toggle="tooltip" title="Nick Macy">
+                                                        <img alt="Pic"
+                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
+                                                    </div>
+                                                    <!--end::User-->
+                                                    <!--begin::User-->
+                                                    <div class="symbol symbol-35px symbol-circle"
+                                                        data-bs-toggle="tooltip" title="Nick Macy">
+                                                        <img alt="Pic"
+                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
+                                                    </div>
+                                                    <!--end::User-->
+                                                </div>
+                                                <!--end::Users-->
+                                            </div>
+                                            <!--end:: Card body-->
+                                        </a>
+                                        <!--end::Card-->
+                                    </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-md-6 col-xl-4">
+                                        <!--begin::Card-->
+                                        <a href="//grindbet.pl/home/projects/project?project=1"
+                                            class="card border-hover-primary">
+                                            <!--begin::Card header-->
+                                            <div class="card-header border-0 pt-9">
+                                                <!--begin::Card Title-->
+                                                <div class="card-title m-0">
+                                                    <!--begin::Avatar-->
+                                                    <div class="symbol symbol-50px w-50px bg-light">
+                                                        <img src="//grindbet.pl/assets/media/logos/custom-2.svg"
+                                                            alt="image" class="p-3" />
+                                                    </div>
+                                                    <!--end::Avatar-->
+                                                </div>
+                                                <!--end::Car Title-->
+                                                <!--begin::Card toolbar-->
+                                                <div class="card-toolbar">
+                                                    <span class="badge fw-bold me-auto px-4 py-3 badge-light">
+                                                        Not Started
+                                                </div>
+                                                <!--end::Card toolbar-->
+                                            </div>
+                                            <!--end:: Card header-->
+                                            <!--begin:: Card body-->
+                                            <div class="card-body p-9">
+                                                <!--begin::Name-->
+                                                <div class="fs-3 fw-bold text-dark">Ausardia </div>
+                                                <!--end::Name-->
+                                                <!--begin::Description-->
+                                                <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
+                                                    Wear...
+                                                </p>
+                                                <!--end::Description-->
+                                                <!--begin::Info-->
+                                                <div class="d-flex flex-wrap mb-5">
+                                                    <!--begin::Due-->
+                                                    <div
+                                                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                        <div class="fs-6 text-gray-800 fw-bold">Dec 31, 2023</div>
+                                                        <div class="fw-semibold text-gray-400">Due Date</div>
+                                                    </div>
+                                                    <!--end::Due-->
+                                                    <!--begin::Budget-->
+                                                    <div
+                                                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
+                                                        <div class="fs-6 text-gray-800 fw-bold">unlimited</div>
+                                                        <div class="fw-semibold text-gray-400">Budget</div>
+                                                    </div>
+                                                    <!--end::Budget-->
+                                                </div>
+                                                <!--end::Info-->
+                                                <!--begin::Progress-->
+                                                <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip"
+                                                    title="This project 0% completed">
+                                                    <div class="bg-info rounded h-4px" role="progressbar"
                                                         style="width: 0%" aria-valuenow="0" aria-valuemin="0"
                                                         aria-valuemax="100"></div>
                                                 </div>
@@ -265,19 +357,22 @@
                                                     <!--begin::User-->
                                                     <div class="symbol symbol-35px symbol-circle"
                                                         data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic" src="assets/media/avatars/blank.png" />
+                                                        <img alt="Pic"
+                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
                                                     </div>
                                                     <!--end::User-->
                                                     <!--begin::User-->
                                                     <div class="symbol symbol-35px symbol-circle"
                                                         data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic" src="assets/media/avatars/blank.png" />
+                                                        <img alt="Pic"
+                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
                                                     </div>
                                                     <!--end::User-->
                                                     <!--begin::User-->
                                                     <div class="symbol symbol-35px symbol-circle"
                                                         data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic" src="assets/media/avatars/blank.png" />
+                                                        <img alt="Pic"
+                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
                                                     </div>
                                                     <!--end::User-->
                                                 </div>

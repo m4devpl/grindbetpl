@@ -1,6 +1,7 @@
 <?php require_once "appBase.php"; ?>
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<title>GrindBet.PL | Home</title>
@@ -33,7 +34,15 @@
 	<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 </head>
 
-<body id="kt_app_body" data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
+<body id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on"
+	data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
+	<!--begin::loader-->
+	<div class="app-page-loader">
+		<span class="spinner-border text-primary" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</span>
+	</div>
+	<!--end::Loader-->
 	<div class="d-flex flex-column flex-root app-root" id="kt_app_root">
 		<!--begin::Page-->
 		<div class="app-page flex-column flex-column-fluid" id="kt_app_page">
@@ -129,7 +138,9 @@
 																	</i>
 																	<!--end::Icon-->
 																	<!--begin::Desc-->
-																	<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">Projects</div>
+																	<div
+																		class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">
+																		Projects</div>
 																	<!--end::Desc-->
 																</a>
 																<!--end::Items-->
@@ -160,7 +171,9 @@
 																	</i>
 																	<!--end::Icon-->
 																	<!--begin::Desc-->
-																	<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">Calendar</div>
+																	<div
+																		class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">
+																		Calendar</div>
 																	<!--end::Desc-->
 																</a>
 																<!--end::Items-->
@@ -177,15 +190,19 @@
 															<!--begin::Body-->
 															<div class="card-body p-0">
 																<!--begin::Items-->
-																<a href='../../demo43/dist/apps/file-manager/folders.html' class="btn btn-active-color-primary px-7 py-6 text-start w-100">
+																<a href='../../demo43/dist/apps/file-manager/folders.html'
+																	class="btn btn-active-color-primary px-7 py-6 text-start w-100">
 																	<!--begin::Icon-->
-																	<i class="ki-duotone ki-file-added fs-2x fs-lg-2hx text-gray-500 ms-n1">
+																	<i
+																		class="ki-duotone ki-file-added fs-2x fs-lg-2hx text-gray-500 ms-n1">
 																		<span class="path1"></span>
 																		<span class="path2"></span>
 																	</i>
 																	<!--end::Icon-->
 																	<!--begin::Desc-->
-																	<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">File Manager</div>
+																	<div
+																		class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">
+																		File Manager</div>
 																	<!--end::Desc-->
 																</a>
 																<!--end::Items-->
@@ -212,7 +229,8 @@
 													<span class="card-label fw-bold text-dark">
 														Week's Events
 													</span>
-													<span class="text-muted mt-1 fw-semibold fs-7 ms-3">Total 21 events</span>
+													<span class="text-muted mt-1 fw-semibold fs-7 ms-3">Total 21
+														events</span>
 												</h3>
 												<!--begin::Toolbar-->
 												<div class="card-toolbar">
@@ -224,14 +242,18 @@
 											<!--begin::Body-->
 											<div class="card-body pt-7 px-0">
 												<!--begin::Nav-->
-												<ul class="nav nav-stretch nav-pills nav-pills-custom nav-pills-active-custom d-flex justify-content-between mb-8 px-5 w-100 overflow-hidden">
+												<ul
+													class="nav nav-stretch nav-pills nav-pills-custom nav-pills-active-custom d-flex justify-content-between mb-8 px-5 w-100 overflow-hidden">
 
 													<!--begin::Nav item-->
 													<li class="nav-item p-0 ms-0">
 														<!--begin::Date-->
-														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_3">
+														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary"
+															data-bs-toggle="tab"
+															href="#kt_timeline_widget_3_tab_content_3">
 															<span class="fs-6 fw-bold">28</span>
-															<span class="fs-7 fw-semibold d-none d-md-block ">Monday</span>
+															<span
+																class="fs-7 fw-semibold d-none d-md-block ">Monday</span>
 															<span class="fs-7 fw-semibold d-block d-md-none">Mo</span>
 
 														</a>
@@ -241,9 +263,12 @@
 													<!--begin::Nav item-->
 													<li class="nav-item p-0 ms-0">
 														<!--begin::Date-->
-														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary active" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_4">
+														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary active"
+															data-bs-toggle="tab"
+															href="#kt_timeline_widget_3_tab_content_4">
 															<span class="fs-6 fw-bold">29</span>
-															<span class="fs-7 fw-semibold d-none d-md-block">Tuesday</span>
+															<span
+																class="fs-7 fw-semibold d-none d-md-block">Tuesday</span>
 															<span class="fs-7 fw-semibold d-block d-md-none">Tu</span>
 														</a>
 														<!--end::Date-->
@@ -252,9 +277,12 @@
 													<!--begin::Nav item-->
 													<li class="nav-item p-0 ms-0">
 														<!--begin::Date-->
-														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_5">
+														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary"
+															data-bs-toggle="tab"
+															href="#kt_timeline_widget_3_tab_content_5">
 															<span class="fs-6 fw-bold">30</span>
-															<span class="fs-7 fw-semibold d-none d-md-block">Wednesday</span>
+															<span
+																class="fs-7 fw-semibold d-none d-md-block">Wednesday</span>
 															<span class="fs-7 fw-semibold d-block d-md-none">Wed</span>
 														</a>
 														<!--end::Date-->
@@ -263,9 +291,12 @@
 													<!--begin::Nav item-->
 													<li class="nav-item p-0 ms-0">
 														<!--begin::Date-->
-														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_6">
+														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary"
+															data-bs-toggle="tab"
+															href="#kt_timeline_widget_3_tab_content_6">
 															<span class="fs-6 fw-bold">31</span>
-															<span class="fs-7 fw-semibold d-none d-md-block">Thurdsay</span>
+															<span
+																class="fs-7 fw-semibold d-none d-md-block">Thurdsay</span>
 															<span class="fs-7 fw-semibold d-block d-md-none">Thu</span>
 														</a>
 														<!--end::Date-->
@@ -274,9 +305,12 @@
 													<!--begin::Nav item-->
 													<li class="nav-item p-0 ms-0">
 														<!--begin::Date-->
-														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_7">
+														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary"
+															data-bs-toggle="tab"
+															href="#kt_timeline_widget_3_tab_content_7">
 															<span class="fs-6 fw-bold">1</span>
-															<span class="fs-7 fw-semibold d-none d-md-block">Friday</span>
+															<span
+																class="fs-7 fw-semibold d-none d-md-block">Friday</span>
 															<span class="fs-7 fw-semibold d-block d-md-none">Fri</span>
 														</a>
 														<!--end::Date-->
@@ -285,9 +319,12 @@
 													<!--begin::Nav item-->
 													<li class="nav-item p-0 ms-0">
 														<!--begin::Date-->
-														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_8">
+														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary"
+															data-bs-toggle="tab"
+															href="#kt_timeline_widget_3_tab_content_8">
 															<span class="fs-6 fw-bold">2</span>
-															<span class="fs-7 fw-semibold d-none d-md-block">Saturday</span>
+															<span
+																class="fs-7 fw-semibold d-none d-md-block">Saturday</span>
 															<span class="fs-7 fw-semibold d-block d-md-none">Sat</span>
 														</a>
 														<!--end::Date-->
@@ -296,9 +333,12 @@
 													<!--begin::Nav item-->
 													<li class="nav-item p-0 ms-0">
 														<!--begin::Date-->
-														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_9">
+														<a class="nav-link btn d-flex flex-column flex-center px-2 btn-active-primary"
+															data-bs-toggle="tab"
+															href="#kt_timeline_widget_3_tab_content_9">
 															<span class="fs-6 fw-bold">3</span>
-															<span class="fs-7 fw-semibold d-none d-md-block">Sunday</span>
+															<span
+																class="fs-7 fw-semibold d-none d-md-block">Sunday</span>
 															<span class="fs-7 fw-semibold d-block d-md-none">Su</span>
 														</a>
 														<!--end::Date-->
@@ -315,166 +355,227 @@
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-primary"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-primary"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">10:20 - 11:00
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">10:20 -
+																	11:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Degree Project Estimation Meeting</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Degree
+																	Project Estimation Meeting</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Peter Marcus</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Peter
+																		Marcus</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">12:00 - 13:40
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">12:00 -
+																	13:40
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Bob</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Bob</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">16:30 - 17:00
-																<span class="text-gray-400 fw-semibold fs-7">PM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">16:30 -
+																	17:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">PM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Mark Morris</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Mark Morris</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 													</div>
 													<!--end::Tap pane-->
 													<!--begin::Tap pane-->
-													<div class="tab-pane fade show active" id="kt_timeline_widget_3_tab_content_4">
+													<div class="tab-pane fade show active"
+														id="kt_timeline_widget_3_tab_content_4">
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">10:20 - 11:00
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">10:20 -
+																	11:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Degree Project Estimation Meeting</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Degree
+																	Project Estimation Meeting</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Peter Marcus</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Peter
+																		Marcus</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">16:30 - 17:00
-																<span class="text-gray-400 fw-semibold fs-7">PM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">16:30 -
+																	17:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">PM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Dashboard UI/UX Design Review</div>
+																<div class="text-gray-700 fw-semibold fs-6">Dashboard
+																	UI/UX Design Review</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Bob</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Bob</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">12:00 - 13:40
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">12:00 -
+																	13:40
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Mark Morris</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Mark Morris</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
@@ -485,81 +586,111 @@
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-danger"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-danger"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">12:00 - 13:40
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">12:00 -
+																	13:40
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard UI/UX Design Review</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard
+																	UI/UX Design Review</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Bob</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Bob</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">10:20 - 11:00
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">10:20 -
+																	11:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Degree Project Estimation Meeting</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Degree
+																	Project Estimation Meeting</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Mark Morris</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Mark Morris</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">16:30 - 17:00
-																<span class="text-gray-400 fw-semibold fs-7">PM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">16:30 -
+																	17:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">PM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Peter Marcus</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Peter
+																		Marcus</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
@@ -570,81 +701,111 @@
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">10:20 - 11:00
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">10:20 -
+																	11:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Mark Morris</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Mark Morris</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-primary"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-primary"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">16:30 - 17:00
-																<span class="text-gray-400 fw-semibold fs-7">PM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">16:30 -
+																	17:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">PM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Degree Project Estimation Meeting</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Degree
+																	Project Estimation Meeting</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Peter Marcus</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Peter
+																		Marcus</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">12:00 - 13:40
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">12:00 -
+																	13:40
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard UI/UX Design Review</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard
+																	UI/UX Design Review</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Bob</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Bob</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
@@ -655,81 +816,111 @@
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-warning"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">12:00 - 13:40
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">12:00 -
+																	13:40
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Degree Project Estimation Meeting</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Degree
+																	Project Estimation Meeting</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Bob</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Bob</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-danger"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-danger"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">10:20 - 11:00
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">10:20 -
+																	11:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard UI/UX Design Review</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard
+																	UI/UX Design Review</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Peter Marcus</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Peter
+																		Marcus</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">16:30 - 17:00
-																<span class="text-gray-400 fw-semibold fs-7">PM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">16:30 -
+																	17:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">PM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Mark Morris</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Mark Morris</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
@@ -740,81 +931,111 @@
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">16:30 - 17:00
-																<span class="text-gray-400 fw-semibold fs-7">PM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">16:30 -
+																	17:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">PM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Peter Marcus</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Peter
+																		Marcus</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">10:20 - 11:00
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">10:20 -
+																	11:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Degree Project Estimation Meeting</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Degree
+																	Project Estimation Meeting</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Mark Morris</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Mark Morris</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-danger"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-danger"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">12:00 - 13:40
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">12:00 -
+																	13:40
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard UI/UX Design Review</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard
+																	UI/UX Design Review</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Bob</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Bob</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
@@ -825,81 +1046,111 @@
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-info"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">12:00 - 13:40
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">12:00 -
+																	13:40
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Degree Project Estimation Meeting</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Degree
+																	Project Estimation Meeting</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Bob</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Bob</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-primary"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-primary"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">16:30 - 17:00
-																<span class="text-gray-400 fw-semibold fs-7">PM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">16:30 -
+																	17:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">PM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">Marketing Campaign Discussion</div>
+																<div class="text-gray-700 fw-semibold fs-6">Marketing
+																	Campaign Discussion</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Lead by Mark Morris</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Lead
+																		by Mark Morris</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div class="d-flex align-items-center mb-6">
 															<!--begin::Bullet-->
-															<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
+															<span data-kt-element="bullet"
+																class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
 															<!--end::Bullet-->
 															<!--begin::Info-->
 															<div class="flex-grow-1 me-5">
 																<!--begin::Time-->
-																<div class="text-gray-800 fw-semibold fs-2">10:20 - 11:00
-																<span class="text-gray-400 fw-semibold fs-7">AM</span></div>
+																<div class="text-gray-800 fw-semibold fs-2">10:20 -
+																	11:00
+																	<span
+																		class="text-gray-400 fw-semibold fs-7">AM</span>
+																</div>
 																<!--end::Time-->
 																<!--begin::Description-->
-																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard UI/UX Design Review</div>
+																<div class="text-gray-700 fw-semibold fs-6">9 Dashboard
+																	UI/UX Design Review</div>
 																<!--end::Description-->
 																<!--begin::Link-->
 																<div class="text-gray-400 fw-semibold fs-7">Lead by
-																<!--begin::Name-->
-																<a href="#" class="text-primary opacity-75-hover fw-semibold">Peter Marcus</a>
-																<!--end::Name--></div>
+																	<!--begin::Name-->
+																	<a href="#"
+																		class="text-primary opacity-75-hover fw-semibold">Peter
+																		Marcus</a>
+																	<!--end::Name-->
+																</div>
 																<!--end::Link-->
 															</div>
 															<!--end::Info-->
 															<!--begin::Action-->
-															<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">View</a>
+															<a href="#" class="btn btn-sm btn-light"
+																data-bs-toggle="modal"
+																data-bs-target="#kt_modal_create_project">View</a>
 															<!--end::Action-->
 														</div>
 														<!--end::Wrapper-->
@@ -909,8 +1160,10 @@
 												<!--end::Tab Content-->
 												<!--begin::Action-->
 												<div class="float-end d-none">
-													<a href="#" class="btn btn-sm btn-light me-2" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Add Lesson</a>
-													<a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Call Sick for Today</a>
+													<a href="#" class="btn btn-sm btn-light me-2" data-bs-toggle="modal"
+														data-bs-target="#kt_modal_create_project">Add Lesson</a>
+													<a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+														data-bs-target="#kt_modal_create_app">Call Sick for Today</a>
 												</div>
 												<!--end::Action-->
 											</div>
@@ -1033,4 +1286,5 @@
 	<!--end::Global Javascript Bundle-->
 	<!--end::Javascript-->
 </body>
+
 </html>

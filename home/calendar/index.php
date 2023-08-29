@@ -33,7 +33,14 @@
     </script>
 </head>
 
-<body id="kt_app_body" data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
+<body id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on" data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    <!--begin::loader-->
+    <div class="app-page-loader">
+        <span class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </span>
+    </div>
+    <!--end::Loader-->
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
         <!--begin::Page-->
         <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
