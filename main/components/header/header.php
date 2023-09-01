@@ -1567,8 +1567,8 @@
                     <!--begin::Menu wrapper-->
                     <div class="d-flex align-items-center p-2" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <!--begin::User-->
-                        <div class="cursor-pointer symbol symbol-circle me-3 symbol-35px symbol-lg-45px">
-                            <img class="" src="<?php echo $_SESSION['Picture']; ?>" alt="user" />
+                        <div class="cursor-pointer symbol symbol-circle me-3 symbol-35px symbol-lg-45px shadow">
+                            <img src="<?php echo $pictureURL; ?>" alt="user" />
                         </div>
                         <!--end::User-->
                     </div>
@@ -1579,7 +1579,7 @@
                             <div class="menu-content d-flex align-items-center px-3">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
-                                    <img alt="Logo" src="<?php echo $_SESSION['Picture']; ?>" />
+                                    <img alt="Logo" src="<?php echo $pictureURL; ?>" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
@@ -1603,10 +1603,10 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="././demo43/dist/apps/projects/list.html" class="menu-link px-5">
+                            <a href="//grindbet.pl/home/projects" class="menu-link px-5">
                                 <span class="menu-text">My Projects</span>
                                 <span class="menu-badge">
-                                    <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
+                                    <span class="badge badge-light-success fw-bold fs-7"><?php echo $projectMgt->getNoOfMyProjects(); ?></span>
                                 </span>
                             </a>
                         </div>
@@ -1692,7 +1692,7 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="././demo43/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+                            <a href="//grindbet.pl/logout/" class="menu-link px-5">Sign Out</a>
                         </div>
                         <!--end::Menu item-->
                     </div>

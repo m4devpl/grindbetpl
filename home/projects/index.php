@@ -1,4 +1,7 @@
-<?php require_once "../../appBase.php"; ?>
+<?php 
+	require_once "../../appBase.php";
+	$userMgt->checkIfUserIsLoggedIn();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -133,7 +136,7 @@
                                             <!--begin::Card body-->
                                             <div class="card-body p-9">
                                                 <!--begin::Heading-->
-                                                <div class="fs-2hx fw-bold">2</div>
+                                                <div class="fs-2hx fw-bold"><?php echo $projectMgt->getNoOfMyProjects(); ?></div>
                                                 <div class="fs-4 fw-semibold text-gray-400 mb-7">Current Projects</div>
                                                 <!--end::Heading-->
                                                 <!--begin::Wrapper-->
@@ -150,21 +153,21 @@
                                                         <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                                             <div class="bullet bg-primary me-3"></div>
                                                             <div class="text-gray-400">Active</div>
-                                                            <div class="ms-auto fw-bold text-gray-700">50%</div>
+                                                            <div class="ms-auto fw-bold text-gray-700"><?php echo $projectMgt->getNoOfActiveProjects(); ?></div>
                                                         </div>
                                                         <!--end::Label-->
                                                         <!--begin::Label-->
                                                         <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                                             <div class="bullet bg-success me-3"></div>
                                                             <div class="text-gray-400">Completed</div>
-                                                            <div class="ms-auto fw-bold text-gray-700">0%</div>
+                                                            <div class="ms-auto fw-bold text-gray-700"><?php echo $projectMgt->getNoOfCompletedProjects(); ?></div>
                                                         </div>
                                                         <!--end::Label-->
                                                         <!--begin::Label-->
                                                         <div class="d-flex fs-6 fw-semibold align-items-center">
                                                             <div class="bullet bg-gray-300 me-3"></div>
                                                             <div class="text-gray-400">Yet to start</div>
-                                                            <div class="ms-auto fw-bold text-gray-700">50%</div>
+                                                            <div class="ms-auto fw-bold text-gray-700"><?php echo $projectMgt->getNoOfNotStartedProjects(); ?></div>
                                                         </div>
                                                         <!--end::Label-->
                                                     </div>
@@ -206,188 +209,12 @@
                                 <!--end::Toolbar-->
                                 <!--begin::Row-->
                                 <div class="row g-6 g-xl-9">
-                                    <!--begin::Col-->
-                                    <div class="col-md-6 col-xl-4">
-                                        <!--begin::Card-->
-                                        <a href="//grindbet.pl/home/projects/project?project=1"
-                                            class="card border-hover-primary">
-                                            <!--begin::Card header-->
-                                            <div class="card-header border-0 pt-9">
-                                                <!--begin::Card Title-->
-                                                <div class="card-title m-0">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-50px w-50px bg-light">
-                                                        <img src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png"
-                                                            alt="image" class="p-3" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Car Title-->
-                                                <!--begin::Card toolbar-->
-                                                <div class="card-toolbar">
-                                                    <span class="badge fw-bold me-auto px-4 py-3 badge-light-info">
-                                                        In Progress
-                                                </div>
-                                                <!--end::Card toolbar-->
-                                            </div>
-                                            <!--end:: Card header-->
-                                            <!--begin:: Card body-->
-                                            <div class="card-body p-9">
-                                                <!--begin::Name-->
-                                                <div class="fs-3 fw-bold text-dark">GrindBet.PL </div>
-                                                <!--end::Name-->
-                                                <!--begin::Description-->
-                                                <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
-                                                    Comprehensive productivity application
-                                                </p>
-                                                <!--end::Description-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-wrap mb-5">
-                                                    <!--begin::Due-->
-                                                    <div
-                                                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
-                                                        <div class="fs-6 text-gray-800 fw-bold">Dec 31, 2023</div>
-                                                        <div class="fw-semibold text-gray-400">Due Date</div>
-                                                    </div>
-                                                    <!--end::Due-->
-                                                    <!--begin::Budget-->
-                                                    <div
-                                                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
-                                                        <div class="fs-6 text-gray-800 fw-bold">unlimited</div>
-                                                        <div class="fw-semibold text-gray-400">Budget</div>
-                                                    </div>
-                                                    <!--end::Budget-->
-                                                </div>
-                                                <!--end::Info-->
-                                                <!--begin::Progress-->
-                                                <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip"
-                                                    title="This project 10% completed">
-                                                    <div class="bg-info rounded h-4px" role="progressbar"
-                                                        style="width: 10%" aria-valuenow="10" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <!--end::Progress-->
-                                                <!--begin::Users-->
-                                                <div class="symbol-group symbol-hover">
-                                                    <!--begin::User-->
-                                                    <div class="symbol symbol-35px symbol-circle"
-                                                        data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic"
-                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
-                                                    </div>
-                                                    <!--end::User-->
-                                                    <!--begin::User-->
-                                                    <div class="symbol symbol-35px symbol-circle"
-                                                        data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic"
-                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
-                                                    </div>
-                                                    <!--end::User-->
-                                                </div>
-                                                <!--end::Users-->
-                                            </div>
-                                            <!--end:: Card body-->
-                                        </a>
-                                        <!--end::Card-->
-                                    </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-md-6 col-xl-4">
-                                        <!--begin::Card-->
-                                        <a href="//grindbet.pl/home/projects/project?project=1"
-                                            class="card border-hover-primary">
-                                            <!--begin::Card header-->
-                                            <div class="card-header border-0 pt-9">
-                                                <!--begin::Card Title-->
-                                                <div class="card-title m-0">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-50px w-50px bg-light">
-                                                        <img src="//grindbet.pl/assets/media/logos/custom-2.svg"
-                                                            alt="image" class="p-3" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Car Title-->
-                                                <!--begin::Card toolbar-->
-                                                <div class="card-toolbar">
-                                                    <span class="badge fw-bold me-auto px-4 py-3 badge-light">
-                                                        Not Started
-                                                </div>
-                                                <!--end::Card toolbar-->
-                                            </div>
-                                            <!--end:: Card header-->
-                                            <!--begin:: Card body-->
-                                            <div class="card-body p-9">
-                                                <!--begin::Name-->
-                                                <div class="fs-3 fw-bold text-dark">Ausardia </div>
-                                                <!--end::Name-->
-                                                <!--begin::Description-->
-                                                <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
-                                                    Wear...
-                                                </p>
-                                                <!--end::Description-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-wrap mb-5">
-                                                    <!--begin::Due-->
-                                                    <div
-                                                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
-                                                        <div class="fs-6 text-gray-800 fw-bold">Dec 31, 2023</div>
-                                                        <div class="fw-semibold text-gray-400">Due Date</div>
-                                                    </div>
-                                                    <!--end::Due-->
-                                                    <!--begin::Budget-->
-                                                    <div
-                                                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
-                                                        <div class="fs-6 text-gray-800 fw-bold">unlimited</div>
-                                                        <div class="fw-semibold text-gray-400">Budget</div>
-                                                    </div>
-                                                    <!--end::Budget-->
-                                                </div>
-                                                <!--end::Info-->
-                                                <!--begin::Progress-->
-                                                <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip"
-                                                    title="This project 0% completed">
-                                                    <div class="bg-info rounded h-4px" role="progressbar"
-                                                        style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <!--end::Progress-->
-                                                <!--begin::Users-->
-                                                <div class="symbol-group symbol-hover">
-                                                    <!--begin::User-->
-                                                    <div class="symbol symbol-35px symbol-circle"
-                                                        data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic"
-                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
-                                                    </div>
-                                                    <!--end::User-->
-                                                    <!--begin::User-->
-                                                    <div class="symbol symbol-35px symbol-circle"
-                                                        data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic"
-                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
-                                                    </div>
-                                                    <!--end::User-->
-                                                    <!--begin::User-->
-                                                    <div class="symbol symbol-35px symbol-circle"
-                                                        data-bs-toggle="tooltip" title="Nick Macy">
-                                                        <img alt="Pic"
-                                                            src="//grindbet.pl/assets/media/avatars/blank.png" />
-                                                    </div>
-                                                    <!--end::User-->
-                                                </div>
-                                                <!--end::Users-->
-                                            </div>
-                                            <!--end:: Card body-->
-                                        </a>
-                                        <!--end::Card-->
-                                    </div>
-                                    <!--end::Col-->
+                                    <?php $projectMgt->getMyProjects(); ?>
                                 </div>
                                 <!--end::Row-->
                                 <!--begin::Pagination-->
                                 <div class="d-flex flex-stack flex-wrap pt-10">
-                                    <div class="fs-6 fw-semibold text-gray-700">Showing 1 to 10 of 2 entries</div>
+                                    <div class="fs-6 fw-semibold text-gray-700">Showing 1 to 10 of <?php echo $projectMgt->getNoOfMyProjects(); ?> entries</div>
                                     <!--begin::Pages-->
                                     <ul class="pagination">
                                         <li class="page-item previous">

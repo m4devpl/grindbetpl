@@ -1,4 +1,7 @@
-<?php require_once "appBase.php"; ?>
+<?php 
+	require_once "appBase.php";
+	$userMgt->checkIfUserIsLoggedIn();
+?>
 <!doctype html>
 <html lang="en">
 
