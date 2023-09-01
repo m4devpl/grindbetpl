@@ -15,14 +15,14 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="icon" type="image/x-icon" href="//gadgetforyou.pl/favicon.ico">
-    <link rel="shortcut icon" href="//gadgetforyou.pl/assets/media/logos/grindbet_web_logo.png" />
+    <link rel="icon" type="image/x-icon" href="//grindbet.pl/favicon.ico">
+    <link rel="shortcut icon" href="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="//gadgetforyou.pl/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="//gadgetforyou.pl/assets/css/style.bundle.css" rel="stylesheet">
+    <link href="//grindbet.pl/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="//grindbet.pl/assets/css/style.bundle.css" rel="stylesheet">
     <!--end::Global Stylesheets Bundle-->
     <script>
         // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }
@@ -40,7 +40,7 @@
 		<!--begin::Root-->
 		<div class="d-flex flex-column flex-root" id="kt_app_root">
 			<!--begin::Page bg image-->
-			<style>body { background-image: url('//gadgetforyou.pl/unknown.png'); } [data-bs-theme="dark"] body { background-image: url('//gadgetforyou.pl/unknown.png'); }</style>
+			<style>body { background-image: url('//grindbet.pl/unknown.png'); } [data-bs-theme="dark"] body { background-image: url('//grindbet.pl/unknown.png'); }</style>
 			<!--end::Page bg image-->
 			<!--begin::Authentication - Sign-in -->
 			<div class="d-flex flex-column flex-column-fluid flex-lg-row">
@@ -50,7 +50,7 @@
 					<div class="d-flex flex-center flex-lg-start flex-column">
 						<!--begin::Logo-->
 						<a href="../../demo43/dist/index.html" class="mb-7">
-							<img alt="Logo" src="//gadgetforyou.pl/assets/media/logos/custom-3.svg" />
+							<img alt="Logo" src="//grindbet.pl/assets/media/logos/custom-3.svg" />
 						</a>
 						<!--end::Logo-->
 						<!--begin::Title-->
@@ -84,7 +84,7 @@
 									<div class="col-md-6">
 										<!--begin::Google link=-->
 										<a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-										<img alt="Logo" src="//gadgetforyou.pl/assets/media/svg/brand-logos/google-icon.svg" class="h-15px me-3" />Sign in with Google</a>
+										<img alt="Logo" src="//grindbet.pl/assets/media/svg/brand-logos/google-icon.svg" class="h-15px me-3" />Sign in with Google</a>
 										<!--end::Google link=-->
 									</div>
 									<!--end::Col-->
@@ -92,8 +92,8 @@
 									<div class="col-md-6">
 										<!--begin::Google link=-->
 										<a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-										<img alt="Logo" src="//gadgetforyou.pl/assets/media/svg/brand-logos/apple-black.svg" class="theme-light-show h-15px me-3" />
-										<img alt="Logo" src="//gadgetforyou.pl/assets/media/svg/brand-logos/apple-black-dark.svg" class="theme-dark-show h-15px me-3" />Sign in with Apple</a>
+										<img alt="Logo" src="//grindbet.pl/assets/media/svg/brand-logos/apple-black.svg" class="theme-light-show h-15px me-3" />
+										<img alt="Logo" src="//grindbet.pl/assets/media/svg/brand-logos/apple-black-dark.svg" class="theme-dark-show h-15px me-3" />Sign in with Apple</a>
 										<!--end::Google link=-->
 									</div>
 									<!--end::Col-->
@@ -152,7 +152,7 @@
 							<div class="me-0">
 								<!--begin::Toggle-->
 								<button class="btn btn-flex btn-link btn-color-gray-700 btn-active-color-primary rotate fs-base" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" data-kt-menu-offset="0px, 0px">
-									<img data-kt-element="current-lang-flag" class="w-20px h-20px rounded me-3" src="//gadgetforyou.pl/assets/media/flags/united-states.svg" alt="" />
+									<img data-kt-element="current-lang-flag" class="w-20px h-20px rounded me-3" src="//grindbet.pl/assets/media/flags/united-states.svg" alt="" />
 									<span data-kt-element="current-lang-name" class="me-1">English</span>
 									<i class="ki-outline ki-down fs-5 text-muted rotate-180 m-0"></i>
 								</button>
@@ -163,7 +163,7 @@
 									<div class="menu-item px-3">
 										<a href="#" class="menu-link d-flex px-5" data-kt-lang="English">
 											<span class="symbol symbol-20px me-4">
-												<img data-kt-element="lang-flag" class="rounded-1" src="//gadgetforyou.pl/assets/media/flags/united-states.svg" alt="" />
+												<img data-kt-element="lang-flag" class="rounded-1" src="//grindbet.pl/assets/media/flags/united-states.svg" alt="" />
 											</span>
 											<span data-kt-element="lang-name">English</span>
 										</a>
@@ -186,11 +186,11 @@
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-		<script src="//gadgetforyou.pl/assets/plugins/global/plugins.bundle.js"></script>
-		<script src="//gadgetforyou.pl/assets/js/scripts.bundle.js"></script>
+		<script src="//grindbet.pl/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="//grindbet.pl/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="//gadgetforyou.pl/assets/js/custom/authentication/sign-in/general.js"></script>
+		<script src="//grindbet.pl/assets/js/custom/authentication/sign-in/general.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
 	</body>
