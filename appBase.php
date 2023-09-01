@@ -3,7 +3,7 @@
 
     session_start();
     $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-    $result = $conn->query("SELECT * FROM User WHERE Username='majda_admin'");
+    $result = $conn->query("SELECT * FROM user WHERE Username='majda_admin'");
 
     $row=$result->fetch_assoc();
     $_SESSION['Username'] = $row['Username'];
