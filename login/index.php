@@ -1,6 +1,5 @@
 <?php 
-	require_once "../userManagement.php";
-	require_once "../projectManagement.php";
+	require_once "../appBase.php";
 	$userMgt->redirectHomeIfLoggedIn();
 ?>
 <!doctype html>

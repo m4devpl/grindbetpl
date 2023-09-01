@@ -1,5 +1,5 @@
 <?php
-    require_once "../userManagement.php";
+    require_once "../appBase.php";
     $email = $_POST['email'];
     $password = $_POST['password'];
 
