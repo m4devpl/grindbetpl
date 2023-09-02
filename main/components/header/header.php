@@ -26,7 +26,7 @@
                     <!--begin::Menu-->
                     <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-600 menu-state-dark menu-arrow-gray-400 fw-semibold fw-semibold fs-6 align-items-stretch my-5 my-lg-0 px-2 px-lg-0" id="#kt_app_header_menu" data-kt-menu="true">
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-300,0" class="menu-item show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-300,0" class="menu-item show menu-here-bg menu-lg-down-accordion me-0 me-lg-2  <?php echo $headerMgt->isHomeActive(); ?>">
                             <!--begin:Menu link-->
                             <span class="menu-link">
                                 <span class="menu-icon">
@@ -54,7 +54,7 @@
                                                     <!--begin:Menu item-->
                                                     <div class="menu-item p-0 m-0">
                                                         <!--begin:Menu link-->
-                                                        <a href="//grindbet.pl" class="menu-link">
+                                                        <a href="//grindbet.pl" class="menu-link <?php echo $headerMgt->isPathActive('/'); ?>">
                                                             <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
                                                                 <i class="ki-duotone ki-element-11 text-info fs-1">
                                                                     <i class="path1"></i>
@@ -97,7 +97,7 @@
                                             <!--begin:Menu item-->
                                             <div class="menu-item p-0 m-0" *ngFor="let dashboard of sideDashboards">
                                                 <!--begin:Menu link-->
-                                                <a [routerLink]="dashboard.links[0]" class="menu-link py-2" routerLinkActive="active" #homeRouterLinkActive="routerLinkActive">
+                                                <a [routerLink]="dashboard.links[0]" class="menu-link py-2">
                                                     <span class="menu-icon me-3" [innerHTML]="dashboard.iconTemplate"></span>
                                                     <span class="menu-title">{{ dashboard.name }}</span>
                                                 </a>
@@ -115,7 +115,7 @@
                         </div>
                         <!--end:Menu item-->
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-75,0" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-75,0" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2  <?php echo $headerMgt->isAppsActive(); ?>"">
                             <!--begin:Menu link-->
                             <span class="menu-link">
                                 <span class="menu-icon">
@@ -349,7 +349,7 @@
                         </div>
                         <!--end:Menu item-->
                         <!--begin:Menu item-->
-                        <div class="menu-item me-0 me-lg-2">
+                        <div class="menu-item me-0 me-lg-2 <?php echo $headerMgt->isCalendarActive(); ?>"">
                             <!--begin:Menu link-->
                             <a href="//grindbet.pl/home/calendar" class="menu-link">
                                 <span class="menu-icon">

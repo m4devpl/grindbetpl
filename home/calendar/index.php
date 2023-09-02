@@ -1,4 +1,8 @@
-<?php require_once "../../appBase.php"; ?>
+<?php 
+    $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+    require_once "$rootDir\appBase.php";
+    $userMgt->checkIfUserIsLoggedIn();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -45,7 +49,7 @@
         <!--begin::Page-->
         <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
             <!--begin::Header-->
-            <?php require_once "../../main/components/header/header.php"; ?>
+            <?php require_once "$rootDir\main\components\header\header.php"; ?>
             <!--end::Header-->
             <!--begin::Wrapper-->
             <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
@@ -343,7 +347,7 @@
             </div>
             <!--end::Wrapper-->
             <!--begin::Footer-->
-            <?php require_once "../../main/components/footer/footer.php"; ?>
+            <?php require_once "$rootDir/main/components/footer/footer.php"; ?>
             <!--end::Footer-->
         </div>
         <!--end::Page-->
@@ -352,7 +356,7 @@
     <!--begin::Javascript-->
     <!--begin::Theme mode setup on page load-->
     <script>
-        var defaultThemeMode = "dark";
+        var defaultThemeMode = "light";
 
         var themeMode;
         if (document.documentElement) {

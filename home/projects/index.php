@@ -1,6 +1,7 @@
-<?php 
-	require_once "../../appBase.php";
-	$userMgt->checkIfUserIsLoggedIn();
+<?php
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once "$rootDir\appBase.php";
+$userMgt->checkIfUserIsLoggedIn();
 ?>
 <!doctype html>
 <html lang="en">
@@ -8,8 +9,7 @@
 <head>
     <meta charset="utf-8">
     <title>GrindBet.PL | My Projects</title>
-    <meta name="description"
-        content="GRINDBET is a comprehensive productivity application that aims to help users in different areas of their lives. With its various features and tools, this app can assist you in managing your tasks and projects, maintaining your health, organizing your wallet and keeping track of your calendar.">
+    <meta name="description" content="GRINDBET is a comprehensive productivity application that aims to help users in different areas of their lives. With its various features and tools, this app can assist you in managing your tasks and projects, maintaining your health, organizing your wallet and keeping track of your calendar.">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
     <meta property="og:title" content="GrindBet.PL">
@@ -32,11 +32,12 @@
     <link href="//grindbet.pl/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="//grindbet.pl/assets/css/style.bundle.css" rel="stylesheet">
     <!--end::Global Stylesheets Bundle-->
-    <script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
+    <script>
+        // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }
+    </script>
 </head>
 
-<body id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on"
-    data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
+<body id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on" data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
     <!--begin::loader-->
     <div class="app-page-loader">
         <span class="spinner-border text-primary" role="status">
@@ -55,8 +56,7 @@
                 <!--begin::Toolbar-->
                 <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
                     <!--begin::Toolbar container-->
-                    <div id="kt_app_toolbar_container"
-                        class="app-container container-fluid d-flex flex-stack flex-row-fluid">
+                    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack flex-row-fluid">
                         <!--begin::Toolbar container-->
                         <div class="d-flex flex-stack flex-row-fluid">
                             <!--begin::Toolbar container-->
@@ -92,8 +92,7 @@
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex align-items-center me-3">
                                     <!--begin::Title-->
-                                    <h1
-                                        class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
                                         My Projects</h1>
                                     <!--end::Title-->
                                 </div>
@@ -103,13 +102,13 @@
                             <!--begin::Actions-->
                             <div class="d-flex align-items-center gap-3">
                                 <!--begin::Primary button-->
-                                <a href="#" class="btn btn-sm btn-flex btn-light h-35 p-3 text-dark"
-                                    data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
-                                    <i class="ki-duotone ki-send">
+                                <a href="#" class="btn btn-sm btn-flex btn-primary h-35 p-3 text-white shadow" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">
+                                    <i class="ki-duotone ki-plus-square">
                                         <i class="path1"></i>
                                         <i class="path2"></i>
+                                        <i class="path3"></i>
                                     </i>
-                                    Invite
+                                    New Project
                                 </a>
                                 <!--end::Primary button-->
                             </div>
@@ -129,7 +128,7 @@
                             <!--begin::Content-->
                             <div id="kt_app_content" class="app-content">
                                 <!--begin::Stats-->
-                                <div class="row gx-6 gx-xl-9">
+                                <div class="row gx-6 gx-xl-9 mb-5">
                                     <div class="col-lg-6 col-xxl-4">
                                         <!--begin::Card-->
                                         <div class="card h-100">
@@ -147,8 +146,7 @@
                                                     </div>
                                                     <!--end::Chart-->
                                                     <!--begin::Labels-->
-                                                    <div
-                                                        class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
+                                                    <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
                                                         <!--begin::Label-->
                                                         <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                                             <div class="bullet bg-primary me-3"></div>
@@ -181,34 +179,8 @@
                                     </div>
                                 </div>
                                 <!--end::Stats-->
-                                <!--begin::Toolbar-->
-                                <div class="d-flex flex-wrap flex-stack my-5">
-                                    <!--begin::Heading-->
-                                    <h2 class="fs-2 fw-semibold my-2">Projects
-                                        <span class="fs-6 text-gray-400 ms-1">by Status</span>
-                                    </h2>
-                                    <!--end::Heading-->
-                                    <!--begin::Controls-->
-                                    <div class="d-flex flex-wrap my-1">
-                                        <!--begin::Select wrapper-->
-                                        <div class="m-0">
-                                            <!--begin::Select-->
-                                            <select name="status" data-control="select2" data-hide-search="true"
-                                                class="form-select form-select-sm bg-body border-body fw-bold w-125px">
-                                                <option value="Active" selected="selected">Active</option>
-                                                <option value="Approved">In Progress</option>
-                                                <option value="Declined">To Do</option>
-                                                <option value="In Progress">Completed</option>
-                                            </select>
-                                            <!--end::Select-->
-                                        </div>
-                                        <!--end::Select wrapper-->
-                                    </div>
-                                    <!--end::Controls-->
-                                </div>
-                                <!--end::Toolbar-->
                                 <!--begin::Row-->
-                                <div class="row g-6 g-xl-9">
+                                <div class="row g-6 g-xl-9 my-5">
                                     <?php $projectMgt->getMyProjects(); ?>
                                 </div>
                                 <!--end::Row-->
@@ -251,10 +223,13 @@
         <!--end::Page-->
     </div>
     <!--end::App-->
+    <?php
+    require_once "../../main/components/wizards/create-project/create-project.php";
+    ?>
     <!--begin::Javascript-->
     <!--begin::Theme mode setup on page load-->
     <script>
-        var defaultThemeMode = "dark";
+        var defaultThemeMode = "light";
 
         var themeMode;
         if (document.documentElement) {
@@ -263,11 +238,14 @@
             } else {
                 if (localStorage.getItem("data-bs-theme") !== null) {
                     themeMode = localStorage.getItem("data-bs-theme");
-                } else { themeMode = defaultThemeMode; }
+                } else {
+                    themeMode = defaultThemeMode;
+                }
             }
             if (themeMode === "system") {
                 themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            } document.documentElement.setAttribute("data-bs-theme", themeMode);
+            }
+            document.documentElement.setAttribute("data-bs-theme", themeMode);
         }
     </script>
     <!--end::Theme mode setup on page load-->
@@ -275,7 +253,15 @@
     <script src="//grindbet.pl/assets/plugins/global/plugins.bundle.js"></script>
     <script src="//grindbet.pl/assets/js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
+    <!--begin::Custom Javascript(used for this page only)-->
     <script src="//grindbet.pl/assets/js/custom/apps/projects/list/list.js"></script>
+    <script src="//grindbet.pl/assets/js/widgets.bundle.js"></script>
+    <script src="//grindbet.pl/assets/js/custom/widgets.js"></script>
+    <script src="//grindbet.pl/assets/js/custom/utilities/modals/create-project/type.js"></script>
+    <script src="//grindbet.pl/assets/js/custom/utilities/modals/create-project/settings.js"></script>
+    <script src="//grindbet.pl/assets/js/custom/utilities/modals/create-project/targets.js"></script>
+    <script src="//grindbet.pl/assets/js/custom/utilities/modals/create-project/main.js"></script>
+    <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>
 

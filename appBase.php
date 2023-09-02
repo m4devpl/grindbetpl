@@ -1,6 +1,7 @@
 <?php
 require_once "config/config.php";
 
+$currentURL = $_SERVER['REQUEST_URI'];
 $dbConnection;
 $username;
 $firstName;
@@ -9,7 +10,8 @@ $pictureURL;
 $emailAddress;
 $themeMode;
 $userMgt = new UserManagement();
-$projectMgt = new ProjectManagement;
+$projectMgt = new ProjectManagement();
+$headerMgt = new HeaderManagement();
 
 session_start();
 
@@ -173,6 +175,27 @@ class ProjectManagement
                 END;
         }
     }
+
+    public function createNewProject($projectCustomer, $projectPicture, $projectName, $projectDescription, $projectReleaseDate) {
+        global $dbConnection;
+
+        $query = "INSERT INTO project(`Name`, `Customer Name`, `Short Description`, `Description`, `Picture`, `Release Date`, `Category`) VALUES ('$projectName', '$projectCustomer', '$projectDescription', '$projectDescription', ?, '$projectReleaseDate','');";
+        $statement = $dbConnection->prepare($query);
+        $statement->bind_param('s', $projectPicture);
+        if ($statement->execute())
+        {
+            return $dbConnection->insert_id;
+        } else return "";
+    }
+    public function assignUserToProject($projectID, $username, $type) {
+        global $dbConnection;
+
+        $query = "INSERT INTO project_assigned_user  VALUES ('$projectID', '$username', '$type');";
+        if ($result = $dbConnection->query($query))
+        {
+            return true;
+        } else false;
+    }
 }
 
 class UserManagement
@@ -235,5 +258,39 @@ class UserManagement
             header("Location: {$webBaseURL}");
             exit();
         }
+    }
+}
+
+class HeaderManagement
+{
+    private $homePaths = array("/");
+    private $appsPaths = array("/home/projects/");
+    private $calendarPaths = array("/home/calendar/");
+
+
+    public function isHomeActive() {
+        global $currentURL;
+        if (in_array($currentURL, $this->homePaths)) {
+            return "show here";
+        } else return "";
+    }
+    public function isAppsActive() {
+        global $currentURL;
+        if (in_array($currentURL, $this->appsPaths)) {
+            return "show here";
+        } else return "";
+    }
+    public function isCalendarActive() {
+        global $currentURL;
+        if (in_array($currentURL, $this->calendarPaths)) {
+            return "show here";
+        } else return "";
+    }
+
+    public function isPathActive($pathToCheck) {
+        global $currentURL;
+        if ($pathToCheck == $currentURL) {
+            return "active";
+        } else return "";
     }
 }

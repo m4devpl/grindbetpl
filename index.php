@@ -1,5 +1,6 @@
 <?php 
-	require_once "appBase.php";
+	$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+	require_once "$rootDir\appBase.php";
 	$userMgt->checkIfUserIsLoggedIn();
 ?>
 <!doctype html>
@@ -50,7 +51,7 @@
 		<!--begin::Page-->
 		<div class="app-page flex-column flex-column-fluid" id="kt_app_page">
 			<!--begin::Header-->
-			<?php require_once "main/components/header/header.php"; ?>
+			<?php require_once "$rootDir\main\components\header\header.php"; ?>
 			<!--end::Header-->
 			<!--begin::Wrapper-->
 			<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
@@ -86,20 +87,6 @@
 								<!--end::Page title-->
 							</div>
 							<!--end::Toolbar container-->
-							<!--begin::Actions-->
-							<div class="d-flex align-items-center gap-3">
-								<!--begin::Primary button-->
-								<a href="#" class="btn btn-sm btn-flex btn-light h-35 p-3 text-dark"
-									data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
-									<i class="ki-duotone ki-send">
-										<i class="path1"></i>
-										<i class="path2"></i>
-									</i>
-									Invite
-								</a>
-								<!--end::Primary button-->
-							</div>
-							<!--end::Actions-->
 						</div>
 						<!--end::Toolbar container-->
 					</div>
@@ -1257,7 +1244,7 @@
 			</div>
 			<!--end::Wrapper-->
 			<!--begin::Footer-->
-			<?php require_once "main/components/footer/footer.php"; ?>
+			<?php require_once "$rootDir/main/components/footer/footer.php"; ?>
 			<!--end::Footer-->
 		</div>
 		<!--end::Page-->
@@ -1266,7 +1253,7 @@
 	<!--begin::Javascript-->
 	<!--begin::Theme mode setup on page load-->
 	<script>
-		var defaultThemeMode = "dark";
+		var defaultThemeMode = "light";
 
 		var themeMode;
 		if (document.documentElement) {

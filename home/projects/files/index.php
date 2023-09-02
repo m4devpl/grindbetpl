@@ -1,4 +1,7 @@
-<?php require_once "../../../appBase.php"; ?>
+<?php 
+    $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+    require_once "$rootDir\appBase.php";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -618,7 +621,7 @@
     <!--begin::Javascript-->
     <!--begin::Theme mode setup on page load-->
     <script>
-        var defaultThemeMode = "dark";
+        var defaultThemeMode = "light";
 
         var themeMode;
         if (document.documentElement) {
