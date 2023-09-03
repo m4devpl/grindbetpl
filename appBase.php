@@ -187,7 +187,7 @@ class ProjectManagement
             return $dbConnection->insert_id;
         } else return "";
     }
-    
+
     public function assignUserToProject($projectID, $username, $type) {
         global $dbConnection;
 

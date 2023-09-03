@@ -1,5 +1,5 @@
 <?php
-$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+$rootDir = "../";
 require_once "$rootDir\appBase.php";
 $userMgt->checkIfUserIsLoggedIn();
 

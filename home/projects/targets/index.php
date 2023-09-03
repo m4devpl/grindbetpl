@@ -1,5 +1,5 @@
 <?php
-$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+$rootDir = "../../../";
 require_once "$rootDir\appBase.php";
 $projectID = htmlentities($_GET['project'], ENT_QUOTES);
 $project = new Project($projectID);
