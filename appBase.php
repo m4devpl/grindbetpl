@@ -94,7 +94,7 @@ class ProjectManagement
                     <!--begin::Col-->
                     <div class="col-md-6 col-xl-4">
                         <!--begin::Card-->
-                        <a href="//grindbet.pl/home/projects/project?project=1"
+                        <a href="//grindbet.pl/home/projects/project?project=$projectID"
                             class="card border-hover-primary">
                             <!--begin::Card header-->
                             <div class="card-header border-0 pt-9">
@@ -187,6 +187,7 @@ class ProjectManagement
             return $dbConnection->insert_id;
         } else return "";
     }
+    
     public function assignUserToProject($projectID, $username, $type) {
         global $dbConnection;
 
@@ -198,6 +199,44 @@ class ProjectManagement
     }
 }
 
+class Project {
+    public $id;
+    public $name;
+    public $status;
+    public $shortDescription;
+    public $description;
+    public $releaseDate;
+    public $projectPicture;
+    public $projectStatus;
+
+    public function __construct($projectID) {
+        $this->getProject($projectID);
+
+    }
+
+    protected function getProject($projectID) {
+        global $dbConnection, $username, $webBaseURL;
+        
+        // CHECK IF ASSIGNED PROJECT EXISTS
+        $query = "SELECT * FROM project INNER JOIN project_assigned_user ON project_assigned_user.`Project ID` = '$projectID' AND project_assigned_user.Username = '$username' AND project.ID = '$projectID'";
+        $result = $dbConnection->query($query);
+
+        if ($result->num_rows>0) {
+            $row = $result->fetch_assoc();
+            $this->id = $projectID;
+            $this->name = $row['Name'];
+            $this->status = $row['Status'];
+            $this->shortDescription = $row['Short Description'];
+            $this->description = $row['Description'];
+            $this->releaseDate = $row['Release Date'];
+            $this->projectPicture = "data:image/jpeg;base64," . base64_encode($row['Picture']);
+        } else {
+            header("Location: {$webBaseURL}/404/");
+            exit();
+        }
+    }
+
+}
 class UserManagement
 {
 

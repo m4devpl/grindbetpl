@@ -16,8 +16,7 @@ var KTModalCreateProjectTargets = (function () {
           a.revalidateField("tags");
         }),
         $(r.querySelector('[name="target_due_date"]')).flatpickr({
-          enableTime: !0,
-          dateFormat: "d, M Y, H:i",
+          dateFormat: "M d ,Y",
         }),
         $(r.querySelector('[name="target_assign"]')).on("change", function () {
           a.revalidateField("target_assign");

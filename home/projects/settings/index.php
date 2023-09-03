@@ -1,6 +1,8 @@
-<?php 
-    $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-    require_once "$rootDir\appBase.php";
+<?php
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once "$rootDir\appBase.php";
+$projectID = htmlentities($_GET['project'], ENT_QUOTES);
+$project = new Project($projectID);
 ?>
 <!doctype html>
 <html lang="en">
@@ -208,7 +210,7 @@
                                         <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
                                             <!--begin::Image-->
                                             <div class="d-flex flex-center flex-shrink-0 bg-light rounded w-100px h-100px w-lg-150px h-lg-150px me-7 mb-4">
-                                                <img class="mw-50px mw-lg-75px" src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" alt="image" />
+                                                <img class="mw-50px mw-lg-75px" src="<?php echo $project->projectPicture; ?>" alt="image" />
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Wrapper-->
@@ -219,12 +221,12 @@
                                                     <div class="d-flex flex-column">
                                                         <!--begin::Status-->
                                                         <div class="d-flex align-items-center mb-1">
-                                                            <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bold me-3">GrindBet.PL</a>
-                                                            <span class="badge badge-light-info me-auto">In Progress</span>
+                                                            <span class="text-gray-800 fs-2 fw-bold me-3"><?php echo $project->name; ?></span>
+                                                            <span class="badge badge-light-info me-auto"><?php echo $project->status; ?></span>
                                                         </div>
                                                         <!--end::Status-->
                                                         <!--begin::Description-->
-                                                        <div class="d-flex flex-wrap fw-semibold mb-4 fs-5 text-gray-400">Comprehensive productivity application</div>
+                                                        <div class="d-flex flex-wrap fw-semibold mb-4 fs-5 text-gray-400"><?php echo $project->shortDescription; ?></div>
                                                         <!--end::Description-->
                                                     </div>
                                                     <!--end::Details-->
@@ -260,7 +262,7 @@
                                                         <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                                             <!--begin::Number-->
                                                             <div class="d-flex align-items-center">
-                                                                <div class="fs-4 fw-bold">Dec 30, 2023</div>
+                                                                <div class="fs-4 fw-bold"><?php echo $project->releaseDate; ?></div>
                                                             </div>
                                                             <!--end::Number-->
                                                             <!--begin::Label-->
@@ -308,32 +310,32 @@
                                         <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
                                             <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/project?project=1">Overview</a>
+                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/project?project=<?php echo $project->id; ?>">Overview</a>
                                             </li>
                                             <!--end::Nav item-->
                                             <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/targets?project=1">Targets</a>
+                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/targets?project=<?php echo $project->id; ?>">Targets</a>
                                             </li>
                                             <!--end::Nav item-->
                                             <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/users?project=1">Users</a>
+                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/users?project=<?php echo $project->id; ?>">Users</a>
                                             </li>
                                             <!--end::Nav item-->
                                             <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/files?project=1">Files</a>
+                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/files?project=<?php echo $project->id; ?>">Files</a>
                                             </li>
                                             <!--end::Nav item-->
                                             <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/activity?project=1">Activity</a>
+                                                <a class="nav-link text-active-primary py-5 me-6" href="//grindbet.pl/home/projects/activity?project=<?php echo $project->id; ?>">Activity</a>
                                             </li>
                                             <!--end::Nav item-->
                                             <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 active" href="//grindbet.pl/home/projects/settings?project=1">Settings</a>
+                                                <a class="nav-link text-active-primary py-5 me-6 active" href="//grindbet.pl/home/projects/settings?project=<?php echo $project->id; ?>">Settings</a>
                                             </li>
                                             <!--end::Nav item-->
                                         </ul>
@@ -366,7 +368,7 @@
                                                     <!--begin::Image input-->
                                                     <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
                                                         <!--begin::Preview existing avatar-->
-                                                        <div class="image-input-wrapper w-125px h-125px bgi-position-center" style="background-size: 75%; background-image: url('//grindbet.pl/assets/media/logos/grindbet_web_logo.png')"></div>
+                                                        <div class="image-input-wrapper w-125px h-125px bgi-position-center" style="background-size: 75%; background-image: url('<?php echo $project->projectPicture; ?>')"></div>
                                                         <!--end::Preview existing avatar-->
                                                         <!--begin::Label-->
                                                         <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -405,12 +407,12 @@
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div class="col-xl-9 fv-row">
-                                                    <input type="text" class="form-control form-control-solid" name="name" value="9 Degree Award" />
+                                                    <input type="text" class="form-control form-control-solid" name="name" value="<?php echo $project->name; ?>" />
                                                 </div>
                                             </div>
                                             <!--end::Row-->
                                             <!--begin::Row-->
-                                            <div class="row mb-8">
+                                            <div class="row mb-8 d-none">
                                                 <!--begin::Col-->
                                                 <div class="col-xl-3">
                                                     <div class="fs-6 fw-semibold mt-2 mb-3">Project Type</div>
@@ -431,7 +433,7 @@
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div class="col-xl-9 fv-row">
-                                                    <textarea name="description" class="form-control form-control-solid h-100px">Organize your thoughts with an outline. Here’s the outlining strategy I use. I promise it works like a charm. Not only will it make writing your blog post easier, it’ll help you make your message</textarea>
+                                                    <textarea name="description" class="form-control form-control-solid h-100px"><?php echo $project->description; ?></textarea>
                                                 </div>
                                                 <!--begin::Col-->
                                             </div>
@@ -451,29 +453,6 @@
                                                     </div>
                                                 </div>
                                                 <!--begin::Col-->
-                                            </div>
-                                            <!--end::Row-->
-                                            <!--begin::Row-->
-                                            <div class="row mb-8">
-                                                <!--begin::Col-->
-                                                <div class="col-xl-3">
-                                                    <div class="fs-6 fw-semibold mt-2 mb-3">Notifications</div>
-                                                </div>
-                                                <!--end::Col-->
-                                                <!--begin::Col-->
-                                                <div class="col-xl-9">
-                                                    <div class="d-flex fw-semibold h-100">
-                                                        <div class="form-check form-check-custom form-check-solid me-9">
-                                                            <input class="form-check-input" type="checkbox" value="" id="email" />
-                                                            <label class="form-check-label ms-3" for="email">Email</label>
-                                                        </div>
-                                                        <div class="form-check form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="" id="phone" checked="checked" />
-                                                            <label class="form-check-label ms-3" for="phone">Phone</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--end::Col-->
                                             </div>
                                             <!--end::Row-->
                                             <!--begin::Row-->
@@ -576,7 +555,7 @@
     <script src="//grindbet.pl/assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <!--end::Vendors Javascript-->
     <!--begin::Custom Javascript(used for this page only)-->
-    <script src="//grindbet.pl/assets/js/custom/apps/projects/project/project.js"></script>
+    <script src="//grindbet.pl/assets/js/custom/apps/projects/settings/settings.js"></script>
     <script src="//grindbet.pl/assets/js/widgets.bundle.js"></script>
     <script src="//grindbet.pl/assets/js/custom/widgets.js"></script>
     <script src="//grindbet.pl/assets/js/custom/apps/chat/chat.js"></script>

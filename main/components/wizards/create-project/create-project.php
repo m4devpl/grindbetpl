@@ -212,7 +212,7 @@
 									<div class="d-flex flex-stack">
 										<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="settings-previous">Project Type</button>
 										<button type="button" class="btn btn-lg btn-primary" data-kt-element="settings-next">
-											<span class="indicator-label">Project Type</span>
+											<span class="indicator-label">Set First Target</span>
 											<span class="indicator-progress">Please wait...
 												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 										</button>
