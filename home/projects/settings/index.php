@@ -1,6 +1,6 @@
 <?php
 $rootDir = "../../../";
-require_once "$rootDir\appBase.php";
+require_once "$rootDir/appBase.php";
 $projectID = htmlentities($_GET['project'], ENT_QUOTES);
 $project = new Project($projectID);
 ?>

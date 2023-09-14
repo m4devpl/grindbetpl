@@ -1,6 +1,6 @@
 <?php
-$rootDir = "../";
-require_once "$rootDir\appBase.php";
+$rootDir = "../../";
+require_once "$rootDir/appBase.php";
 $userMgt->checkIfUserIsLoggedIn();
 
 $projectType = htmlentities($_POST['project_type'], ENT_QUOTES);

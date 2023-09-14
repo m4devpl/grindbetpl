@@ -1,6 +1,6 @@
 <?php
 $rootDir = "../../";
-require_once "$rootDir\appBase.php";
+require_once "$rootDir/appBase.php";
 $userMgt->checkIfUserIsLoggedIn();
 ?>
 <!doctype html>
