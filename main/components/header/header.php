@@ -49,30 +49,41 @@
                                         <div class="mb-3 mb-lg-0 py-3 px-3 py-lg-6 px-lg-6" [class.col-lg-8]="sideDashboards.length" [class.col-lg-12]="!sideDashboards.length">
                                             <!--begin:Row-->
                                             <div class="row">
-                                                <!--begin:Col-->
-                                                <div class="col-lg-6 mb-3">
-                                                    <!--begin:Menu item-->
-                                                    <div class="menu-item p-0 m-0">
-                                                        <!--begin:Menu link-->
-                                                        <a href="//grindbet.pl" class="menu-link <?php echo $headerMgt->isPathActive('/'); ?>">
-                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
-                                                                <i class="ki-duotone ki-element-11 text-info fs-1">
-                                                                    <i class="path1"></i>
-                                                                    <i class="path2"></i>
-                                                                    <i class="path3"></i>
-                                                                    <i class="path4"></i>
-                                                                </i>
-                                                            </span>
-                                                            <span class="d-flex flex-column">
-                                                                <span class="fs-6 fw-bold text-gray-800">Default</span>
-                                                                <span class="fs-7 fw-semibold text-muted">Reports & statistics</span>
-                                                            </span>
-                                                        </a>
-                                                        <!--end:Menu link-->
-                                                    </div>
-                                                    <!--end:Menu item-->
-                                                </div>
-                                                <!--end:Col-->
+                                                <?php
+
+                                                    $dashboardResult = $dbConnection->query("SELECT * FROM app_dashboard WHERE `Menu Position` = 'Main'");
+
+                                                    while($dashboardRow = $dashboardResult->fetch_assoc()) {
+                                                        $name = $dashboardRow['Name'];
+                                                        $description = $dashboardRow['Description'];
+                                                        $iconHTML = $dashboardRow['Icon HTML'];
+                                                        $routeLink = $dashboardRow['Route Link'];
+
+                                                        $isPathActive = $headerMgt->isPathActive($routeLink);
+                                                        echo<<<END
+                                                        <!--begin:Col-->
+                                                        <div class="col-lg-6 mb-3">
+                                                            <!--begin:Menu item-->
+                                                            <div class="menu-item p-0 m-0">
+                                                                <!--begin:Menu link-->
+                                                                <a href="//grindbet.pl$routeLink" class="menu-link $isPathActive">
+                                                                    <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
+                                                                        $iconHTML
+                                                                    </span>
+                                                                    <span class="d-flex flex-column">
+                                                                        <span class="fs-6 fw-bold text-gray-800">$name</span>
+                                                                        <span class="fs-7 fw-semibold text-muted">$description</span>
+                                                                    </span>
+                                                                </a>
+                                                                <!--end:Menu link-->
+                                                            </div>
+                                                            <!--end:Menu item-->
+                                                        </div>
+                                                        <!--end:Col-->
+                                                            
+                                                        END;
+                                                    }
+                                                ?>
                                             </div>
                                             <!--end:Row-->
                                             <div class="separator separator-dashed mx-5 my-5"></div>

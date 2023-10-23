@@ -48,32 +48,40 @@ class ProjectManagement
     {
         global $dbConnection, $username;
 
-        $result = $dbConnection->query("SELECT * FROM `project_assigned_user` WHERE `Username`='$username'");
-        return $result->num_rows;
+        $result = $dbConnection->query("SELECT COUNT(*) FROM project INNER JOIN project_assigned_user ON project_assigned_user.Username = '$username' AND project.ID = project_assigned_user.`Project ID`");
+        return $result->fetch_assoc()['COUNT(*)'];
     }
 
     public function getNoOfActiveProjects()
     {
         global $dbConnection, $username;
 
-        $result = $dbConnection->query("SELECT * FROM project INNER JOIN project_assigned_user ON project_assigned_user.Username = '$username' AND project.ID = project_assigned_user.`Project ID` AND project.Status = 'In Progress'");
-        return $result->num_rows;
+        $result = $dbConnection->query("SELECT COUNT(*) FROM project INNER JOIN project_assigned_user ON project_assigned_user.Username = '$username' AND project.ID = project_assigned_user.`Project ID` AND project.Status = 'In Progress'");
+        return $result->fetch_assoc()['COUNT(*)'];
     }
 
     public function getNoOfCompletedProjects()
     {
         global $dbConnection, $username;
 
-        $result = $dbConnection->query("SELECT * FROM project INNER JOIN project_assigned_user ON project_assigned_user.Username = '$username' AND project.ID = project_assigned_user.`Project ID` AND project.Status = 'Completed'");
-        return $result->num_rows;
+        $result = $dbConnection->query("SELECT COUNT(*) FROM project INNER JOIN project_assigned_user ON project_assigned_user.Username = '$username' AND project.ID = project_assigned_user.`Project ID` AND project.Status = 'Completed'");
+        return $result->fetch_assoc()['COUNT(*)'];
     }
 
     public function getNoOfNotStartedProjects()
     {
         global $dbConnection, $username;
 
-        $result = $dbConnection->query("SELECT * FROM project INNER JOIN project_assigned_user ON project_assigned_user.Username = '$username' AND project.ID = project_assigned_user.`Project ID` AND project.Status = 'Not Started'");
-        return $result->num_rows;
+        $result = $dbConnection->query("SELECT COUNT(*) FROM project INNER JOIN project_assigned_user ON project_assigned_user.Username = '$username' AND project.ID = project_assigned_user.`Project ID` AND project.Status = 'Not Started'");
+        return $result->fetch_assoc()['COUNT(*)'];
+    }
+
+    public function getNoOfOpenUserTargets()
+    {
+        global $dbConnection, $username;
+    
+        $result = $dbConnection->query("SELECT COUNT(*) FROM project_target INNER JOIN project_target_assigned_user ON project_target_assigned_user.Username = '$username' AND project_target.`Project ID` = `project_target_assigned_user`.`Project ID` AND `project_target`.`Target ID` = `project_target_assigned_user`.`Target ID` AND (project_target.Status = 'Yet to Start' OR project_target.Status = 'In Progress');");
+        return $result->fetch_assoc()['COUNT(*)'];
     }
 
     public function getMyProjects()
@@ -211,7 +219,6 @@ class Project {
 
     public function __construct($projectID) {
         $this->getProject($projectID);
-
     }
 
     protected function getProject($projectID) {
@@ -230,6 +237,53 @@ class Project {
             $this->description = $row['Description'];
             $this->releaseDate = $row['Release Date'];
             $this->projectPicture = "data:image/jpeg;base64," . base64_encode($row['Picture']);
+        } else {
+            header("Location: {$webBaseURL}/404/");
+            exit();
+        }
+    }
+
+    public function getNoOfAssignedUsers()
+    {
+        global $dbConnection;
+
+        $result = $dbConnection->query("SELECT * FROM project_assigned_user WHERE `Project ID` = '$this->id'");
+        return $result->num_rows;
+    }
+
+}
+
+class ProjectTarget {
+    public $targetID;
+    public $projectID;
+    public $title;
+    public $description;
+    public $status;
+    public $category;
+    public $dueDate;
+    public $tags;
+
+    public function __construct($projectID, $targetID) {
+        $this->getProjectTarget($projectID, $targetID);
+    }
+
+    protected function getProjectTarget($projectID, $targetID) {
+        global $dbConnection, $username, $webBaseURL;
+        
+        // CHECK IF ASSIGNED PROJECT TARGET EXISTS
+        $query = "SELECT * FROM project_target INNER JOIN project_target_assigned_user ON project_target_assigned_user.`Project ID` = '$projectID' AND project_target_assigned_user.Username = '$username' AND project_target_assigned_user.`Target ID` = '$targetID' AND project_target.`Project ID` = '$projectID' AND project_target.`Target ID` = project_target_assigned_user.`Target ID`";
+        $result = $dbConnection->query($query);
+
+        if ($result->num_rows>0) {
+            $row = $result->fetch_assoc();
+            $this->targetID = $targetID;
+            $this->projectID = $projectID;
+            $this->title = $row['Title'];
+            $this->description = $row['Description'];
+            $this->status = $row['Status'];
+            $this->category = $row['Category'];
+            $this->dueDate = $row['Due Date'];
+            $this->tags = $row['Tags'];
         } else {
             header("Location: {$webBaseURL}/404/");
             exit();

@@ -9,7 +9,7 @@ $project = new Project($projectID);
 
 <head>
     <meta charset="utf-8">
-    <title>GrindBet.PL | My Projects</title>
+    <title>GrindBet.PL | Settings</title>
     <meta name="description" content="GRINDBET is a comprehensive productivity application that aims to help users in different areas of their lives. With its various features and tools, this app can assist you in managing your tasks and projects, maintaining your health, organizing your wallet and keeping track of your calendar.">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
@@ -66,7 +66,7 @@ $project = new Project($projectID);
                                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2 fs-7">
                                     <!--begin::Item-->
                                     <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
-                                        <a href="//grindbet.pl" class="text-white text-hover-primary">
+                                        <a href="//grindbet.pl/" class="text-white text-hover-primary">
                                             <i class="ki-outline ki-home text-gray-700 fs-6"></i>
                                         </a>
                                     </li>
@@ -77,7 +77,11 @@ $project = new Project($projectID);
                                     </li>
                                     <!--end::Item-->
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Apps</li>
+                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                        <a href="//grindbet.pl/home/projects" class="text-gray-700 text-hover-dark">
+                                            My Projects
+                                        </a>
+                                    </li>
                                     <!--end::Item-->
                                     <!--begin::Item-->
                                     <li class="breadcrumb-item">
@@ -85,110 +89,12 @@ $project = new Project($projectID);
                                     </li>
                                     <!--end::Item-->
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Projects</li>
+                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1"><?php echo $project->name; ?></li>
                                     <!--end::Item-->
                                 </ul>
                                 <!--end::Breadcrumb-->
-                                <!--begin::Page title-->
-                                <div class="page-title d-flex align-items-center me-3">
-                                    <!--begin::Title-->
-                                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Project Settings</h1>
-                                    <!--end::Title-->
-                                </div>
-                                <!--end::Page title-->
                             </div>
                             <!--end::Toolbar container-->
-                            <!--begin::Actions-->
-                            <div class="d-flex align-items-center gap-3">
-                                <!--begin::Secondary button-->
-                                <div class="m-0">
-                                    <!--begin::Menu-->
-                                    <a href="#" class="btn btn-flex btn-sm btn-body btn-color-gray-600 h-35px bg-body fw-bold" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">History</a>
-                                    <!--begin::Menu 1-->
-                                    <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_64b780971705a">
-                                        <!--begin::Header-->
-                                        <div class="px-7 py-5">
-                                            <div class="fs-5 text-dark fw-bold">Filter Options</div>
-                                        </div>
-                                        <!--end::Header-->
-                                        <!--begin::Menu separator-->
-                                        <div class="separator border-gray-200"></div>
-                                        <!--end::Menu separator-->
-                                        <!--begin::Form-->
-                                        <div class="px-7 py-5">
-                                            <!--begin::Input group-->
-                                            <div class="mb-10">
-                                                <!--begin::Label-->
-                                                <label class="form-label fw-semibold">Status:</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <div>
-                                                    <select class="form-select form-select-solid" multiple="multiple" data-kt-select2="true" data-close-on-select="false" data-placeholder="Select option" data-dropdown-parent="#kt_menu_64b780971705a" data-allow-clear="true">
-                                                        <option></option>
-                                                        <option value="1">Approved</option>
-                                                        <option value="2">Pending</option>
-                                                        <option value="2">In Process</option>
-                                                        <option value="2">Rejected</option>
-                                                    </select>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="mb-10">
-                                                <!--begin::Label-->
-                                                <label class="form-label fw-semibold">Member Type:</label>
-                                                <!--end::Label-->
-                                                <!--begin::Options-->
-                                                <div class="d-flex">
-                                                    <!--begin::Options-->
-                                                    <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="checkbox" value="1" />
-                                                        <span class="form-check-label">Author</span>
-                                                    </label>
-                                                    <!--end::Options-->
-                                                    <!--begin::Options-->
-                                                    <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                        <span class="form-check-label">Customer</span>
-                                                    </label>
-                                                    <!--end::Options-->
-                                                </div>
-                                                <!--end::Options-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="mb-10">
-                                                <!--begin::Label-->
-                                                <label class="form-label fw-semibold">Notifications:</label>
-                                                <!--end::Label-->
-                                                <!--begin::Switch-->
-                                                <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                    <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                    <label class="form-check-label">Enabled</label>
-                                                </div>
-                                                <!--end::Switch-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Actions-->
-                                            <div class="d-flex justify-content-end">
-                                                <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                            </div>
-                                            <!--end::Actions-->
-                                        </div>
-                                        <!--end::Form-->
-                                    </div>
-                                    <!--end::Menu 1-->
-                                    <!--end::Menu-->
-                                </div>
-                                <!--end::Secondary button-->
-                                <!--begin::Primary button-->
-                                <a href="#" class="btn btn-sm btn-flex btn-dark h-35 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
-                                    <i class="ki-outline ki-plus-square fs-2"></i>Invite</a>
-                                <!--end::Primary button-->
-                            </div>
-                            <!--end::Actions-->
                         </div>
                         <!--end::Toolbar container-->
                     </div>
@@ -274,12 +180,15 @@ $project = new Project($projectID);
                                                         <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                                             <!--begin::Number-->
                                                             <div class="d-flex align-items-center">
-                                                                <i class="ki-outline ki-arrow-down fs-3 text-danger me-2"></i>
-                                                                <div class="fs-4 fw-bold" data-kt-countup="true" data-kt-countup-value="75">0</div>
+                                                                <i class="ki-duotone ki-abstract-37 fs-3 text-grey me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>
+                                                                <div class="fs-4 fw-bold" data-kt-countup="true" data-kt-countup-value="<?php echo $projectMgt->getNoOfOpenUserTargets(); ?>"><?php echo $projectMgt->getNoOfOpenUserTargets(); ?></div>
                                                             </div>
                                                             <!--end::Number-->
                                                             <!--begin::Label-->
-                                                            <div class="fw-semibold fs-6 text-gray-400">Open Tasks</div>
+                                                            <div class="fw-semibold fs-6 text-gray-400">Open Targets</div>
                                                             <!--end::Label-->
                                                         </div>
                                                         <!--end::Stat-->
@@ -287,16 +196,24 @@ $project = new Project($projectID);
                                                     <!--end::Stats-->
                                                     <!--begin::Users-->
                                                     <div class="symbol-group symbol-hover mb-3">
-                                                        <!--begin::User-->
-                                                        <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michael Eberon">
-                                                            <img alt="Pic" src="//grindbet.pl/assets/media/avatars/blank.png" />
-                                                        </div>
-                                                        <!--end::User-->
-                                                        <!--begin::User-->
-                                                        <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michael Eberon">
-                                                            <img alt="Pic" src="//grindbet.pl/assets/media/avatars/blank.png" />
-                                                        </div>
-                                                        <!--end::User-->
+                                                        <?php
+
+                                                        $userResult = $dbConnection->query("SELECT * FROM user INNER JOIN project_assigned_user ON user.username = project_assigned_user.Username AND project_assigned_user.`Project ID` = $projectID");
+
+                                                        while ($userRow = $userResult->fetch_assoc()) {
+                                                            $userFullName = $userRow['First Name'] . " " . $userRow['Last Name'];
+                                                            $userProfileURL = $userPictureURL = "data:image/jpeg;base64," . base64_encode($userRow['Picture']);
+                                                            echo <<<END
+                                                                <!--begin::User-->
+                                                                <div class="symbol symbol-35px symbol-circle"
+                                                                    data-bs-toggle="tooltip" title="$userFullName">
+                                                                    <img alt="Pic"
+                                                                        src="$userPictureURL" />
+                                                                </div>
+                                                                <!--end::User-->
+                                                            END;
+                                                        }
+                                                        ?>
                                                     </div>
                                                     <!--end::Users-->
                                                 </div>
