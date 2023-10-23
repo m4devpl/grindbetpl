@@ -1,6 +1,8 @@
 <?php
 require_once "../../../appBase.php";
 $userMgt->checkIfUserIsLoggedIn();
+
+$currMonthDate = date('Y-m-01');
 ?>
 <!doctype html>
 <html lang="en">
@@ -168,117 +170,184 @@ $userMgt->checkIfUserIsLoggedIn();
 									<!--begin::Col-->
 									<div class="col-xl-3">
 										<!--begin::Card widget 5-->
-										<div class="card card-flush mb-xl-10">
-											<!--begin::Header-->
-											<div class="card-header pt-5">
-												<!--begin::Title-->
-												<div class="card-title d-flex flex-column">
-													<!--begin::Info-->
-													<div class="d-flex align-items-center">
-														<!--begin::Amount-->
-														<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">$886.76</span>
-														<!--end::Amount-->
-														<!--begin::Badge-->
-														<span class="badge badge-light-danger fs-base">
-															<i class="ki-outline ki-arrow-down fs-5 text-danger ms-n1"></i>11.4%</span>
-														<!--end::Badge-->
-													</div>
-													<!--end::Info-->
-													<!--begin::Subtitle-->
-													<span class="text-gray-400 pt-1 fw-semibold fs-6">Account Size</span>
-													<!--end::Subtitle-->
-												</div>
-												<!--end::Title-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex align-items-end pt-0">
-												<!--begin::Progress-->
-												<div class="d-flex align-items-center flex-column mt-3 w-100">
-													<div class="d-flex justify-content-between w-100 mt-auto mb-2">
-														<span class="fw-bolder fs-6 text-dark">Starting 1000$</span>
-														<span class="fw-bold fs-6 text-danger">-113.24$</span>
-													</div>
-													<div class="h-8px mx-3 w-100 bg-light-danger rounded">
-														<div class="bg-dark rounded h-8px" role="progressbar" style="width: 62%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</div>
-												<!--end::Progress-->
-											</div>
-											<!--end::Card body-->
-										</div>
-										<!--end::Card widget 5-->
-										<!--begin::Card widget 5-->
-										<div class="card card-flush mb-xl-10">
-											<!--begin::Header-->
-											<div class="card-header pt-5">
-												<!--begin::Title-->
-												<div class="card-title d-flex flex-column">
-													<!--begin::Info-->
-													<div class="d-flex align-items-center">
-														<!--begin::Amount-->
-														<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">40%</span>
-														<!--end::Amount-->
-														<!--begin::Badge-->
-														<span class="badge badge-light-success fs-base">
-															<i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>4%</span>
-														<!--end::Badge-->
-													</div>
-													<!--end::Info-->
-													<!--begin::Subtitle-->
-													<span class="text-gray-400 pt-1 fw-semibold fs-6">Your effectiveness</span>
-													<!--end::Subtitle-->
-												</div>
-												<!--end::Title-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex align-items-end pt-0">
-												<!--begin::Progress-->
-												<div class="d-flex align-items-center flex-column mt-3 w-100">
-													<div class="d-flex justify-content-between w-100 mt-auto mb-2">
-														<span class="fw-bolder fs-6 text-dark">Take Profits</span>
-														<span class="fw-bold fs-6 text-gray-400">2</span>
-													</div>
-													<div class="h-8px mx-3 w-100 bg-light-success rounded">
-														<div class="bg-success rounded h-8px" role="progressbar" style="width: 16.6%;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="12"></div>
-													</div>
-												</div>
-												<!--end::Progress-->
-											</div>
-											<!--end::Card body-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex align-items-end pt-0">
-												<!--begin::Progress-->
-												<div class="d-flex align-items-center flex-column w-100">
-													<div class="d-flex justify-content-between w-100 mt-auto mb-2">
-														<span class="fw-bolder fs-6 text-dark">Breakevens</span>
-														<span class="fw-bold fs-6 text-gray-400">7</span>
-													</div>
-													<div class="h-8px mx-3 w-100 bg-light-warning rounded">
-														<div class="bg-warning rounded h-8px" role="progressbar" style="width: 58.3%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="12"></div>
-													</div>
-												</div>
-												<!--end::Progress-->
-											</div>
-											<!--end::Card body-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex align-items-end pt-0">
-												<!--begin::Progress-->
-												<div class="d-flex align-items-center flex-column w-100">
-													<div class="d-flex justify-content-between w-100 mt-auto mb-2">
-														<span class="fw-bolder fs-6 text-dark">Stop Losses</span>
-														<span class="fw-bold fs-6 text-gray-400">3</span>
-													</div>
-													<div class="h-8px mx-3 w-100 bg-light-danger rounded">
-														<div class="bg-danger rounded h-8px" role="progressbar" style="width: 25%;" aria-valuenow="3" aria-valuemin="0" aria-valuemax="12"></div>
-													</div>
-												</div>
-												<!--end::Progress-->
-											</div>
-											<!--end::Card body-->
-										</div>
-										<!--end::Card widget 5-->
+                                        <div class="card card-flush mb-xl-10">
+                                            <!--begin::Header-->
+                                            <div class="card-header pt-5">
+                                                <!--begin::Title-->
+                                                <div class="card-title d-flex flex-column">
+                                                    <!--begin::Info-->
+                                                    <div class="d-flex align-items-center">
+                                                        <?php
+                                                            $balance = 0;
+                                                            $balancePercent = "100%";
+                                                            $currDate = date('Y-m-d');
+                                                            
+                                                            // Get Starting Balance
+                                                            $balanceResult = $dbConnection->query("SELECT * FROM investments_account_size WHERE Username='$username' AND Date <= '$currDate' ORDER BY Date DESC LIMIT 1");
+                                                            if ($balanceResult->num_rows == 1) {
+                                                                $startingBalance = $balanceResult->fetch_assoc()['Size'];
+                                                                
+                                                                $profitLossForStartingBalanceResult = $dbConnection->query("SELECT SUM(Profit) FROM investments_tradingplan WHERE Username='$username' AND Date < '$currMonthDate'");
+                                                                if ($profitLossForStartingBalanceResult->num_rows>0) {
+                                                                    $startingBalance += $profitLossForStartingBalanceResult->fetch_assoc()['SUM(Profit)'];
+                                                                }
+                                                                
+                                                                // Get ProfitLoss State for This Month
+                                                                $profitLossThisMonthResult = $dbConnection->query("SELECT SUM(Profit) FROM investments_tradingplan WHERE Username='$username'");
+                                                                if ($profitLossThisMonthResult->num_rows > 0) {
+                                                                    $profitLoss = round($profitLossThisMonthResult->fetch_assoc()['SUM(Profit)'],2);
+
+                                                                    // Calc current balance
+                                                                    $balance = $startingBalance + $profitLoss;
+
+                                                                    // Check if ProfitLoss is Profit or Loss
+                                                                    if ($profitLoss>=0) {
+                                                                        $balancePercent = round((($startingBalance/$balance)*100),2);
+                                                                        $balancePercentString = $balancePercent.'%';
+                                                                        $progressColor = 'bg-success';
+                                                                        $profitColor = 'text-success';
+                                                                        $badgeProfitColor = 'badge-light-success';
+                                                                        $badgeProfitIcon = 'ki-arrow-up';
+                                                                        $profitLossString = '+$'.$profitLoss;
+                                                                    } else {
+                                                                        $balancePercent = round((($balance/$startingBalance)*100),2);
+                                                                        $balancePercentString = $balancePercent.'%';
+                                                                        $progressColor = 'bg-light-danger';
+                                                                        $profitColor = 'text-danger';
+                                                                        $badgeProfitIcon = 'ki-arrow-down';
+                                                                        $badgeProfitColor = 'badge-light-danger';
+                                                                        $profitLossString = '-$'.($profitLoss*-1);
+                                                                    } 
+                                                                }                 
+                                                            }
+                                                        ?>
+                                                        <!--begin::Amount-->
+                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">$<?php echo $balance; ?></span>
+                                                        <!--end::Amount-->
+                                                        <!--begin::Badge-->
+                                                        <span class="badge <?php echo $badgeProfitColor; ?> fs-base">
+                                                            <i class="ki-outline <?php echo $badgeProfitIcon; ?> fs-5 <?php echo $profitColor; ?> ms-n1"></i><?php echo 100-$balancePercent; ?>%</span>
+                                                        <!--end::Badge-->
+                                                    </div>
+                                                    <!--end::Info-->
+                                                    <!--begin::Subtitle-->
+                                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">Account Size</span>
+                                                    <!--end::Subtitle-->
+                                                </div>
+                                                <!--end::Title-->
+                                            </div>
+                                            <!--end::Header-->
+                                            <!--begin::Card body-->
+                                            <div class="card-body d-flex align-items-end pt-0">
+                                                <!--begin::Progress-->
+                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                        <span class="fw-bolder fs-6 text-dark">Starting $<?php echo $startingBalance; ?></span>
+                                                        <span class="fw-bold fs-6 <?php echo $profitColor; ?>"><?php echo $profitLossString; ?></span>
+                                                    </div>
+                                                    <div class="h-8px mx-3 w-100 <?php echo $progressColor; ?> rounded">
+                                                        <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $balancePercentString; ?>;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Progress-->
+                                            </div>
+                                            <!--end::Card body-->
+                                        </div>
+                                        <!--end::Card widget 5-->
+                                        <!--begin::Card widget 5-->
+                                        <div class="card card-flush mb-xl-10">
+                                            <?php
+                                            $tradeEffectivenessResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND Date >= '$currMonthDate'");
+
+                                            $tradesCount = $tradeEffectivenessResult->num_rows;
+
+                                            $tpTradeResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND State='TP' AND Date >= '$currMonthDate'");
+                                            $tpTradesCount = $tpTradeResult->num_rows;
+
+                                            $beTradeResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND State='BE' AND Date >= '$currMonthDate'");
+                                            $beTradesCount = $beTradeResult->num_rows;
+
+                                            $slTradeResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND State='SL' AND Date >= '$currMonthDate'");
+                                            $slTradesCount = $slTradeResult->num_rows;
+
+                                            $tradesToCount = $tpTradesCount + $beTradesCount + $slTradesCount;
+
+                                            $tpTradesPercent = (($tpTradesCount / $tradesToCount) * 100) . '%';
+                                            $beTradesPercent = (($beTradesCount / $tradesToCount) * 100) . '%';
+                                            $slTradesPercent = (($slTradesCount / $tradesToCount) * 100) . '%';
+
+                                            $effectiveness = round(($tpTradesCount / ($slTradesCount + $tpTradesCount)*100),0);
+
+                                            ?>
+                                            <!--begin::Header-->
+                                            <div class="card-header pt-5">
+                                                <!--begin::Title-->
+                                                <div class="card-title d-flex flex-column">
+                                                    <!--begin::Info-->
+                                                    <div class="d-flex align-items-center">
+                                                        <!--begin::Amount-->
+                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $effectiveness; ?>%</span>
+                                                        <!--end::Amount-->
+                                                        <!--begin::Badge-->
+                                                        <span class="badge badge-light-success fs-base d-none">
+                                                            <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                        <!--end::Badge-->
+                                                    </div>
+                                                    <!--end::Info-->
+                                                    <!--begin::Subtitle-->
+                                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">Your effectiveness</span>
+                                                    <!--end::Subtitle-->
+                                                </div>
+                                                <!--end::Title-->
+                                            </div>
+                                            <!--end::Header-->
+                                            <!--begin::Card body-->
+                                            <div class="card-body d-flex align-items-end pt-0">
+                                                <!--begin::Progress-->
+                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                        <span class="fw-bolder fs-6 text-dark">Take Profits</span>
+                                                        <span class="fw-bold fs-6 text-gray-400"><?php echo $tpTradesCount; ?></span>
+                                                    </div>
+                                                    <div class="h-8px mx-3 w-100 bg-light-success rounded">
+                                                        <div class="bg-success rounded h-8px" role="progressbar" style="width: <?php echo $tpTradesPercent; ?>;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="12"></div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Progress-->
+                                            </div>
+                                            <!--end::Card body-->
+                                            <!--begin::Card body-->
+                                            <div class="card-body d-flex align-items-end pt-0">
+                                                <!--begin::Progress-->
+                                                <div class="d-flex align-items-center flex-column w-100">
+                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                        <span class="fw-bolder fs-6 text-dark">Breakevens</span>
+                                                        <span class="fw-bold fs-6 text-gray-400"><?php echo $beTradesCount; ?></span>
+                                                    </div>
+                                                    <div class="h-8px mx-3 w-100 bg-light-warning rounded">
+                                                        <div class="bg-warning rounded h-8px" role="progressbar" style="width: <?php echo $beTradesPercent; ?>;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="12"></div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Progress-->
+                                            </div>
+                                            <!--end::Card body-->
+                                            <!--begin::Card body-->
+                                            <div class="card-body d-flex align-items-end pt-0">
+                                                <!--begin::Progress-->
+                                                <div class="d-flex align-items-center flex-column w-100">
+                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                        <span class="fw-bolder fs-6 text-dark">Stop Losses</span>
+                                                        <span class="fw-bold fs-6 text-gray-400"><?php echo $slTradesCount; ?></span>
+                                                    </div>
+                                                    <div class="h-8px mx-3 w-100 bg-light-danger rounded">
+                                                        <div class="bg-danger rounded h-8px" role="progressbar" style="width: <?php echo $slTradesPercent; ?>;" aria-valuenow="3" aria-valuemin="0" aria-valuemax="12"></div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Progress-->
+                                            </div>
+                                            <!--end::Card body-->
+                                        </div>
+                                        <!--end::Card widget 5-->
 									</div>
 									<!--end::Col-->
 

@@ -51,16 +51,16 @@
                                             <div class="row">
                                                 <?php
 
-                                                    $dashboardResult = $dbConnection->query("SELECT * FROM app_dashboard WHERE `Menu Position` = 'Main'");
+                                                $dashboardResult = $dbConnection->query("SELECT * FROM app_dashboard WHERE `Menu Position` = 'Main'");
 
-                                                    while($dashboardRow = $dashboardResult->fetch_assoc()) {
-                                                        $name = $dashboardRow['Name'];
-                                                        $description = $dashboardRow['Description'];
-                                                        $iconHTML = $dashboardRow['Icon HTML'];
-                                                        $routeLink = $dashboardRow['Route Link'];
+                                                while ($dashboardRow = $dashboardResult->fetch_assoc()) {
+                                                    $name = $dashboardRow['Name'];
+                                                    $description = $dashboardRow['Description'];
+                                                    $iconHTML = $dashboardRow['Icon HTML'];
+                                                    $routeLink = $dashboardRow['Route Link'];
 
-                                                        $isPathActive = $headerMgt->isPathActive($routeLink);
-                                                        echo<<<END
+                                                    $isPathActive = $headerMgt->isPathActive($routeLink);
+                                                    echo <<<END
                                                         <!--begin:Col-->
                                                         <div class="col-lg-6 mb-3">
                                                             <!--begin:Menu item-->
@@ -82,7 +82,7 @@
                                                         <!--end:Col-->
                                                             
                                                         END;
-                                                    }
+                                                }
                                                 ?>
                                             </div>
                                             <!--end:Row-->
@@ -128,12 +128,12 @@
                         <!--begin:Menu item-->
                         <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-75,0" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2  <?php echo $headerMgt->isAppsActive(); ?>"">
                             <!--begin:Menu link-->
-                            <span class="menu-link">
-                                <span class="menu-icon">
-                                    <i class="ki-duotone ki-copy"></i>
-                                </span>
-                                <span class="menu-title">Apps</span>
-                                <span class="menu-arrow d-lg-none"></span>
+                            <span class=" menu-link">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-copy"></i>
+                            </span>
+                            <span class="menu-title">Apps</span>
+                            <span class="menu-arrow d-lg-none"></span>
                             </span>
                             <!--end:Menu link-->
                             <!--begin:Menu sub-->
@@ -171,6 +171,51 @@
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
                                                 <span class="menu-title">My Tasks</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                    </div>
+                                    <!--end:Menu sub-->
+                                </div>
+                                <!--end:Menu item-->
+                                <!--begin:Menu item-->
+                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="ki-duotone ki-graph-2 fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                            </i>
+                                        </span>
+                                        <span class="menu-title">Investments</span>
+                                        <span class="menu-arrow"></span>
+                                    </span>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="//grindbet.pl/home/investments/dashboard/">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Dashboard</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="//grindbet.pl/home/investments/tradingplan/">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Trading Plan</span>
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
@@ -362,19 +407,19 @@
                         <!--begin:Menu item-->
                         <div class="menu-item me-0 me-lg-2 <?php echo $headerMgt->isCalendarActive(); ?>"">
                             <!--begin:Menu link-->
-                            <a href="//grindbet.pl/home/calendar" class="menu-link">
-                                <span class="menu-icon">
-                                    <i class="ki-duotone ki-calendar-8">
-                                        <i class="path1"></i>
-                                        <i class="path2"></i>
-                                        <i class="path3"></i>
-                                        <i class="path4"></i>
-                                        <i class="path5"></i>
-                                        <i class="path6"></i>
-                                    </i>
-                                </span>
-                                <span class="menu-title">Calendar</span>
-                                <span class="menu-arrow d-lg-none"></span>
+                            <a href=" //grindbet.pl/home/calendar" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-calendar-8">
+                                    <i class="path1"></i>
+                                    <i class="path2"></i>
+                                    <i class="path3"></i>
+                                    <i class="path4"></i>
+                                    <i class="path5"></i>
+                                    <i class="path6"></i>
+                                </i>
+                            </span>
+                            <span class="menu-title">Calendar</span>
+                            <span class="menu-arrow d-lg-none"></span>
                             </a>
                             <!--end:Menu link-->
                         </div>

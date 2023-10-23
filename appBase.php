@@ -12,6 +12,7 @@ $themeMode;
 $userMgt = new UserManagement();
 $projectMgt = new ProjectManagement();
 $headerMgt = new HeaderManagement();
+$tradingMgt = new TradingManagement();
 
 session_start();
 
@@ -204,6 +205,19 @@ class ProjectManagement
         {
             return true;
         } else false;
+    }
+}
+
+class TradingManagement {
+    public function addNewTradingPosition($date, $currencypair, $state, $rr, $profit, $note1, $note2, $note3, $note4) {
+        global $dbConnection, $username;
+
+        $query = "INSERT INTO investments_tradingplan VALUES (NULL, '$username', '$date', '$currencypair','$state','$rr', '$profit','$note1','$note2','$note3','$note4');";
+        $statement = $dbConnection->prepare($query);
+        if ($statement->execute())
+        {
+            return $dbConnection->insert_id;
+        } else return "";
     }
 }
 

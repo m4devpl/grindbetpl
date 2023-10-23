@@ -83,7 +83,7 @@ $currMonthDate = date('Y-m-01');
                                     <!--begin::Item-->
                                     <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
                                         <a href="//grindbet.pl/home/investments" class="text-gray-700 text-hover-dark">
-                                            Investmens
+                                            Investments
                                         </a>
                                     </li>
                                     <!--end::Item-->
@@ -361,7 +361,7 @@ $currMonthDate = date('Y-m-01');
                                                         <!--begin::Card toolbar-->
                                                         <div class="card-toolbar">
                                                             <!--begin::Filter-->
-                                                            <button type="button" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_payment">
+                                                            <button type="button" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_trading_position">
                                                                 <i class="ki-outline ki-plus-square fs-3"></i>Add New</button>
                                                             <!--end::Filter-->
                                                         </div>
@@ -713,139 +713,9 @@ $currMonthDate = date('Y-m-01');
                                 </div>
                                 <!--end::Layout-->
                                 <!--begin::Modals-->
-                                <!--begin::Modal - Add Position-->
-                                <div class="modal fade" id="kt_modal_add_payment" tabindex="-1" aria-hidden="true">
-                                    <!--begin::Modal dialog-->
-                                    <div class="modal-dialog mw-650px">
-                                        <!--begin::Modal content-->
-                                        <div class="modal-content">
-                                            <!--begin::Modal header-->
-                                            <div class="modal-header">
-                                                <!--begin::Modal title-->
-                                                <h2 class="fw-bold">Add a Position</h2>
-                                                <!--end::Modal title-->
-                                                <!--begin::Close-->
-                                                <div id="kt_modal_add_payment_close" class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
-                                                    <i class="ki-outline ki-cross fs-1"></i>
-                                                </div>
-                                                <!--end::Close-->
-                                            </div>
-                                            <!--end::Modal header-->
-                                            <!--begin::Modal body-->
-                                            <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-                                                <!--begin::Form-->
-                                                <form id="kt_modal_add_payment_form" class="form" action="#">
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-8">
-                                                        <!--begin::Label-->
-                                                        <label class="required fs-6 fw-semibold mb-2">Release Date</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Wrapper-->
-                                                        <div class="position-relative d-flex align-items-center">
-                                                            <!--begin::Icon-->
-                                                            <i class="ki-outline ki-calendar-8 fs-2 position-absolute mx-4"></i>
-                                                            <!--end::Icon-->
-                                                            <!--begin::Input-->
-                                                            <input class="form-control form-control-solid ps-12" placeholder="Pick date range" name="settings_release_date" />
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Wrapper-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label class="required fs-6 fw-semibold form-label mb-2">Currency</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <select class="form-select form-select-solid fw-bold" name="status" data-control="select2" data-placeholder="Select an option" data-hide-search="true">
-                                                            <option></option>
-                                                            <?php
-                                                            $currencyPairResult = $dbConnection->query("SELECT * FROM investments_supported_pairs ORDER BY currencyPair ASC");
-                                                            while ($currencyPairRow = $currencyPairResult->fetch_assoc()) {
-                                                                $currencyPair = $currencyPairRow['currencyPair'];
-                                                                echo <<<END
-                                                                        <option value="$currencyPair">$currencyPair</option>
-                                                                    END;
-                                                            }
-
-                                                            ?>
-                                                        </select>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label class="required fs-6 fw-semibold form-label mb-2">Status</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <select class="form-select form-select-solid fw-bold" name="status" data-control="select2" data-placeholder="Select an option" data-hide-search="true">
-                                                            <option></option>
-                                                            <option value="0">LIMIT</option>
-                                                            <option value="1">OPEN</option>
-                                                            <option value="2">Stop Loss</option>
-                                                            <option value="3">Breakeven</option>
-                                                            <option value="4">Take Profit</option>
-                                                        </select>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label class="required fs-6 fw-semibold form-label mb-2">Risk to Reward Ratio (1:X)</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input type="text" class="form-control form-control-solid" name="amount" value="" />
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label class="required fs-6 fw-semibold form-label mb-2">Profit / Loss</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input type="number" class="form-control form-control-solid" name="amount" value="" />
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-15">
-                                                        <!--begin::Label-->
-                                                        <label class="fs-6 fw-semibold form-label mb-2">
-                                                            <span class="required">Note 1</span>
-                                                            <span class="ms-2" data-bs-toggle="tooltip" title="Information such as description of invoice or product purchased.">
-                                                                <i class="ki-outline ki-information fs-7"></i>
-                                                            </span>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <textarea class="form-control form-control-solid rounded-3" name="additional_info"></textarea>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Actions-->
-                                                    <div class="text-center">
-                                                        <button type="reset" id="kt_modal_add_payment_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Discard</button>
-                                                        <button type="submit" id="kt_modal_add_payment_submit" class="btn btn-primary">
-                                                            <span class="indicator-label">Submit</span>
-                                                            <span class="indicator-progress">Please wait...
-                                                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                                        </button>
-                                                    </div>
-                                                    <!--end::Actions-->
-                                                </form>
-                                                <!--end::Form-->
-                                            </div>
-                                            <!--end::Modal body-->
-                                        </div>
-                                        <!--end::Modal content-->
-                                    </div>
-                                    <!--end::Modal dialog-->
-                                </div>
-
+                                <?php
+                                    require_once "../../../main/components/wizards/new-trading-position/new-trading-position.php";
+                                ?>
                                 <!--end::Modals-->
                             </div>
                             <!--end::Content-->
@@ -888,6 +758,7 @@ $currMonthDate = date('Y-m-01');
                 <!--begin::Vendors Javascript(used for this page only)-->
                 <script src="//grindbet.pl/assets/plugins/custom/datatables/datatables.bundle.js"></script>
                 <!--end::Vendors Javascript-->
+                <script src="//grindbet.pl/assets/js/custom/apps/investments/view/add-position.js"></script>
                 <!--end::Javascript-->
 </body>
 <!--end::Body-->
