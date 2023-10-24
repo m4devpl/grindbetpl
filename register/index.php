@@ -12,9 +12,9 @@ $userMgt->redirectHomeIfLoggedIn();
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
     <meta property="og:title" content="GrindBet.PL">
-    <meta property="og:url" content="https:/grindbet.pl/">
+    <meta property="og:url" content="https://grindbet.pl/">
     <meta property="og:site_name" content="GrindBet.PL | Productivity App">
-    <link rel="canonical" content="https:/grindbet.pl/">
+    <link rel="canonical" content="https://grindbet.pl/">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">

@@ -13,9 +13,9 @@
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="GrindBet.PL">
-	<meta property="og:url" content="https:/grindbet.pl/">
+	<meta property="og:url" content="https://grindbet.pl/">
 	<meta property="og:site_name" content="GrindBet.PL | Productivity App">
-	<link rel="canonical" content="https:/grindbet.pl/">
+	<link rel="canonical" content="https://grindbet.pl/">
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -140,7 +140,7 @@
 													</div>
 													<!--end::Col-->
 													<!--begin::Col-->
-													<div class="col-4 col-md-6">
+													<div class="col-4 col-md-6 d-none">
 														<!--begin::Card-->
 														<div class="card card-shadow">
 															<!--begin::Body-->
@@ -173,7 +173,7 @@
 													</div>
 													<!--end::Col-->
 													<!--begin::Col-->
-													<div class="col-4 col-md-6">
+													<div class="col-4 col-md-6 d-none">
 														<!--begin::Card-->
 														<div class="card card-shadow">
 															<!--begin::Body-->
@@ -192,6 +192,35 @@
 																	<div
 																		class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">
 																		File Manager</div>
+																	<!--end::Desc-->
+																</a>
+																<!--end::Items-->
+															</div>
+															<!--end::Body-->
+														</div>
+														<!--end::Card-->
+													</div>
+													<!--end::Col-->
+													<!--begin::Col-->
+													<div class="col-4 col-md-6">
+														<!--begin::Card-->
+														<div class="card card-shadow">
+															<!--begin::Body-->
+															<div class="card-body p-0">
+																<!--begin::Items-->
+																<a href='//grindbet.pl/home/investments/dashboard'
+																	class="btn btn-active-color-primary px-7 py-6 text-start w-100">
+																	<!--begin::Icon-->
+																	<i class="ki-duotone ki-graph-2 fs-2x fs-lg-2hx text-gray-500 ms-n1">
+																		<span class="path1"></span>
+																		<span class="path2"></span>
+																		<span class="path3"></span>
+																	</i>
+																	<!--end::Icon-->
+																	<!--begin::Desc-->
+																	<div
+																		class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">
+																		Investments</div>
 																	<!--end::Desc-->
 																</a>
 																<!--end::Items-->

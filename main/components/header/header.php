@@ -164,7 +164,7 @@
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        <div class="menu-item">
+                                        <div class="menu-item d-none">
                                             <!--begin:Menu link-->
                                             <a class="menu-link" href="././demo43/dist/apps/projects/list.html">
                                                 <span class="menu-bullet">
@@ -215,7 +215,19 @@
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
-                                                <span class="menu-title">Trading Plan</span>
+                                                <span class="menu-title">Main Trading Plan</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="//grindbet.pl/home/investments/tradingplan/">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Trading Plans</span>
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
@@ -224,8 +236,8 @@
                                     <!--end:Menu sub-->
                                 </div>
                                 <!--end:Menu item-->
-                                <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+                                <!-- begin:Menu item-->
+                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion d-none">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -334,9 +346,9 @@
                                     </div>
                                     <!--end:Menu sub-->
                                 </div>
-                                <!--end:Menu item-->
+                                <!--end:Menu item -->
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+                                <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion d-none">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -405,7 +417,7 @@
                         </div>
                         <!--end:Menu item-->
                         <!--begin:Menu item-->
-                        <div class="menu-item me-0 me-lg-2 <?php echo $headerMgt->isCalendarActive(); ?>"">
+                        <div class="menu-item me-0 me-lg-2 <?php echo $headerMgt->isCalendarActive(); ?> d-none">
                             <!--begin:Menu link-->
                             <a href=" //grindbet.pl/home/calendar" class="menu-link">
                             <span class="menu-icon">
@@ -435,7 +447,7 @@
                 <!--start::Search-->
                 <div class="app-navbar-item align-items-stretch ms-1 ms-lg-3">
                     <!--begin::Search-->
-                    <div id="kt_header_search" class="header-search d-flex align-items-stretch" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="menu" data-kt-menu-trigger="auto" data-kt-menu-overflow="false" data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
+                    <div id="kt_header_search" class="header-search d-flex align-items-stretch d-none" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="menu" data-kt-menu-trigger="auto" data-kt-menu-overflow="false" data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
                         <!--begin::Search toggle-->
                         <div class="d-flex align-items-center" data-kt-search-element="toggle" id="kt_header_search_toggle">
                             <div class="btn btn-icon btn-custom btn-color-light-dark btn-active-color-primary w-35px h-35px w-md-40px h-md-40px">
@@ -1117,7 +1129,7 @@
                 </div>
                 <!--end::Search-->
                 <!--begin::Notifications-->
-                <div class="app-navbar-item ms-1 ms-lg-3">
+                <div class="app-navbar-item ms-1 ms-lg-3 d-none">
                     <!--begin::Menu- wrapper-->
                     <div class="btn btn-icon btn-custom btn-color-light-dark btn-active-color-primary w-35px h-35px w-md-40px h-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <i class="ki-solid ki-notification fs-1">

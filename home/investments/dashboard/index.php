@@ -1,6 +1,16 @@
 <?php
-require_once "../../../appBase.php";
+$rootDir = "../../../";
+require_once "$rootDir/appBase.php";
 $userMgt->checkIfUserIsLoggedIn();
+
+$tradingPlanResult = $dbConnection->query("SELECT ID FROM investments_tradingplan WHERE Username = '$username' AND Main = '1'");
+if ($tradingPlanResult->num_rows > 0) {
+	$tradingPlan = new TradingPlan($tradingPlanResult->fetch_assoc()['ID']);
+} else {
+	Header("Location: {$webBaseURL}/home/investments/tradingplan/list/new-tradingplan/");
+	exit();
+}
+
 
 $currMonthDate = date('Y-m-01');
 ?>
@@ -14,9 +24,9 @@ $currMonthDate = date('Y-m-01');
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="GrindBet.PL">
-	<meta property="og:url" content="https:/grindbet.pl/">
+	<meta property="og:url" content="https://grindbet.pl/">
 	<meta property="og:site_name" content="GrindBet.PL | Productivity App">
-	<link rel="canonical" content="https:/grindbet.pl/">
+	<link rel="canonical" content="https://grindbet.pl/">
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -56,42 +66,6 @@ $currMonthDate = date('Y-m-01');
 			<!--end::Header-->
 			<!--begin::Wrapper-->
 			<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
-				<!--begin::Toolbar-->
-				<div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
-					<!--begin::Toolbar container-->
-					<div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack flex-row-fluid">
-						<!--begin::Toolbar container-->
-						<div class="d-flex flex-stack flex-row-fluid">
-							<!--begin::Toolbar container-->
-							<div class="d-flex flex-column flex-row-fluid">
-								<!--begin::Toolbar wrapper-->
-								<!--begin::Breadcrumb-->
-								<ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2 fs-7">
-									<!--begin::Item-->
-									<li class="breadcrumb-item text-gray-700 fw-bold lh-1">
-										<a routerLink="/" class="text-white text-hover-primary">
-											<i class="ki-outline ki-home text-gray-700 fs-6"></i>
-										</a>
-									</li>
-									<!--end::Item-->
-								</ul>
-								<!--end::Breadcrumb-->
-								<!--begin::Page title-->
-								<div class="page-title d-flex align-items-center me-3">
-									<!--begin::Title-->
-									<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-										Dashboard</h1>
-									<!--end::Title-->
-								</div>
-								<!--end::Page title-->
-							</div>
-							<!--end::Toolbar container-->
-						</div>
-						<!--end::Toolbar container-->
-					</div>
-					<!--end::Toolbar container-->
-				</div>
-				<!--end::Toolbar-->
 				<!--begin::Wrapper container-->
 				<div class="app-container container-fluid d-flex">
 					<!--begin::Main-->
@@ -100,519 +74,430 @@ $currMonthDate = date('Y-m-01');
 						<div class="d-flex flex-column flex-column-fluid">
 							<!--begin::Content-->
 							<div id="kt_app_content" class="app-content">
-								<!--begin::Row-->
-								<div class="row g-5 g-xxl-10">
-									<!--begin::Card Widget 22-->
-									<div class="card card-reset mb-5 mb-xl-10">
-										<!--begin::Body-->
-										<div class="card-body p-0">
-											<!--begin::Row-->
-											<div class="row g-5 g-lg-9">
-												<div class="col-12 col-md-6">
-													<!--begin::Card-->
-													<div class="card card-shadow">
-														<!--begin::Body-->
-														<div class="card-body p-0 flex-row">
-															<!--begin::Items-->
-															<a href="//grindbet.pl/home/investments/tradingplan" class="btn btn-active-color-primary px-7 py-6 text-start w-100 d-flex flex-row">
-																<!--begin::Icon-->
-																<i class="ki-duotone ki-chart-line-star fs-2x fs-lg-3hx ms-n1 me-3">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-																<!--end::Icon-->
-																<!--begin::Desc-->
-																<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">
-																	Trading Plan</div>
-																<!--end::Desc-->
-															</a>
-															<!--end::Items-->
+								<div class="d-flex flex-column flex-xl-row">
+
+									<!--begin::Content-->
+									<div class="flex-lg-row-fluid mx-lg-5">
+										<!--begin::Row-->
+										<div class="row g-5 g-xxl-10">
+											<!--begin::Card Widget 22-->
+											<div class="card card-reset mb-5 mb-xl-10">
+												<!--begin::Body-->
+												<div class="card-body p-0">
+													<!--begin::Row-->
+													<div class="row g-5 g-lg-9">
+														<div class="col-4">
+															<!--begin::Card-->
+															<div class="card card-shadow">
+																<!--begin::Body-->
+																<div class="card-body p-0 flex-row">
+																	<!--begin::Items-->
+																	<a href="//grindbet.pl/home/investments/tradingplan/" class="btn btn-active-color-primary px-7 py-6 text-center w-100 d-flex">
+																		<!--begin::Icon-->
+																		<i class="ki-duotone ki-chart-line-star fs-5x fs-md-3hx ms-n1 me-3">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																		</i>
+																		<!--end::Icon-->
+																		<!--begin::Desc-->
+																		<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden ">
+																			Main Trading Plan</div>
+																		<!--end::Desc-->
+																	</a>
+																	<!--end::Items-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Card-->
 														</div>
-														<!--end::Body-->
-													</div>
-													<!--end::Card-->
-												</div>
-												<div class="col-12 col-md-6">
-													<!--begin::Card-->
-													<div class="card card-shadow">
-														<!--begin::Body-->
-														<div class="card-body p-0 flex-row">
-															<!--begin::Items-->
-															<a href="//grindbet.pl/home/investments/tradingplan" class="btn btn-active-color-primary px-7 py-6 text-start w-100 d-flex flex-row">
-																<!--begin::Icon-->
-																<i class="ki-duotone ki-more-2 fs-2x fs-lg-3hx ms-n1 me-3">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																	<span class="path4"></span>
-																</i>
-																<!--end::Icon-->
-																<!--begin::Desc-->
-																<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden">
-																	Settings</div>
-																<!--end::Desc-->
-															</a>
-															<!--end::Items-->
+														<div class="col-4">
+															<!--begin::Card-->
+															<div class="card card-shadow">
+																<!--begin::Body-->
+																<div class="card-body p-0 flex-row">
+																	<!--begin::Items-->
+																	<a href="//grindbet.pl/home/investments/tradingplan/?id=<?php echo $tradingPlanID; ?>" class="btn btn-active-color-primary px-7 py-6 text-start w-100 d-flex flex-row">
+																		<!--begin::Icon-->
+																		<i class="ki-duotone ki-menu fs-5x fs-md-3hx ms-n1 me-3">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																		<!--end::Icon-->
+																		<!--begin::Desc-->
+																		<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden d-md-block">
+																			Trading Plans</div>
+																		<!--end::Desc-->
+																	</a>
+																	<!--end::Items-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Card-->
 														</div>
-														<!--end::Body-->
+														<div class="col-4">
+															<!--begin::Card-->
+															<div class="card card-shadow">
+																<!--begin::Body-->
+																<div class="card-body p-0 flex-row">
+																	<!--begin::Items-->
+																	<a href="//grindbet.pl/home/investments/tradingplan" class="btn btn-active-color-primary px-7 py-6 text-start w-100 d-flex flex-row">
+																		<!--begin::Icon-->
+																		<i class="ki-duotone ki-more-2 fs-5x fs-md-3hx ms-n1 me-3">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																		<!--end::Icon-->
+																		<!--begin::Desc-->
+																		<div class="fw-bold fs-5 pt-4 text-truncate overflow-hidden d-md-block">
+																			Settings</div>
+																		<!--end::Desc-->
+																	</a>
+																	<!--end::Items-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Card-->
+														</div>
 													</div>
-													<!--end::Card-->
 												</div>
+												<!--end::Body-->
 											</div>
+											<!--end::Card Widget 22-->
 										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::Card Widget 22-->
-								</div>
-								<!--begin::Row-->
-								<div class="row g-5 g-xxl-10">
-									<!--begin::Col-->
-									<div class="col-xl-3">
-										<!--begin::Card widget 5-->
-                                        <div class="card card-flush mb-xl-10">
-                                            <!--begin::Header-->
-                                            <div class="card-header pt-5">
-                                                <!--begin::Title-->
-                                                <div class="card-title d-flex flex-column">
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex align-items-center">
-                                                        <?php
-                                                            $balance = 0;
-                                                            $balancePercent = "100%";
-                                                            $currDate = date('Y-m-d');
-                                                            
-                                                            // Get Starting Balance
-                                                            $balanceResult = $dbConnection->query("SELECT * FROM investments_account_size WHERE Username='$username' AND Date <= '$currDate' ORDER BY Date DESC LIMIT 1");
-                                                            if ($balanceResult->num_rows == 1) {
-                                                                $startingBalance = $balanceResult->fetch_assoc()['Size'];
-                                                                
-                                                                $profitLossForStartingBalanceResult = $dbConnection->query("SELECT SUM(Profit) FROM investments_tradingplan WHERE Username='$username' AND Date < '$currMonthDate'");
-                                                                if ($profitLossForStartingBalanceResult->num_rows>0) {
-                                                                    $startingBalance += $profitLossForStartingBalanceResult->fetch_assoc()['SUM(Profit)'];
-                                                                }
-                                                                
-                                                                // Get ProfitLoss State for This Month
-                                                                $profitLossThisMonthResult = $dbConnection->query("SELECT SUM(Profit) FROM investments_tradingplan WHERE Username='$username'");
-                                                                if ($profitLossThisMonthResult->num_rows > 0) {
-                                                                    $profitLoss = round($profitLossThisMonthResult->fetch_assoc()['SUM(Profit)'],2);
+										<!--begin::Row-->
+										<div class="row g-5 g-xxl-10 p-3">
+											<div class="col-12 text-center text-md-start">
+												<h1>
+													Main Trading Plan Stats
+												</h1>
+												<div class="badge badge-sm bg-light-dark mx-2 mt-1">
+													<?php echo $tradingPlan->name; ?>
+												</div>
+												<div class="badge badge-sm bg-light-dark me-2 mt-1">
+													This Month
+												</div>
+												<div class="separator my-5 mb-0"></div>
+											</div>
+											<!--begin::Col-->
+											<div class="col-12 col-xl-3">
+												<!--begin::Card widget 5-->
+												<div class="card card-flush mb-5 mb-xxl-10">
+													<!--begin::Header-->
+													<div class="card-header pt-5">
+														<!--begin::Title-->
+														<div class="card-title d-flex flex-column">
+															<!--begin::Info-->
+															<div class="d-flex align-items-center">
+																<?php
+																$currBalance = $tradingPlan->getCurrBalance();
 
-                                                                    // Calc current balance
-                                                                    $balance = $startingBalance + $profitLoss;
+																$balanceChangePercent = round((100 - ($currBalance / $tradingPlan->currMonth->startingBalance) * 100) * -1, 1);
 
-                                                                    // Check if ProfitLoss is Profit or Loss
-                                                                    if ($profitLoss>=0) {
-                                                                        $balancePercent = round((($startingBalance/$balance)*100),2);
-                                                                        $balancePercentString = $balancePercent.'%';
-                                                                        $progressColor = 'bg-success';
-                                                                        $profitColor = 'text-success';
-                                                                        $badgeProfitColor = 'badge-light-success';
-                                                                        $badgeProfitIcon = 'ki-arrow-up';
-                                                                        $profitLossString = '+$'.$profitLoss;
-                                                                    } else {
-                                                                        $balancePercent = round((($balance/$startingBalance)*100),2);
-                                                                        $balancePercentString = $balancePercent.'%';
-                                                                        $progressColor = 'bg-light-danger';
-                                                                        $profitColor = 'text-danger';
-                                                                        $badgeProfitIcon = 'ki-arrow-down';
-                                                                        $badgeProfitColor = 'badge-light-danger';
-                                                                        $profitLossString = '-$'.($profitLoss*-1);
-                                                                    } 
-                                                                }                 
-                                                            }
-                                                        ?>
+																if ($balanceChangePercent < 0) {
+																	$balanceChangePercent = ($balanceChangePercent * -1) . "%";
+																	$badgeBalanceChangeColor = "danger";
+																	$badgeBalanceChangeIcon = "ki-arrow-down";
+																} else {
+																	if ($balanceChangePercent == -0) {
+																		$balanceChangePercent = 0;
+																	}
+																	$balanceChangePercent .= "%";
+																	$badgeBalanceChangeColor = "success";
+																	$badgeBalanceChangeIcon = "ki-arrow-up";
+																}
+
+																echo <<<END
                                                         <!--begin::Amount-->
-                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">$<?php echo $balance; ?></span>
+                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">$$currBalance</span>
                                                         <!--end::Amount-->
                                                         <!--begin::Badge-->
-                                                        <span class="badge <?php echo $badgeProfitColor; ?> fs-base">
-                                                            <i class="ki-outline <?php echo $badgeProfitIcon; ?> fs-5 <?php echo $profitColor; ?> ms-n1"></i><?php echo 100-$balancePercent; ?>%</span>
+                                                        <span class="badge badge-light-$badgeBalanceChangeColor fs-base">
+                                                            <i class="ki-outline $badgeBalanceChangeIcon fs-5 text-$badgeBalanceChangeColor ms-n1"></i>$balanceChangePercent</span>
                                                         <!--end::Badge-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Subtitle-->
-                                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">Account Size</span>
-                                                    <!--end::Subtitle-->
-                                                </div>
-                                                <!--end::Title-->
-                                            </div>
-                                            <!--end::Header-->
-                                            <!--begin::Card body-->
-                                            <div class="card-body d-flex align-items-end pt-0">
-                                                <!--begin::Progress-->
-                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                        END;
+																?>
+															</div>
+															<!--end::Info-->
+															<!--begin::Subtitle-->
+															<span class="text-gray-400 pt-1 fw-semibold fs-6">Account Size</span>
+															<!--end::Subtitle-->
+														</div>
+														<!--end::Title-->
+													</div>
+													<!--end::Header-->
+													<!--begin::Card body-->
+													<div class="card-body d-flex align-items-end pt-0">
+														<!--begin::Progress-->
+														<div class="d-flex align-items-center flex-column mt-3 w-100">
+															<?php
+															$currMonthStartingBalance = $tradingPlan->currMonth->startingBalance;
+															$currMonthPnl = $tradingPlan->currMonth->pnl;
+
+															if ($currMonthPnl < 0) {
+																$currMonthPnl *= -1;
+																$currMonthPnl = "-$" . $currMonthPnl;
+															} else {
+																$currMonthPnl = "+$" . $currMonthPnl;
+															}
+
+															echo <<<END
                                                     <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                        <span class="fw-bolder fs-6 text-dark">Starting $<?php echo $startingBalance; ?></span>
-                                                        <span class="fw-bold fs-6 <?php echo $profitColor; ?>"><?php echo $profitLossString; ?></span>
+                                                        <span class="fw-bolder fs-6 text-dark">Starting $$currMonthStartingBalance</span>
+                                                        <span class="fw-bold fs-6 text-$badgeBalanceChangeColor ">$currMonthPnl</span>
                                                     </div>
-                                                    <div class="h-8px mx-3 w-100 <?php echo $progressColor; ?> rounded">
-                                                        <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $balancePercentString; ?>;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    END;
+
+															if ($currBalance > $tradingPlan->currMonth->startingBalance) {
+																$balancePercentString = ($tradingPlan->currMonth->startingBalance / $currBalance) * 100 . "%";
+																$progressColor = 'bg-light-success';
+															} else {
+																$balancePercentString = ($currBalance / $tradingPlan->currMonth->startingBalance) * 100 . "%";
+																$progressColor = 'bg-light-danger';
+															}
+
+															echo <<<END
+                                                    <div class="h-8px mx-3 w-100 $progressColor rounded">
+                                                        <div class="bg-dark rounded h-8px" role="progressbar" style="width: $balancePercentString"></div>
                                                     </div>
-                                                </div>
-                                                <!--end::Progress-->
-                                            </div>
-                                            <!--end::Card body-->
-                                        </div>
-                                        <!--end::Card widget 5-->
-                                        <!--begin::Card widget 5-->
-                                        <div class="card card-flush mb-xl-10">
-                                            <?php
-                                            $tradeEffectivenessResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND Date >= '$currMonthDate'");
-
-                                            $tradesCount = $tradeEffectivenessResult->num_rows;
-
-                                            $tpTradeResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND State='TP' AND Date >= '$currMonthDate'");
-                                            $tpTradesCount = $tpTradeResult->num_rows;
-
-                                            $beTradeResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND State='BE' AND Date >= '$currMonthDate'");
-                                            $beTradesCount = $beTradeResult->num_rows;
-
-                                            $slTradeResult = $dbConnection->query("SELECT * FROM investments_tradingplan WHERE Username = '$username' AND State='SL' AND Date >= '$currMonthDate'");
-                                            $slTradesCount = $slTradeResult->num_rows;
-
-                                            $tradesToCount = $tpTradesCount + $beTradesCount + $slTradesCount;
-
-                                            $tpTradesPercent = (($tpTradesCount / $tradesToCount) * 100) . '%';
-                                            $beTradesPercent = (($beTradesCount / $tradesToCount) * 100) . '%';
-                                            $slTradesPercent = (($slTradesCount / $tradesToCount) * 100) . '%';
-
-                                            $effectiveness = round(($tpTradesCount / ($slTradesCount + $tpTradesCount)*100),0);
-
-                                            ?>
-                                            <!--begin::Header-->
-                                            <div class="card-header pt-5">
-                                                <!--begin::Title-->
-                                                <div class="card-title d-flex flex-column">
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex align-items-center">
-                                                        <!--begin::Amount-->
-                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $effectiveness; ?>%</span>
-                                                        <!--end::Amount-->
-                                                        <!--begin::Badge-->
-                                                        <span class="badge badge-light-success fs-base d-none">
-                                                            <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
-                                                        <!--end::Badge-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Subtitle-->
-                                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">Your effectiveness</span>
-                                                    <!--end::Subtitle-->
-                                                </div>
-                                                <!--end::Title-->
-                                            </div>
-                                            <!--end::Header-->
-                                            <!--begin::Card body-->
-                                            <div class="card-body d-flex align-items-end pt-0">
-                                                <!--begin::Progress-->
-                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                        <span class="fw-bolder fs-6 text-dark">Take Profits</span>
-                                                        <span class="fw-bold fs-6 text-gray-400"><?php echo $tpTradesCount; ?></span>
-                                                    </div>
-                                                    <div class="h-8px mx-3 w-100 bg-light-success rounded">
-                                                        <div class="bg-success rounded h-8px" role="progressbar" style="width: <?php echo $tpTradesPercent; ?>;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="12"></div>
-                                                    </div>
-                                                </div>
-                                                <!--end::Progress-->
-                                            </div>
-                                            <!--end::Card body-->
-                                            <!--begin::Card body-->
-                                            <div class="card-body d-flex align-items-end pt-0">
-                                                <!--begin::Progress-->
-                                                <div class="d-flex align-items-center flex-column w-100">
-                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                        <span class="fw-bolder fs-6 text-dark">Breakevens</span>
-                                                        <span class="fw-bold fs-6 text-gray-400"><?php echo $beTradesCount; ?></span>
-                                                    </div>
-                                                    <div class="h-8px mx-3 w-100 bg-light-warning rounded">
-                                                        <div class="bg-warning rounded h-8px" role="progressbar" style="width: <?php echo $beTradesPercent; ?>;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="12"></div>
-                                                    </div>
-                                                </div>
-                                                <!--end::Progress-->
-                                            </div>
-                                            <!--end::Card body-->
-                                            <!--begin::Card body-->
-                                            <div class="card-body d-flex align-items-end pt-0">
-                                                <!--begin::Progress-->
-                                                <div class="d-flex align-items-center flex-column w-100">
-                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                        <span class="fw-bolder fs-6 text-dark">Stop Losses</span>
-                                                        <span class="fw-bold fs-6 text-gray-400"><?php echo $slTradesCount; ?></span>
-                                                    </div>
-                                                    <div class="h-8px mx-3 w-100 bg-light-danger rounded">
-                                                        <div class="bg-danger rounded h-8px" role="progressbar" style="width: <?php echo $slTradesPercent; ?>;" aria-valuenow="3" aria-valuemin="0" aria-valuemax="12"></div>
-                                                    </div>
-                                                </div>
-                                                <!--end::Progress-->
-                                            </div>
-                                            <!--end::Card body-->
-                                        </div>
-                                        <!--end::Card widget 5-->
-									</div>
-									<!--end::Col-->
-
-									<!--begin::Col-->
-									<div class="col-xl-9">
-										<!--begin::List widget 23-->
-										<div class="card card-flush h-xl-100">
-											<!--begin::Header-->
-											<div class="card-header pt-7">
-												<!--begin::Title-->
-												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label fw-bold text-gray-800">Recently played</span>
-													<span class="text-gray-400 mt-1 fw-semibold fs-6"></span>
-												</h3>
-												<!--end::Title-->
-												<!--begin::Toolbar-->
-												<div class="card-toolbar"></div>
-												<!--end::Toolbar-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Body-->
-											<div class="card-body pt-5">
-												<!--begin::Items-->
-												<div class="">
-													<!--begin::Item-->
-													<div class="d-flex flex-stack">
-														<!--begin::Section-->
-														<div class="d-flex align-items-center me-5">
-															<!--begin::Flag-->
-															<img src="//grindbet.pl/assets/media/svg/brand-logos/atica.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-															<!--end::Flag-->
-															<!--begin::Content-->
-															<div class="me-5">
-																<!--begin::Title-->
-																<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Abstergo Ltd.</a>
-																<!--end::Title-->
-																<!--begin::Desc-->
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Community</span>
-																<!--end::Desc-->
-															</div>
-															<!--end::Content-->
+                                                    END;
+															?>
 														</div>
-														<!--end::Section-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">579</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																	<i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>2.6%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
+														<!--end::Progress-->
 													</div>
-													<!--end::Item-->
-													<!--begin::Separator-->
-													<div class="separator separator-dashed my-3"></div>
-													<!--end::Separator-->
-													<!--begin::Item-->
-													<div class="d-flex flex-stack">
-														<!--begin::Section-->
-														<div class="d-flex align-items-center me-5">
-															<!--begin::Flag-->
-															<img src="//grindbet.pl/assets/media/svg/brand-logos/telegram-2.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-															<!--end::Flag-->
-															<!--begin::Content-->
-															<div class="me-5">
-																<!--begin::Title-->
-																<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Binford Ltd.</a>
-																<!--end::Title-->
-																<!--begin::Desc-->
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Media</span>
-																<!--end::Desc-->
-															</div>
-															<!--end::Content-->
-														</div>
-														<!--end::Section-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">2,588</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-danger fs-base">
-																	<i class="ki-outline ki-arrow-down fs-5 text-danger ms-n1"></i>0.4%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Item-->
-													<!--begin::Separator-->
-													<div class="separator separator-dashed my-3"></div>
-													<!--end::Separator-->
-													<!--begin::Item-->
-													<div class="d-flex flex-stack">
-														<!--begin::Section-->
-														<div class="d-flex align-items-center me-5">
-															<!--begin::Flag-->
-															<img src="//grindbet.pl/assets/media/svg/brand-logos/balloon.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-															<!--end::Flag-->
-															<!--begin::Content-->
-															<div class="me-5">
-																<!--begin::Title-->
-																<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Barone LLC.</a>
-																<!--end::Title-->
-																<!--begin::Desc-->
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Messanger</span>
-																<!--end::Desc-->
-															</div>
-															<!--end::Content-->
-														</div>
-														<!--end::Section-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">794</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																	<i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0.2%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Item-->
-													<!--begin::Separator-->
-													<div class="separator separator-dashed my-3"></div>
-													<!--end::Separator-->
-													<!--begin::Item-->
-													<div class="d-flex flex-stack">
-														<!--begin::Section-->
-														<div class="d-flex align-items-center me-5">
-															<!--begin::Flag-->
-															<img src="//grindbet.pl/assets/media/svg/brand-logos/kickstarter.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-															<!--end::Flag-->
-															<!--begin::Content-->
-															<div class="me-5">
-																<!--begin::Title-->
-																<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Abstergo Ltd.</a>
-																<!--end::Title-->
-																<!--begin::Desc-->
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Video Channel</span>
-																<!--end::Desc-->
-															</div>
-															<!--end::Content-->
-														</div>
-														<!--end::Section-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">1,578</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																	<i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>4.1%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Item-->
-													<!--begin::Separator-->
-													<div class="separator separator-dashed my-3"></div>
-													<!--end::Separator-->
-													<!--begin::Item-->
-													<div class="d-flex flex-stack">
-														<!--begin::Section-->
-														<div class="d-flex align-items-center me-5">
-															<!--begin::Flag-->
-															<img src="//grindbet.pl/assets/media/svg/brand-logos/vimeo.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-															<!--end::Flag-->
-															<!--begin::Content-->
-															<div class="me-5">
-																<!--begin::Title-->
-																<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Biffco Enterprises</a>
-																<!--end::Title-->
-																<!--begin::Desc-->
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-																<!--end::Desc-->
-															</div>
-															<!--end::Content-->
-														</div>
-														<!--end::Section-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">3,458</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																	<i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>8.3%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Item-->
-													<!--begin::Separator-->
-													<div class="separator separator-dashed my-3"></div>
-													<!--end::Separator-->
-													<!--begin::Item-->
-													<div class="d-flex flex-stack">
-														<!--begin::Section-->
-														<div class="d-flex align-items-center me-5">
-															<!--begin::Flag-->
-															<img src="//grindbet.pl/assets/media/svg/brand-logos/plurk.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-															<!--end::Flag-->
-															<!--begin::Content-->
-															<div class="me-5">
-																<!--begin::Title-->
-																<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Big Kahuna Burger</a>
-																<!--end::Title-->
-																<!--begin::Desc-->
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-																<!--end::Desc-->
-															</div>
-															<!--end::Content-->
-														</div>
-														<!--end::Section-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">2,047</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																	<i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>1.9%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Item-->
+													<!--end::Card body-->
 												</div>
-												<!--end::Items-->
+												<!--end::Card widget 5-->
+												<!--begin::Card widget 5-->
+												<div class="card card-flush">
+													<!--begin::Header-->
+													<div class="card-header pt-5">
+														<!--begin::Title-->
+														<div class="card-title d-flex flex-column">
+															<!--begin::Info-->
+															<div class="d-flex align-items-center">
+																<!--begin::Amount-->
+																<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->effectiveness; ?>%</span>
+																<!--end::Amount-->
+																<!--begin::Badge-->
+																<span class="badge badge-light-success fs-base d-none">
+																	<i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+																<!--end::Badge-->
+															</div>
+															<!--end::Info-->
+															<!--begin::Subtitle-->
+															<span class="text-gray-400 pt-1 fw-semibold fs-6">Your effectiveness</span>
+															<!--end::Subtitle-->
+														</div>
+														<!--end::Title-->
+													</div>
+													<!--end::Header-->
+													<!--begin::Card body-->
+													<div class="card-body d-flex align-items-end pt-0">
+														<!--begin::Progress-->
+														<div class="d-flex align-items-center flex-column mt-3 w-100">
+															<div class="d-flex justify-content-between w-100 mt-auto mb-2">
+																<span class="fw-bolder fs-6 text-dark">Take Profits</span>
+																<span class="fw-bold fs-6 text-gray-400"><?php echo $tradingPlan->currMonth->tpCount; ?></span>
+															</div>
+															<div class="h-8px mx-3 w-100 bg-light-success rounded">
+																<?php
+																if ($tradingPlan->currMonth->tradesCount > 0) {
+																	$tpTradesPercent = ($tradingPlan->currMonth->tpCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
+																} else {
+																	$tpTradesPercent = "0%";
+																}
+																?>
+																<div class="bg-success rounded h-8px" role="progressbar" style="width: <?php echo $tpTradesPercent; ?>;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="12"></div>
+															</div>
+														</div>
+														<!--end::Progress-->
+													</div>
+													<!--end::Card body-->
+													<!--begin::Card body-->
+													<div class="card-body d-flex align-items-end pt-0">
+														<!--begin::Progress-->
+														<div class="d-flex align-items-center flex-column w-100">
+															<div class="d-flex justify-content-between w-100 mt-auto mb-2">
+																<span class="fw-bolder fs-6 text-dark">Breakevens</span>
+																<span class="fw-bold fs-6 text-gray-400"><?php echo $tradingPlan->currMonth->beCount; ?></span>
+															</div>
+															<div class="h-8px mx-3 w-100 bg-light-warning rounded">
+																<?php
+																if ($tradingPlan->currMonth->tradesCount > 0) {
+																	$beTradesPercent = ($tradingPlan->currMonth->beCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
+																} else {
+																	$beTradesPercent = "0%";
+																}
+																?>
+																<div class="bg-warning rounded h-8px" role="progressbar" style="width: <?php echo $beTradesPercent; ?>;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="12"></div>
+															</div>
+														</div>
+														<!--end::Progress-->
+													</div>
+													<!--end::Card body-->
+													<!--begin::Card body-->
+													<div class="card-body d-flex align-items-end pt-0">
+														<!--begin::Progress-->
+														<div class="d-flex align-items-center flex-column w-100">
+															<div class="d-flex justify-content-between w-100 mt-auto mb-2">
+																<span class="fw-bolder fs-6 text-dark">Stop Losses</span>
+																<span class="fw-bold fs-6 text-gray-400"><?php echo $tradingPlan->currMonth->slCount; ?></span>
+															</div>
+															<div class="h-8px mx-3 w-100 bg-light-danger rounded">
+																<?php
+																if ($tradingPlan->currMonth->tradesCount > 0) {
+																	$slTradesPercent = ($tradingPlan->currMonth->slCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
+																} else {
+																	$slTradesPercent = "0%";
+																}
+																?>
+																<div class="bg-danger rounded h-8px" role="progressbar" style="width: <?php echo $slTradesPercent; ?>;" aria-valuenow="3" aria-valuemin="0" aria-valuemax="12"></div>
+															</div>
+														</div>
+														<!--end::Progress-->
+													</div>
+													<!--end::Card body-->
+												</div>
+												<!--end::Card widget 5-->
 											</div>
-											<!--end: Card Body-->
+											<!--end::Col-->
+
+											<!--begin::Col-->
+											<div class="col-12 col-xl-9">
+												<!--begin::Card-->
+												<div class="card">
+													<!--begin::Card header-->
+													<div class="card-header border-0">
+														<!--begin::Card title-->
+														<div class="card-title">
+															<h2>Recently Played</h2>
+														</div>
+														<!--end::Card title-->
+														<!--begin::Card toolbar-->
+														<div class="card-toolbar">
+															<!--begin::Filter-->
+															<button type="button" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_trading_position">
+																<i class="ki-outline ki-plus-square fs-3"></i>Add New</button>
+															<!--end::Filter-->
+														</div>
+														<!--end::Card toolbar-->
+													</div>
+													<!--end::Card header-->
+													<!--begin::Card body-->
+													<div class="card-body pt-0 pb-5">
+														<div class="table-responsive">
+															<!--begin::Table-->
+															<table class="table align-middle table-row-dashed fs-6 gy-4" id="kt_docs_datatable_subtable">
+																<!--begin::Table head-->
+																<thead>
+																	<!--begin::Table row-->
+																	<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+																		<th class="text-start min-w-100px">Date</th>
+																		<th class="text-center min-w-150px">Currency</th>
+																		<th class="text-center min-w-100px">State</th>
+																		<th class="text-center min-w-100px">Profit</th>
+																	</tr>
+																	<!--end::Table row-->
+																</thead>
+																<!--end::Table head-->
+																<!--begin::Table body-->
+																<tbody class="fw-bold text-gray-600">
+
+																	<?php
+																	$lastMonthDate = date('Y-m-01', strtotime("-1 months"));
+																	$tradeResult = $dbConnection->query("SELECT * FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$tradingPlan->id' ORDER BY Date DESC, ID DESC LIMIT 6");
+
+																	while ($tradeRow = $tradeResult->fetch_assoc()) {
+																		$date = $tradeRow['Date'];
+																		$currency = $tradeRow['Currency'];
+																		$state = $tradeRow['State'];
+																		$rr = $tradeRow['RiskRewardRatio'];
+																		$profit = $tradeRow['Profit'];
+
+																		$stateClass = '';
+																		$stateTDClass = '';
+																		$stateTextColor = '';
+																		switch ($state) {
+																			case 'TP':
+																				$state = 'Take Profit';
+																				$stateClass = 'badge-light-success';
+																				$stateTDClass = 'bg-light-success';
+																				$stateTextColor = 'text-success';
+																				break;
+																			case 'BE':
+																				$state = 'Breakeven';
+																				$stateClass = 'badge-light-warning';
+																				$stateTDClass = 'bg-light-warning';
+																				$stateTextColor = 'text-warning';
+																				break;
+																			case 'SL';
+																				$state = 'Stop Loss';
+																				$stateClass = 'badge-light-danger';
+																				$stateTDClass = 'bg-light-danger';
+																				$stateTextColor = 'text-danger';
+																				break;
+																			default:
+																				$stateClass = 'badge-light-dark';
+																				$stateTDClass = 'bg-light-dark';
+																				$stateTextColor = 'text-light-dark';
+																				break;
+																		}
+
+																		$profitLossIcon = '';
+																		if ((float)$profit < 0) {
+																			$profitLossIcon = 'ki-arrow-down';
+																			$profit = (float)$profit * (-1);
+																		} else if ((float)$profit > 0) {
+																			$profitLossIcon = 'ki-arrow-up';
+																		}
+
+																		echo <<<END
+                                                                        <tr>
+                                                                            <!--begin::Date-->
+                                                                            <td class="ps-2 border-none">
+                                                                                $date
+                                                                            </td>
+                                                                            <!--end::Date-->
+                                                                            <!--begin::Currency-->
+                                                                            <td class="text-center">
+                                                                                <span class="badge shadow fs-7 badge-light-dark">$currency</span>
+                                                                            </td>
+                                                                            <!--end::Currency-->
+                                                                            <!--begin::State-->
+                                                                            <td class="text-center">
+                                                                                <span class="badge shadow fs-7 $stateClass">$state</span>
+                                                                            </td>
+                                                                            <!--end::State-->
+                                                                            <!--begin::Profit/Lose-->
+                                                                            <td class="text-center">
+                                                                                <span class="badge $stateClass fs-base">
+                                                                                    <i class="ki-outline $profitLossIcon fs-5 $stateTextColor ms-n1"></i>$$profit
+                                                                                </span>
+                                                                            </td>
+                                                                            <!--end::Profit/Lose-->
+                                                                    END;
+																	}
+																	?>
+																</tbody>
+																<!--end::Table body-->
+															</table>
+															<!--end::Table-->
+														</div>
+													</div>
+													<!--end::Card body-->
+												</div>
+												<!--end::Card-->
+											</div>
+											<!--end::Col-->
 										</div>
-										<!--end::List widget 23-->
+										<!--end::Row-->
 									</div>
-									<!--end::Col-->
 								</div>
-								<!--end::Row-->
 							</div>
 							<!--end::Content-->
 						</div>
@@ -657,27 +542,10 @@ $currMonthDate = date('Y-m-01');
 	<script src="//grindbet.pl/assets/plugins/global/plugins.bundle.js"></script>
 	<script src="//grindbet.pl/assets/js/scripts.bundle.js"></script>
 	<!--end::Global Javascript Bundle-->
-	<!--begin::Vendors Javascript(used for this page only)-->
-	<script src="//grindbet.pl/assets/plugins/custom/datatables/datatables.bundle.js"></script>
-	<script src="//grindbet.pl/assets/plugins/custom/vis-timeline/vis-timeline.bundle.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-	<!--end::Vendors Javascript-->
 	<!--begin::Custom Javascript(used for this page only)-->
 	<script src="//grindbet.pl/assets/js/widgets.bundle.js"></script>
 	<script src="//grindbet.pl/assets/js/custom/widgets.js"></script>
-	<script src="//grindbet.pl/assets/js/custom/apps/chat/chat.js"></script>
-	<script src="//grindbet.pl/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-	<script src="//grindbet.pl/assets/js/custom/utilities/modals/users-search.js"></script>
+	<script src="//grindbet.pl/assets/js/custom/apps/investments/view/add-position.js"></script>
 	<!--end::Custom Javascript-->
 	<!--end::Javascript-->
 </body>

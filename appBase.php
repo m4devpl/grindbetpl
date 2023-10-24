@@ -209,11 +209,18 @@ class ProjectManagement
 }
 
 class TradingManagement {
-    public function addNewTradingPosition($date, $currencypair, $state, $rr, $profit, $note1, $note2, $note3, $note4) {
+
+    public function __construct()
+    {
+        connectToDB();
+    }
+
+    public function addNewTradingPosition($tradingPlanID, $date, $currencypair, $state, $rr, $profit, $note1, $note2, $note3, $note4) {
         global $dbConnection, $username;
 
-        $query = "INSERT INTO investments_tradingplan VALUES (NULL, '$username', '$date', '$currencypair','$state','$rr', '$profit','$note1','$note2','$note3','$note4');";
+        $query = "INSERT INTO investments_tradingplan_position VALUES (NULL, '$tradingPlanID', '$date', '$currencypair','$state','$rr', '$profit','$note1','$note2','$note3','$note4');";
         $statement = $dbConnection->prepare($query);
+
         if ($statement->execute())
         {
             return $dbConnection->insert_id;
@@ -304,6 +311,139 @@ class ProjectTarget {
         }
     }
 
+}
+
+class TradingPlan {
+    public $id;
+    public $name;
+    public $startingBalance = 0;
+    public $pnl = 0;
+
+    public $currMonth;
+
+    public function __construct($tradingPlanID) {
+        $this->id = htmlentities($tradingPlanID, ENT_QUOTES);
+        $this->getTradingPlan();
+        $this->getPnl();
+    }
+
+    protected function getTradingPLan() {
+        global $dbConnection, $username, $webBaseURL;
+        
+        if (!($this->id >= 0)) {
+            header("Location: {$webBaseURL}/404/");
+            exit();
+        }
+
+        // CHECK IF SELECTED TRADING PLAN EXISTS
+        $query = "SELECT * FROM investments_tradingplan WHERE ID = '$this->id' AND Username ='$username'";
+        $result = $dbConnection->query($query);
+
+        if ($result->num_rows>0) {
+            $row = $result->fetch_assoc();
+            $this->name = $row['Name'];
+            $this->startingBalance = $row['Starting Balance'];
+
+            $this->currMonth = new TradingPlanMonth($this->id, date('Y-m-01'));
+        } else {
+            header("Location: {$webBaseURL}/404/");
+            exit();
+        }
+    }
+
+    protected function getPnl()
+     {
+        global $dbConnection;
+
+        $query = "SELECT SUM(Profit) AS pnl FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$this->id'";
+        $result = $dbConnection->query($query);
+
+        if ($result->num_rows>0) {
+            $row = $result->fetch_assoc();
+            $this->pnl = round($row['pnl'],2);
+        }
+     }
+
+    function getCurrBalance() {
+        return $this->startingBalance+$this->pnl;
+    }
+}
+
+class TradingPlanMonth {
+    public $tradingPlanID;
+    public $monthStartingDate;
+    public $pnl = 0;
+    public $startingBalance = 0;
+    public $tpCount = 0;
+    public $beCount = 0;
+    public $slCount = 0;
+    public $tradesCount = 0;
+    public $effectiveness = 0;
+
+    public function __construct($tradingPlanID, $monthStartingDate) {
+        $this->tradingPlanID = $tradingPlanID;
+        $this->monthStartingDate = $monthStartingDate;
+        $this->getMonthStats();
+    }
+
+    protected function getMonthStats() {
+        $this->getMonthPnl();
+        $this->tpCount = $this->getMonthTradeCount('TP');
+        $this->beCount = $this->getMonthTradeCount('BE');
+        $this->slCount = $this->getMonthTradeCount('SL');
+        $this->getEffectiveness();
+        $this->getMonthStartingBalance();
+    }
+
+    protected function getMonthPnl() {
+        global $dbConnection;
+
+        $query = "SELECT SUM(investments_tradingplan_position.Profit) AS pnl, COUNT(*) AS tradesCount FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$this->tradingPlanID' AND Date >= '$this->monthStartingDate'";
+
+        $result = $dbConnection->query($query);
+
+        if ($result->num_rows>0) {
+            $row = $result->fetch_assoc();
+            $this->pnl = round($row['pnl'],2);
+            $this->tradesCount = $row['tradesCount'];
+        }
+    }
+
+    protected function getMonthStartingBalance() {
+        global $dbConnection;
+        $query = "SELECT `Starting Balance`, SUM(investments_tradingplan_position.Profit) AS pnl FROM investments_tradingplan INNER JOIN  investments_tradingplan_position WHERE investments_tradingplan.ID = '$this->tradingPlanID' AND investments_tradingplan_position.`Trading Plan ID` = '$this->tradingPlanID' AND investments_tradingplan_position.Date <='$this->monthStartingDate'";
+
+        $result = $dbConnection->query($query);
+
+        if ($result->num_rows>0) {
+            $row = $result->fetch_assoc();
+            $this->startingBalance = $row['Starting Balance'] + round($row['pnl'],2);
+        }
+    }
+
+    protected function getMonthTradeCount($state)
+    {
+        global $dbConnection;
+        $query = "SELECT COUNT(*) AS tradeCount FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$this->tradingPlanID' AND Date >='$this->monthStartingDate' AND State='$state'";
+
+        $result = $dbConnection->query($query);
+
+        if ($result->num_rows>0) {
+            $row = $result->fetch_assoc();
+            return $row['tradeCount'];
+        } else {
+            return 0;
+        }
+    }
+
+    protected function getEffectiveness() {
+        if (($this->slCount + $this->tpCount) > 0) {
+            $this->effectiveness = ( ($this->tpCount) / ($this->slCount + $this->tpCount))*100;
+            
+        } else {
+            $this->effectiveness = 0;
+        }
+    }
 }
 class UserManagement
 {

@@ -83,7 +83,7 @@
 						<!--begin::Col-->
 						<div class="col-md-6 fv-row">
 							<label class="required fs-6 fw-semibold mb-2">Risk Reward Ratio (1:X)</label>
-							<input class="form-control form-control-solid" placeholder="1:3" name="position_rr" maxlength="5">
+							<input class="form-control form-control-solid" placeholder="6" name="position_rr" type="number" max="100" min="1">
 						</div>
 						<!--end::Col-->
 						<!--begin::Col-->
@@ -92,11 +92,17 @@
 							<input class="form-control form-control-solid" placeholder="250" name="position_profit" type="number">
 						</div>
 						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-6 fv-row d-none">
+							<label class="required fs-6 fw-semibold mb-2">Profit / Lose (In $)</label>
+							<input class="form-control form-control-solid" placeholder="50" name="tradingPlanID" type="hidden" value="<?php echo $tradingPlan->id; ?>">
+						</div>
+						<!--end::Col-->
 					</div>
 					<!--end::Input group-->
 					<!--begin::Actions-->
 					<div class="text-center">
-						<button type="reset" id="kt_modal_new_trading_position_cancel" class="btn btn-light me-3">Cancel</button>
+						<button type="reset" id="kt_modal_new_trading_position_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
 						<button type="submit" id="kt_modal_new_trading_position_submit" class="btn btn-primary">
 							<span class="indicator-label">Submit</span>
 							<span class="indicator-progress">Please wait...
