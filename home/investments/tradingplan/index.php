@@ -156,296 +156,302 @@ $currMonthDate = date('Y-m-01');
                                                     <!--end:::Tab item-->
                                                 </ul>
                                                 <!--end:::Tabs-->
-
-                                                <div class="row mt-5 mx-8 g-5">
-                                                    <!-- Balance -->
-                                                    <div class="col-6 col-xl-3">
-                                                        <!--begin::Card widget 5-->
-                                                        <div class="card card-flush mb-xl-10 h-xl-150px">
-                                                            <!--begin::Header-->
-                                                            <div class="card-header pt-5">
-                                                                <!--begin::Title-->
-                                                                <div class="card-title d-flex flex-column">
-                                                                    <!--begin::Info-->
-                                                                    <div class="d-flex align-items-center">
-                                                                        <?php
-                                                                        $currBalance = $tradingPlan->getCurrBalance();
-
-                                                                        $balanceChangePercent = round((100 - ($currBalance / $tradingPlan->currMonth->startingBalance) * 100) * -1, 1);
-
-                                                                        if ($balanceChangePercent < 0) {
-                                                                            $balanceChangePercent = ($balanceChangePercent * -1) . "%";
-                                                                            $badgeBalanceChangeColor = "danger";
-                                                                            $badgeBalanceChangeIcon = "ki-arrow-down";
-                                                                        } else {
-                                                                            if ($balanceChangePercent == -0) {
-                                                                                $balanceChangePercent = 0;
-                                                                            }
-                                                                            $balanceChangePercent .= "%";
-                                                                            $badgeBalanceChangeColor = "success";
-                                                                            $badgeBalanceChangeIcon = "ki-arrow-up";
-                                                                        }
-
-                                                                        echo <<<END
-                                                                <!--begin::Amount-->
-                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">$$currBalance</span>
-                                                                <!--end::Amount-->
-                                                                <!--begin::Badge-->
-                                                                <span class="badge badge-light-$badgeBalanceChangeColor fs-base">
-                                                                    <i class="ki-outline $badgeBalanceChangeIcon fs-5 text-$badgeBalanceChangeColor ms-n1"></i>$balanceChangePercent</span>
-                                                                <!--end::Badge-->
-                                                                END;
-                                                                        ?>
-                                                                    </div>
-                                                                    <!--end::Info-->
-                                                                    <!--begin::Subtitle-->
-                                                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">Account Size</span>
-                                                                    <!--end::Subtitle-->
-                                                                </div>
-                                                                <!--end::Title-->
-                                                            </div>
-                                                            <!--end::Header-->
-                                                            <!--begin::Card body-->
-                                                            <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
-                                                                <!--begin::Progress-->
-                                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                                                    <?php
-                                                                    $currMonthStartingBalance = $tradingPlan->currMonth->startingBalance;
-                                                                    $currMonthPnl = $tradingPlan->currMonth->pnl;
-
-                                                                    if ($currMonthPnl < 0) {
-                                                                        $currMonthPnl *= -1;
-                                                                        $currMonthPnl = "-$" . $currMonthPnl;
-                                                                    } else {
-                                                                        $currMonthPnl = "+$" . $currMonthPnl;
-                                                                    }
-
-                                                                    echo <<<END
-                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                                <span class="fw-bolder fs-6 text-dark">Starting $$currMonthStartingBalance</span>
-                                                                <span class="fw-bold fs-6 text-$badgeBalanceChangeColor ">$currMonthPnl</span>
-                                                            </div>
-                                                            END;
-
-                                                                    if ($currBalance > $tradingPlan->currMonth->startingBalance) {
-                                                                        $balancePercentString = ($tradingPlan->currMonth->startingBalance / $currBalance) * 100 . "%";
-                                                                        $progressColor = 'bg-light-success';
-                                                                    } else {
-                                                                        $balancePercentString = ($currBalance / $tradingPlan->currMonth->startingBalance) * 100 . "%";
-                                                                        $progressColor = 'bg-light-danger';
-                                                                    }
-
-                                                                    echo <<<END
-                                                            <div class="h-8px mx-3 w-100 $progressColor rounded">
-                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: $balancePercentString"></div>
-                                                            </div>
-                                                            END;
-                                                                    ?>
-                                                                </div>
-                                                                <!--end::Progress-->
-                                                            </div>
-                                                            <!--end::Card body-->
-                                                        </div>
-                                                        <!--end::Card widget 5-->
-                                                    </div>
-                                                    <!-- Effectiveness -->
-                                                    <div class="col-6 col-xl-3">
-                                                        <!--begin::Card widget 5-->
-                                                        <div class="card card-flush mb-xl-10 h-xl-150px">
-                                                            <!--begin::Header-->
-                                                            <div class="card-header pt-5">
-                                                                <!--begin::Title-->
-                                                                <div class="card-title d-flex flex-column">
-                                                                    <!--begin::Info-->
-                                                                    <div class="d-flex align-items-center">
-                                                                        <!--begin::Amount-->
-                                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->effectiveness; ?>%</span>
-                                                                        <!--end::Amount-->
-                                                                        <!--begin::Badge-->
-                                                                        <span class="badge badge-light-success fs-base d-none">
-                                                                            <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
-                                                                        <!--end::Badge-->
-                                                                    </div>
-                                                                    <!--end::Info-->
-                                                                    <!--begin::Subtitle-->
-                                                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">Your effectiveness</span>
-                                                                    <!--end::Subtitle-->
-                                                                </div>
-                                                                <!--end::Title-->
-                                                            </div>
-                                                            <!--end::Header-->
-                                                            <!--begin::Card body-->
-                                                            <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
-                                                                <!--begin::Progress-->
-                                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                                        <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->currMonth->effectiveness; ?>%</span>
-                                                                    </div>
-                                                                    <div class="h-8px mx-3 w-100 bg-light-primary rounded">
-                                                                        <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $tradingPlan->currMonth->effectiveness . "%"; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--end::Progress-->
-                                                            </div>
-                                                            <!--end::Card body-->
-                                                        </div>
-                                                        <!--end::Card widget 5-->
-                                                    </div>
-                                                    <!-- Take Profits  -->
-                                                    <div class="col-4 col-xl-2">
-                                                        <!--begin::Card widget 5-->
-                                                        <div class="card card-flush mb-xl-10 h-xl-150px bg-success">
-                                                            <!--begin::Header-->
-                                                            <div class="card-header pt-5">
-                                                                <!--begin::Title-->
-                                                                <div class="card-title d-flex flex-column">
-                                                                    <!--begin::Info-->
-                                                                    <div class="d-flex align-items-center">
-                                                                        <!--begin::Amount-->
-                                                                        <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->tpCount; ?></span>
-                                                                        <!--end::Amount-->
-                                                                        <!--begin::Badge-->
-                                                                        <span class="badge badge-light-success fs-base d-none">
-                                                                            <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
-                                                                        <!--end::Badge-->
-                                                                    </div>
-                                                                    <!--end::Info-->
-                                                                    <!--begin::Subtitle-->
-                                                                    <span class="text-white pt-1 fw-bold fs-7">Take Profits</span>
-                                                                    <!--end::Subtitle-->
-                                                                </div>
-                                                                <!--end::Title-->
-                                                            </div>
-                                                            <!--end::Header-->
-                                                            <!--begin::Card body-->
-                                                            <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
-                                                                <!--begin::Progress-->
-                                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                                        <span class="fw-bolder fs-6 text-white"><?php echo $tradingPlan->currMonth->tpCount; ?> / <?php echo $tradingPlan->currMonth->tradesCount; ?></span>
-                                                                    </div>
-                                                                    <div class="h-8px mx-3 w-100 bg-light-primary rounded">
-                                                                        <?php
-                                                                        if ($tradingPlan->currMonth->tradesCount > 0) {
-                                                                            $tpTradesPercent = ($tradingPlan->currMonth->tpCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
-                                                                        } else {
-                                                                            $tpTradesPercent = "0%";
-                                                                        }
-                                                                        ?>
-                                                                        <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $tpTradesPercent ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--end::Progress-->
-                                                            </div>
-                                                            <!--end::Card body-->
-                                                        </div>
-                                                        <!--end::Card widget 5-->
-                                                    </div>
-                                                    <div class="col-4 col-xl-2">
-                                                        <!--begin::Card widget 5-->
-                                                        <div class="card card-flush mb-xl-10 h-xl-150px bg-light-warning">
-                                                            <!--begin::Header-->
-                                                            <div class="card-header pt-5">
-                                                                <!--begin::Title-->
-                                                                <div class="card-title d-flex flex-column">
-                                                                    <!--begin::Info-->
-                                                                    <div class="d-flex align-items-center">
-                                                                        <!--begin::Amount-->
-                                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->beCount; ?></span>
-                                                                        <!--end::Amount-->
-                                                                        <!--begin::Badge-->
-                                                                        <span class="badge badge-light-success fs-base d-none">
-                                                                            <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
-                                                                        <!--end::Badge-->
-                                                                    </div>
-                                                                    <!--end::Info-->
-                                                                    <!--begin::Subtitle-->
-                                                                    <span class="text-dark pt-1 fw-bold fs-7">Breakevens</span>
-                                                                    <!--end::Subtitle-->
-                                                                </div>
-                                                                <!--end::Title-->
-                                                            </div>
-                                                            <!--end::Header-->
-                                                            <!--begin::Card body-->
-                                                            <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
-                                                                <!--begin::Progress-->
-                                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                                        <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->currMonth->beCount . " / " . $tradingPlan->currMonth->tradesCount; ?> </span>
-                                                                    </div>
-                                                                    <div class="h-8px mx-3 w-100 bg-light-primary rounded">
-                                                                        <?php
-                                                                        if ($tradingPlan->currMonth->tradesCount > 0) {
-                                                                            $beTradesPercent = ($tradingPlan->currMonth->beCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
-                                                                        } else {
-                                                                            $beTradesPercent = "0%";
-                                                                        }
-                                                                        ?>
-                                                                        <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $beTradesPercent ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--end::Progress-->
-                                                            </div>
-                                                            <!--end::Card body-->
-                                                        </div>
-                                                        <!--end::Card widget 5-->
-                                                    </div>
-                                                    <div class="col-4 col-xl-2">
-                                                        <!--begin::Card widget 5-->
-                                                        <div class="card card-flush mb-xl-10 h-xl-150px bg-light-danger">
-                                                            <!--begin::Header-->
-                                                            <div class="card-header pt-5">
-                                                                <!--begin::Title-->
-                                                                <div class="card-title d-flex flex-column">
-                                                                    <!--begin::Info-->
-                                                                    <div class="d-flex align-items-center">
-                                                                        <!--begin::Amount-->
-                                                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->slCount; ?></span>
-                                                                        <!--end::Amount-->
-                                                                        <!--begin::Badge-->
-                                                                        <span class="badge badge-light-success fs-base d-none">
-                                                                            <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
-                                                                        <!--end::Badge-->
-                                                                    </div>
-                                                                    <!--end::Info-->
-                                                                    <!--begin::Subtitle-->
-                                                                    <span class="text-dark pt-1 fw-semibold fs-7">Stop Losses</span>
-                                                                    <!--end::Subtitle-->
-                                                                </div>
-                                                                <!--end::Title-->
-                                                            </div>
-                                                            <!--end::Header-->
-                                                            <!--begin::Card body-->
-                                                            <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
-                                                                <!--begin::Progress-->
-                                                                <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                                                        <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->currMonth->slCount . " / " . $tradingPlan->currMonth->tradesCount; ?></span>
-                                                                    </div>
-                                                                    <div class="h-8px mx-3 w-100 bg-light-primary rounded">
-                                                                        <?php
-                                                                        if ($tradingPlan->currMonth->tradesCount > 0) {
-                                                                            $slTradesPercent = ($tradingPlan->currMonth->slCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
-                                                                        } else {
-                                                                            $slTradesPercent = "0%";
-                                                                        }
-                                                                        ?>
-                                                                        <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $slTradesPercent ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--end::Progress-->
-                                                            </div>
-                                                            <!--end::Card body-->
-                                                        </div>
-                                                        <!--end::Card widget 5-->
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="col-12 mt-5 mt-xl-0">
                                                 <!--begin:::Tab content-->
                                                 <div class="tab-content" id="myTabContent">
                                                     <!--begin:::Tab pane-->
                                                     <div class="tab-pane fade show active" id="kt_customer_view_overview_tab" role="tabpanel">
+                                                        <div class="row mt-5 mx-8 g-5">
+                                                            <!-- Balance -->
+                                                            <div class="col-6 col-xl-3">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <?php
+                                                                                $currBalance = $tradingPlan->getCurrBalance();
+
+                                                                                $balanceChangePercent = round((100 - ($currBalance / $tradingPlan->currMonth->startingBalance) * 100) * -1, 1);
+
+                                                                                if ($balanceChangePercent < 0) {
+                                                                                    $balanceChangePercent = ($balanceChangePercent * -1) . "%";
+                                                                                    $badgeBalanceChangeColor = "danger";
+                                                                                    $badgeBalanceChangeIcon = "ki-arrow-down";
+                                                                                } else {
+                                                                                    if ($balanceChangePercent == -0) {
+                                                                                        $balanceChangePercent = 0;
+                                                                                    }
+                                                                                    $balanceChangePercent .= "%";
+                                                                                    $badgeBalanceChangeColor = "success";
+                                                                                    $badgeBalanceChangeIcon = "ki-arrow-up";
+                                                                                }
+
+                                                                                echo <<<END
+                                                                <!--begin::Amount-->
+                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">$$currBalance</span>
+                                                                <!--end::Amount-->
+                                                                <!--begin::Badge-->
+                                                                <span class="badge badge-light-$badgeBalanceChangeColor fs-base d-none d-md-block">
+                                                                    <i class="ki-outline $badgeBalanceChangeIcon fs-5 text-$badgeBalanceChangeColor ms-n1"></i>$balanceChangePercent</span>
+                                                                <!--end::Badge-->
+                                                                END;
+                                                                                ?>
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-gray-400 pt-1 fw-semibold fs-6">Account Size</span>
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <?php
+                                                                            $currMonthStartingBalance = $tradingPlan->currMonth->startingBalance;
+                                                                            $currMonthPnl = $tradingPlan->currMonth->pnl;
+
+                                                                            if ($currMonthPnl < 0) {
+                                                                                $currMonthPnl *= -1;
+                                                                                $currMonthPnl = "-$" . $currMonthPnl;
+                                                                            } else {
+                                                                                $currMonthPnl = "+$" . $currMonthPnl;
+                                                                            }
+
+                                                                            echo <<<END
+                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                <span class="fw-bolder fs-6 text-dark">Starting $$currMonthStartingBalance</span>
+                                                                <span class="fw-bold fs-6 text-$badgeBalanceChangeColor ">$currMonthPnl</span>
+                                                            </div>
+                                                            END;
+
+                                                                            if ($currBalance > $tradingPlan->currMonth->startingBalance) {
+                                                                                $balancePercentString = ($tradingPlan->currMonth->startingBalance / $currBalance) * 100 . "%";
+                                                                                $progressColor = 'bg-light-success';
+                                                                            } else {
+                                                                                $balancePercentString = ($currBalance / $tradingPlan->currMonth->startingBalance) * 100 . "%";
+                                                                                $progressColor = 'bg-light-danger';
+                                                                            }
+
+                                                                            echo <<<END
+                                                            <div class="h-8px mx-3 w-100 $progressColor rounded">
+                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: $balancePercentString"></div>
+                                                            </div>
+                                                            END;
+                                                                            ?>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <!-- Effectiveness -->
+                                                            <div class="col-6 col-xl-3">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->effectiveness; ?>%</span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-gray-400 pt-1 fw-semibold fs-6 d-none d-xl-block">Your effectiveness</span>
+                                                                            <span class="text-gray-400 pt-1 fw-semibold fs-6 d-xl-none">Effectiveness</span>
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->currMonth->effectiveness; ?>%</span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $tradingPlan->currMonth->effectiveness . "%"; ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <!-- Take Profits  -->
+                                                            <div class="col-4 col-xl-2">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px bg-success">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->tpCount; ?></span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-white pt-1 fw-bold fs-6 d-none d-xl-block">Take Profits</span>
+                                                                            <span class="text-white pt-1 fw-bold fs-7 d-xl-none">TP</span>
+
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-white"><?php echo $tradingPlan->currMonth->tpCount; ?> / <?php echo $tradingPlan->currMonth->tradesCount; ?></span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <?php
+                                                                                if ($tradingPlan->currMonth->tradesCount > 0) {
+                                                                                    $tpTradesPercent = ($tradingPlan->currMonth->tpCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
+                                                                                } else {
+                                                                                    $tpTradesPercent = "0%";
+                                                                                }
+                                                                                ?>
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $tpTradesPercent ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <div class="col-4 col-xl-2">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px bg-light-warning">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->beCount; ?></span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-dark pt-1 fw-bold fs-6 d-none d-xl-block">Breakevens</span>
+                                                                            <span class="text-dark pt-1 fw-bold fs-7 d-xl-none">BE</span>
+
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->currMonth->beCount . " / " . $tradingPlan->currMonth->tradesCount; ?> </span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <?php
+                                                                                if ($tradingPlan->currMonth->tradesCount > 0) {
+                                                                                    $beTradesPercent = ($tradingPlan->currMonth->beCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
+                                                                                } else {
+                                                                                    $beTradesPercent = "0%";
+                                                                                }
+                                                                                ?>
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $beTradesPercent ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <div class="col-4 col-xl-2">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px bg-light-danger">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->currMonth->slCount; ?></span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-dark pt-1 fw-semibold fs-6 d-none d-xl-block">Stop Losses</span>
+                                                                            <span class="text-dark pt-1 fw-semibold fs-7 d-xl-none">SL</span>
+
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->currMonth->slCount . " / " . $tradingPlan->currMonth->tradesCount; ?></span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <?php
+                                                                                if ($tradingPlan->currMonth->tradesCount > 0) {
+                                                                                    $slTradesPercent = ($tradingPlan->currMonth->slCount / $tradingPlan->currMonth->tradesCount) * 100 . "%";
+                                                                                } else {
+                                                                                    $slTradesPercent = "0%";
+                                                                                }
+                                                                                ?>
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $slTradesPercent ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                        </div>
                                                         <!--begin::Card-->
                                                         <div class="card pt-4 mb-6 mb-xl-9">
                                                             <!--begin::Card header-->
@@ -474,12 +480,12 @@ $currMonthDate = date('Y-m-01');
                                                                         <thead>
                                                                             <!--begin::Table row-->
                                                                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                                                                <th class="text-start min-w-100px">Date</th>
-                                                                                <th class="text-center min-w-100px d-none d-xl-block">Day of Week</th>
-                                                                                <th class="text-center min-w-150px">Currency</th>
-                                                                                <th class="text-center min-w-100px">State</th>
-                                                                                <th class="text-center min-w-100px">RR</th>
-                                                                                <th class="text-center min-w-100px">Profit</th>
+                                                                                <th class="text-start min-w-50px">Date</th>
+                                                                                <th class="text-center min-w-50px d-none d-xl-block">Day of Week</th>
+                                                                                <th class="text-center min-w-50px">Currency</th>
+                                                                                <th class="text-center min-w-50px">State</th>
+                                                                                <th class="text-center min-w-50px">RR</th>
+                                                                                <th class="text-center min-w-50px">Profit</th>
                                                                                 <th class="text-end d-none"></th>
                                                                             </tr>
                                                                             <!--end::Table row-->
@@ -544,7 +550,7 @@ $currMonthDate = date('Y-m-01');
                                                                                 </td>
                                                                                 <!--end::Date-->
                                                                                 <!--begin::Day of Week-->
-                                                                                <td class="text-center  d-none d-xl-block">
+                                                                                <td class="text-center d-none d-xl-block">
                                                                                     <span class="badge shadow fs-7 badge-light-dark">$dayOfWeek</span>
                                                                                 </td>
                                                                                 <!--end::Day of Week-->
@@ -555,7 +561,7 @@ $currMonthDate = date('Y-m-01');
                                                                                 <!--end::Currency-->
                                                                                 <!--begin::State-->
                                                                                 <td class="text-center $stateTDClass">
-                                                                                    <span class="badge shadow fs-7 $stateClass">$state</span>
+                                                                                    <span class="fs-7 $stateClass">$state</span>
                                                                                 </td>
                                                                                 <!--end::State-->
                                                                                 <!--begin::RR-->
@@ -610,6 +616,296 @@ $currMonthDate = date('Y-m-01');
                                                     <!--end:::Tab pane-->
                                                     <!--begin:::Tab pane-->
                                                     <div class="tab-pane fade" id="kt_customer_view_overview_events_and_logs_tab" role="tabpanel">
+                                                        <div class="row mt-5 mx-8 g-5">
+                                                            <!-- Balance -->
+                                                            <div class="col-6 col-xl-3">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <?php
+                                                                                $currBalance = $tradingPlan->lastMonth->getMonthEndingBalance();
+
+                                                                                $balanceChangePercent = round((100 - ($currBalance / $tradingPlan->lastMonth->startingBalance) * 100) * -1, 1);
+
+                                                                                if ($balanceChangePercent < 0) {
+                                                                                    $balanceChangePercent = ($balanceChangePercent * -1) . "%";
+                                                                                    $badgeBalanceChangeColor = "danger";
+                                                                                    $badgeBalanceChangeIcon = "ki-arrow-down";
+                                                                                } else {
+                                                                                    if ($balanceChangePercent == -0) {
+                                                                                        $balanceChangePercent = 0;
+                                                                                    }
+                                                                                    $balanceChangePercent .= "%";
+                                                                                    $badgeBalanceChangeColor = "success";
+                                                                                    $badgeBalanceChangeIcon = "ki-arrow-up";
+                                                                                }
+
+                                                                                echo <<<END
+                                                                <!--begin::Amount-->
+                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">$$currBalance</span>
+                                                                <!--end::Amount-->
+                                                                <!--begin::Badge-->
+                                                                <span class="badge badge-light-$badgeBalanceChangeColor fs-base d-none d-md-block">
+                                                                    <i class="ki-outline $badgeBalanceChangeIcon fs-5 text-$badgeBalanceChangeColor ms-n1"></i>$balanceChangePercent</span>
+                                                                <!--end::Badge-->
+                                                                END;
+                                                                                ?>
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-gray-400 pt-1 fw-semibold fs-6">Account Size</span>
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <?php
+                                                                            $currMonthStartingBalance = $tradingPlan->lastMonth->startingBalance;
+                                                                            $currMonthPnl = $tradingPlan->lastMonth->pnl;
+
+                                                                            if ($currMonthPnl < 0) {
+                                                                                $currMonthPnl *= -1;
+                                                                                $currMonthPnl = "-$" . $currMonthPnl;
+                                                                            } else {
+                                                                                $currMonthPnl = "+$" . $currMonthPnl;
+                                                                            }
+
+                                                                            echo <<<END
+                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                <span class="fw-bolder fs-6 text-dark">Starting $$currMonthStartingBalance</span>
+                                                                <span class="fw-bold fs-6 text-$badgeBalanceChangeColor ">$currMonthPnl</span>
+                                                            </div>
+                                                            END;
+
+                                                                            if ($currBalance > $tradingPlan->lastMonth->startingBalance) {
+                                                                                $balancePercentString = ($tradingPlan->lastMonth->startingBalance / $currBalance) * 100 . "%";
+                                                                                $progressColor = 'bg-light-success';
+                                                                            } else {
+                                                                                $balancePercentString = ($currBalance / $tradingPlan->lastMonth->startingBalance) * 100 . "%";
+                                                                                $progressColor = 'bg-light-danger';
+                                                                            }
+
+                                                                            echo <<<END
+                                                            <div class="h-8px mx-3 w-100 $progressColor rounded">
+                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: $balancePercentString"></div>
+                                                            </div>
+                                                            END;
+                                                                            ?>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <!-- Effectiveness -->
+                                                            <div class="col-6 col-xl-3">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->lastMonth->effectiveness; ?>%</span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-gray-400 pt-1 fw-semibold fs-6 d-none d-xl-block">Your effectiveness</span>
+                                                                            <span class="text-gray-400 pt-1 fw-semibold fs-6 d-xl-none">Effectiveness</span>
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->lastMonth->effectiveness; ?>%</span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $tradingPlan->lastMonth->effectiveness . "%"; ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <!-- Take Profits  -->
+                                                            <div class="col-4 col-xl-2">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px bg-success">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"><?php echo $tradingPlan->lastMonth->tpCount; ?></span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-white pt-1 fw-bold fs-6 d-none d-xl-block">Take Profits</span>
+                                                                            <span class="text-white pt-1 fw-bold fs-7 d-xl-none">TP</span>
+
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-white"><?php echo $tradingPlan->lastMonth->tpCount; ?> / <?php echo $tradingPlan->lastMonth->tradesCount; ?></span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <?php
+                                                                                if ($tradingPlan->lastMonth->tradesCount > 0) {
+                                                                                    $tpTradesPercent = ($tradingPlan->lastMonth->tpCount / $tradingPlan->lastMonth->tradesCount) * 100 . "%";
+                                                                                } else {
+                                                                                    $tpTradesPercent = "0%";
+                                                                                }
+                                                                                ?>
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $tpTradesPercent ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <div class="col-4 col-xl-2">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px bg-light-warning">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->lastMonth->beCount; ?></span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-dark pt-1 fw-bold fs-6 d-none d-xl-block">Breakevens</span>
+                                                                            <span class="text-dark pt-1 fw-bold fs-7 d-xl-none">BE</span>
+
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->lastMonth->beCount . " / " . $tradingPlan->lastMonth->tradesCount; ?> </span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <?php
+                                                                                if ($tradingPlan->lastMonth->tradesCount > 0) {
+                                                                                    $beTradesPercent = ($tradingPlan->lastMonth->beCount / $tradingPlan->lastMonth->tradesCount) * 100 . "%";
+                                                                                } else {
+                                                                                    $beTradesPercent = "0%";
+                                                                                }
+                                                                                ?>
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $beTradesPercent ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                            <div class="col-4 col-xl-2">
+                                                                <!--begin::Card widget 5-->
+                                                                <div class="card card-flush mb-xl-10 h-xl-150px bg-light-danger">
+                                                                    <!--begin::Header-->
+                                                                    <div class="card-header pt-5">
+                                                                        <!--begin::Title-->
+                                                                        <div class="card-title d-flex flex-column">
+                                                                            <!--begin::Info-->
+                                                                            <div class="d-flex align-items-center">
+                                                                                <!--begin::Amount-->
+                                                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo $tradingPlan->lastMonth->slCount; ?></span>
+                                                                                <!--end::Amount-->
+                                                                                <!--begin::Badge-->
+                                                                                <span class="badge badge-light-success fs-base d-none">
+                                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>0%</span>
+                                                                                <!--end::Badge-->
+                                                                            </div>
+                                                                            <!--end::Info-->
+                                                                            <!--begin::Subtitle-->
+                                                                            <span class="text-dark pt-1 fw-semibold fs-6 d-none d-xl-block">Stop Losses</span>
+                                                                            <span class="text-dark pt-1 fw-semibold fs-7 d-xl-none">SL</span>
+
+                                                                            <!--end::Subtitle-->
+                                                                        </div>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                    <!--end::Header-->
+                                                                    <!--begin::Card body-->
+                                                                    <div class="card-body d-flex align-items-end pt-0 d-none d-xl-block">
+                                                                        <!--begin::Progress-->
+                                                                        <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                                                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                                                                <span class="fw-bolder fs-6 text-dark"><?php echo $tradingPlan->lastMonth->slCount . " / " . $tradingPlan->lastMonth->tradesCount; ?></span>
+                                                                            </div>
+                                                                            <div class="h-8px mx-3 w-100 bg-light-primary rounded">
+                                                                                <?php
+                                                                                if ($tradingPlan->lastMonth->tradesCount > 0) {
+                                                                                    $slTradesPercent = ($tradingPlan->lastMonth->slCount / $tradingPlan->lastMonth->tradesCount) * 100 . "%";
+                                                                                } else {
+                                                                                    $slTradesPercent = "0%";
+                                                                                }
+                                                                                ?>
+                                                                                <div class="bg-dark rounded h-8px" role="progressbar" style="width: <?php echo $slTradesPercent ?>"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end::Progress-->
+                                                                    </div>
+                                                                    <!--end::Card body-->
+                                                                </div>
+                                                                <!--end::Card widget 5-->
+                                                            </div>
+                                                        </div>
                                                         <!--begin::Card-->
                                                         <div class="card pt-4 mb-6 mb-xl-9">
                                                             <!--begin::Card header-->
@@ -638,12 +934,12 @@ $currMonthDate = date('Y-m-01');
                                                                         <thead>
                                                                             <!--begin::Table row-->
                                                                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                                                                <th class="text-start min-w-100px">Date</th>
-                                                                                <th class="text-center min-w-100px d-none d-xl-block">Day of Week</th>
-                                                                                <th class="text-center min-w-150px">Currency</th>
-                                                                                <th class="text-center min-w-100px">State</th>
-                                                                                <th class="text-center min-w-100px">RR</th>
-                                                                                <th class="text-center min-w-100px">Profit</th>
+                                                                                <th class="text-start min-w-50px">Date</th>
+                                                                                <th class="text-center min-w-50px d-none d-xl-block">Day of Week</th>
+                                                                                <th class="text-center min-w-50px">Currency</th>
+                                                                                <th class="text-center min-w-50px">State</th>
+                                                                                <th class="text-center min-w-50px">RR</th>
+                                                                                <th class="text-center min-w-50px">Profit</th>
                                                                                 <th class="text-end d-none"></th>
                                                                             </tr>
                                                                             <!--end::Table row-->

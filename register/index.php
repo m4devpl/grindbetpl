@@ -45,22 +45,6 @@ $userMgt->redirectHomeIfLoggedIn();
     <!--end::Loader-->
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root" id="kt_app_root">
-        <!--begin::Page bg image-->
-        <style>
-            @media screen and (min-width: 992px) {
-                body {
-                    background-image: url('//grindbet.pl/assets/media/auth/bg.svg');
-                    background-position: center;
-                    background-size: cover;
-                    background-attachment: fixed;
-                }
-
-                [data-bs-theme="dark"] body {
-                    background-image: url('//grindbet.pl/assets/media/auth/bg.svg');
-                }
-            }
-        </style>
-        <!--end::Page bg image-->
         <!--begin::Authentication - Sign-up -->
         <div class="d-flex flex-column flex-column-fluid flex-lg-row">
             <!--begin::Aside-->
@@ -69,15 +53,9 @@ $userMgt->redirectHomeIfLoggedIn();
                 <div class="d-flex flex-center flex-lg-center flex-column">
                     <!--begin::Logo-->
                     <a href="//grindbet.pl" class="mb-lg-7">
-                        <img src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" class="d-block d-lg-none w-50px">
-                        <h1 class="text-white fs-3x fw-bold d-none d-lg-block">GrindBet.PL</h1>
+                        <img src="//grindbet.pl/assets/media/logos/grindbet_web_logo.png" class="d-block w-50px w-lg-150px">
                     </a>
                     <!--end::Logo-->
-                    <!--begin::Title-->
-                    <h2 class="text-white fw-bold m-0 d-none d-lg-block">
-                        Comprehensive Productivity Application
-                    </h2>
-                    <!--end::Title-->
                 </div>
                 <!--begin::Aside-->
             </div>

@@ -320,6 +320,7 @@ class TradingPlan {
     public $pnl = 0;
 
     public $currMonth;
+    public $lastMonth;
 
     public function __construct($tradingPlanID) {
         $this->id = htmlentities($tradingPlanID, ENT_QUOTES);
@@ -344,7 +345,8 @@ class TradingPlan {
             $this->name = $row['Name'];
             $this->startingBalance = $row['Starting Balance'];
 
-            $this->currMonth = new TradingPlanMonth($this->id, date('Y-m-01'));
+            $this->currMonth = new TradingPlanMonth($this->id, date('Y-m-01'), date('Y-m-t'));
+            $this->lastMonth = new TradingPlanMonth($this->id, date('Y-m-01', strtotime("-1 months")), date('Y-m-t', strtotime("-1 months")));
         } else {
             header("Location: {$webBaseURL}/404/");
             exit();
@@ -365,13 +367,14 @@ class TradingPlan {
      }
 
     function getCurrBalance() {
-        return $this->startingBalance+$this->pnl;
+        return $this->currMonth->getMonthEndingBalance();
     }
 }
 
 class TradingPlanMonth {
     public $tradingPlanID;
     public $monthStartingDate;
+    public $monthEndingDate;
     public $pnl = 0;
     public $startingBalance = 0;
     public $tpCount = 0;
@@ -380,9 +383,10 @@ class TradingPlanMonth {
     public $tradesCount = 0;
     public $effectiveness = 0;
 
-    public function __construct($tradingPlanID, $monthStartingDate) {
+    public function __construct($tradingPlanID, $monthStartingDate, $monthEndingDate) {
         $this->tradingPlanID = $tradingPlanID;
         $this->monthStartingDate = $monthStartingDate;
+        $this->monthEndingDate = $monthEndingDate;
         $this->getMonthStats();
     }
 
@@ -398,7 +402,7 @@ class TradingPlanMonth {
     protected function getMonthPnl() {
         global $dbConnection;
 
-        $query = "SELECT SUM(investments_tradingplan_position.Profit) AS pnl, COUNT(*) AS tradesCount FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$this->tradingPlanID' AND Date >= '$this->monthStartingDate'";
+        $query = "SELECT SUM(investments_tradingplan_position.Profit) AS pnl, COUNT(*) AS tradesCount FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$this->tradingPlanID' AND Date <= '$this->monthEndingDate' AND Date >= '$this->monthStartingDate'";
 
         $result = $dbConnection->query($query);
 
@@ -411,7 +415,7 @@ class TradingPlanMonth {
 
     protected function getMonthStartingBalance() {
         global $dbConnection;
-        $query = "SELECT `Starting Balance`, SUM(investments_tradingplan_position.Profit) AS pnl FROM investments_tradingplan INNER JOIN  investments_tradingplan_position WHERE investments_tradingplan.ID = '$this->tradingPlanID' AND investments_tradingplan_position.`Trading Plan ID` = '$this->tradingPlanID' AND investments_tradingplan_position.Date <='$this->monthStartingDate'";
+        $query = "SELECT `Starting Balance`, SUM(investments_tradingplan_position.Profit) AS pnl FROM investments_tradingplan INNER JOIN  investments_tradingplan_position WHERE investments_tradingplan.ID = '$this->tradingPlanID' AND Date <= '$this->monthEndingDate' AND investments_tradingplan_position.`Trading Plan ID` = '$this->tradingPlanID' AND investments_tradingplan_position.Date <='$this->monthStartingDate'";
 
         $result = $dbConnection->query($query);
 
@@ -424,7 +428,7 @@ class TradingPlanMonth {
     protected function getMonthTradeCount($state)
     {
         global $dbConnection;
-        $query = "SELECT COUNT(*) AS tradeCount FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$this->tradingPlanID' AND Date >='$this->monthStartingDate' AND State='$state'";
+        $query = "SELECT COUNT(*) AS tradeCount FROM investments_tradingplan_position WHERE `Trading Plan ID` = '$this->tradingPlanID' AND Date <= '$this->monthEndingDate' AND Date >='$this->monthStartingDate' AND State='$state'";
 
         $result = $dbConnection->query($query);
 
@@ -438,11 +442,16 @@ class TradingPlanMonth {
 
     protected function getEffectiveness() {
         if (($this->slCount + $this->tpCount) > 0) {
-            $this->effectiveness = ( ($this->tpCount) / ($this->slCount + $this->tpCount))*100;
+            $this->effectiveness = round(( ($this->tpCount) / ($this->slCount + $this->tpCount))*100, 0);
             
         } else {
             $this->effectiveness = 0;
         }
+    }
+
+    public function getMonthEndingBalance()
+    {
+        return $this->startingBalance+$this->pnl;
     }
 }
 class UserManagement
